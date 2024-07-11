@@ -25,7 +25,7 @@ export default function Home() {
 
       <div className="max-w-6xl mx-auto p-4">
         <section id="free-pick" className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-blue-400">Today's Free Pick</h2>
+          <h2 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-blue-400">{`Today's Free Pick`}</h2>
           <div className="bg-white p-4 rounded-lg shadow-md border-2 border-blue-400">
             <h3 className="text-xl font-semibold text-blue-600">Chicago @ Baltimore</h3>
             <p className="text-gray-600">Start Time: LIVE</p>
@@ -58,16 +58,16 @@ export default function Home() {
           <p className="text-lg mb-4">Unlock all our expert predictions for just $1 per game!</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <button className="bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition-colors">
-              $1 per game
+              {`$1 per game`}
             </button>
             <button className="bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition-colors">
-              $10 for all of today's games
+              {`$10 for all of today's games`}
             </button>
             <button className="bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition-colors">
-              $100 for a full month
+              {`$100 for a full month`}
             </button>
             <button className="bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition-colors">
-              $999 for a full year
+              {`$999 for a full year`}
             </button>
           </div>
         </section>
