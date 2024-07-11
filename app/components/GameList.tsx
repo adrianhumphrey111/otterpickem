@@ -42,9 +42,6 @@ const GamesList: React.FC<GamesListProps> = ({ games }) => {
     ]
   };
 
-  console.log(games)
-  console.log(games.map)
-
   return (
     <Slider {...settings}>
       {games?.map((game, index) => (

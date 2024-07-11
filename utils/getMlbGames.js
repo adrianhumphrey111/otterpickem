@@ -3,18 +3,31 @@ const cache = require('./cache');
 const { chromium } = require('playwright');
 
 async function getESPNMLBScheduleToday() {
-    const browser = await chromium.launch();
-    const page = await browser.newPage();
+    let browser = null
+    try{
+        const browser = await chromium.launch({ headless: true }); 
+        const context = await browser.newContext();
+        const page = await context.newPage();
 
-    await page.goto("https://www.espn.com/mlb/schedule");
+        await page.goto("https://www.espn.com/mlb/schedule", { waitUntil: 'networkidle' });
 
-    const tableHTML = await page.evaluate(() => {
-    const tableWrapper = document.querySelector('.Table__ScrollerWrapper');
-        return tableWrapper.outerHTML;
-    });
+        const tableHTML = await page.evaluate(() => {
+            const tableWrapper = document.querySelector('.Table__ScrollerWrapper');
+            return tableWrapper.outerHTML;
+        });
 
-    await browser.close();
-    return tableHTML;
+        await browser.close();
+        return tableHTML;
+    }catch(error){
+        console.error('Error fetching MLB schedule:', error);
+        throw error;
+    }
+    finally {
+        if (browser) {
+          await browser.close();
+        }
+      }
+    
 }
 
 
