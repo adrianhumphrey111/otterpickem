@@ -1,17 +1,6 @@
-import Image from "next/image";
+import GameSection from './components/GameSection';
 
 export default function Home() {
-  const games = [
-    {
-      awayTeam: "Chicago",
-      homeTeam: "Baltimore",
-      time: "LIVE",
-      awayPitcher: "Shota Imanaga",
-      homePitcher: "Corbin Burnes"
-    },
-    // ... add other games here
-  ];
-
   return (
     <main className="min-h-screen bg-gray-100 text-gray-800">
       <header className="bg-blue-600 text-white p-4 text-center">
@@ -37,21 +26,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="all-games" className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-blue-400">All Games</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {games.map((game, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-                <h3 className="text-lg font-semibold text-blue-600">{game.awayTeam} @ {game.homeTeam}</h3>
-                <p className="text-gray-600">Start Time: {game.time}</p>
-                <p className="text-gray-600">Pitchers: {game.awayPitcher} vs {game.homePitcher}</p>
-                <button className="mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition-colors">
-                  View Premium Pick
-                </button>
-              </div>
-            ))}
-          </div>
-        </section>
+        <GameSection />
 
         <section id="subscribe" className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-blue-400">Get All Premium Picks</h2>
