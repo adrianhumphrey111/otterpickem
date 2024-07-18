@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { name, description, releaseDate, genre, platform, developer, publisher } = req.body;
+      const { name, description, releaseDate, genre, platform, developer, publisher, rating, price } = req.body;
       const game = await prisma.game.create({
         data: {
           name,
@@ -15,6 +15,8 @@ export default async function handler(req, res) {
           platform,
           developer,
           publisher,
+          rating: parseFloat(rating),
+          price: parseFloat(price),
         },
       });
       res.status(201).json(game);
