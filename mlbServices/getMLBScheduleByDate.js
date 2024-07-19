@@ -1,64 +1,65 @@
-import axios from 'axios';
-import { chromium } from 'playwright';
+const puppeteer = require("puppeteer");
+const axios = require("axios");
+const cheerio = require('cheerio');
+const { extractJsonFromResponse } = require("../utils/jsonExtractor")
+require('dotenv').config(); // Make sure to install dotenv and create a .env file with your API key
 
-async function getESPNMLBScheduleByDate(date) {
-    let browser = null;
-    try {
-        browser = await chromium.launch({ headless: true });
-        const context = await browser.newContext();
-        const page = await context.newPage();
+const LIVE_SCORE_BOARD_URL = "https://www.fangraphs.com/livescoreboard.aspx?date=";
 
-        const formattedDate = date.toISOString().split('T')[0]; // Format: YYYY-MM-DD
-        await page.goto(`https://www.espn.com/mlb/schedule/_/date/${formattedDate}`, { waitUntil: 'networkidle' });
-
-        const tableHTML = await page.evaluate(() => {
-            const tableWrapper = document.querySelector('.ResponsiveTable');
-            return tableWrapper ? tableWrapper.outerHTML : null;
-        });
-
-        return tableHTML;
-    } catch (error) {
-        console.error('Error fetching MLB schedule:', error);
-        return null;
-    } finally {
-        if (browser) {
-            await browser.close();
-        }
-    }
+async function setupBrowser() {
+  const browser = await puppeteer.launch({ headless: 'new' });
+  const page = await browser.newPage();
+  return { browser, page };
 }
 
-async function sendToClaudeAPI(html) {
+async function getScheduleDataFromClaude(html) {
     const prompt = `
-    Extract the game information and return it as a JSON object. 
-    Your response should contain ONLY the JSON object, without any additional text or explanation.
-    The JSON object should have a 'games' key containing an array of game objects.
-    Each game object should have 'awayTeam', 'homeTeam', 'time', 'awayPitcher', and 'homePitcher' keys.
-    
-    ${html}`;
+    ${html}
 
+    In the html above I want you to create an array of Game{} objects that have the following keys, get the away team, and return the url of the away team in the away team object, the same for the home team, as well ass the starting pitchers (sp) for each
+    `;
+  
     try {
-        const response = await axios.post('https://api.anthropic.com/v1/messages', {
-            model: "claude-3-opus-20240229",
-            max_tokens: 1000,
-            messages: [{ role: "user", content: prompt }]
-        }, {
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': process.env.ANTHROPIC_API_KEY
-            }
-        });
-
-        return response.data.content[0].text;
+      const response = await axios.post('https://api.anthropic.com/v1/messages', {
+        model:"claude-3-5-sonnet-20240620",
+        max_tokens: 4096,
+        temperature: 0,
+        system: "You are an expert data analyzer and good at pulling data out of html code and returning structured JSON objects with the information you are given. You only return structured json in your response and not text about the json",
+        messages: [
+          { role: "user", content: prompt }
+        ]
+      }, {
+        headers: {
+          'x-api-key': process.env.ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+          'content-type': 'application/json'
+        }
+      });
+  
+      return extractJsonFromResponse(response.data.content[0].text);
     } catch (error) {
-        console.error('Error calling Claude API:', error);
-        return null;
+        console.log(error.response.data)
     }
+  }
+
+export async function getAllGames(date) {
+    try {
+        const response = await axios.get(`${LIVE_SCORE_BOARD_URL}${date}`);
+        const htmlContent = response.data;
+
+        // Load the HTML into cheerio
+        const $ = cheerio.load(htmlContent);
+
+        // Select the specific part of the HTML
+        const gamePanel = $('#LiveBoard1_LiveBoard1_litGamesPanel').html();
+
+        // Now gamePanel contains the HTML only within the specific selector
+        return await getScheduleDataFromClaude(gamePanel);
+      } catch (error) {
+        console.error('Error fetching MLB games:', error);
+        throw error;
+      }
 }
 
-export async function getMLBScheduleByDate(date) {
-    const scheduleHTML = await getESPNMLBScheduleByDate(date);
-    if (scheduleHTML) {
-        return await sendToClaudeAPI(scheduleHTML);
-    }
-    return null;
-}
+
+//getAllGames("2024-07-19").catch(console.error);
