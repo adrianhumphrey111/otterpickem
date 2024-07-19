@@ -23,8 +23,6 @@ const GamesList: React.FC<GamesListProps> = ({ games }) => {
           <GameCard
             key={game.id}
             game={game}
-            awayTeamName={game.awayTeam.name}
-            homeTeamName={game.homeTeam.name}
           />
         ))}
       </Slider>
