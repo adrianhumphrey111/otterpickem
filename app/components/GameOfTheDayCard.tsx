@@ -43,7 +43,17 @@ const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
       </div>
       {showAnalysis && (
         <div className="text-sm text-gray-700 mt-3">
-          {game.completeAnalysis || "Detailed analysis not available yet."}
+          {game.completeAnalysis ? (
+            game.completeAnalysis.split("\\n").map((paragraph, index) => (
+              index === 0 ? (
+                <h3 key={index} className="text-lg font-bold mb-2">{paragraph}</h3>
+              ) : (
+                <p key={index} className="mb-2">{paragraph}</p>
+              )
+            ))
+          ) : (
+            "Detailed analysis not available yet."
+          )}
         </div>
       )}
     </article>
