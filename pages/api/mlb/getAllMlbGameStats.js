@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { getPitcherStats } from '../../../mlbServices/getMLBScheduleByDate';
+import { delay } from '../../../utils/delayUtil';
 
 const prisma = new PrismaClient();
 
@@ -18,10 +19,6 @@ async function savePitcherStats(playerId, stats) {
     console.error('Error saving pitcher stats:', error);
     throw error;
   }
-}
-
-async function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 export default async function handler(req, res) {
