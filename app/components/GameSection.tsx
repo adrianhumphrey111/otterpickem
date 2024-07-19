@@ -6,6 +6,7 @@ import { Game } from "../types";
 
 export default function GameSection() {
   const [games, setGames] = useState<Game[]>([]);
+  const [showDetailedAnalysis, setShowDetailedAnalysis] = useState(false);
 
   useEffect(() => {
     async function fetchGames() {
@@ -22,8 +23,12 @@ export default function GameSection() {
     fetchGames();
   }, []);
 
-  const gameOfTheDay = games.find( game => game.gameOfTheDay)
-  console.log({games})
+  const gameOfTheDay = games.find(game => game.gameOfTheDay);
+  console.log({ games });
+
+  const toggleDetailedAnalysis = () => {
+    setShowDetailedAnalysis(!showDetailedAnalysis);
+  };
 
   return (
     <>
@@ -45,9 +50,28 @@ export default function GameSection() {
               <p className="font-semibold text-gray-800">Moneyline: Baltimore (-120)</p>
               <p className="font-semibold text-gray-800">Over/Under: Over 8.5 (-110)</p>
             </div>
-            <button className="inline-block px-4 py-2 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-colors">
-              View Detailed Analysis
+            <button 
+              onClick={toggleDetailedAnalysis}
+              className="inline-block px-4 py-2 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-colors"
+            >
+              {showDetailedAnalysis ? "Hide Detailed Analysis" : "View Detailed Analysis"}
             </button>
+            {showDetailedAnalysis && (
+              <div className="mt-4 text-gray-700">
+                <p className="mb-2">
+                  In today's matchup between the Baltimore Orioles and the New York Yankees, we're seeing a compelling opportunity for value betting. The Orioles, despite being slight underdogs, have shown remarkable consistency in their recent performances, particularly in their offensive output.
+                </p>
+                <p className="mb-2">
+                  The pitching matchup is particularly intriguing. Baltimore's starter has been in excellent form, maintaining a sub-3.00 ERA over his last five starts. In contrast, the Yankees' pitcher, while talented, has shown some vulnerability against left-handed hitters - a strength in the Orioles' lineup.
+                </p>
+                <p className="mb-2">
+                  Historical data also favors the Orioles in this matchup. They've won 7 of their last 10 games against the Yankees when playing as underdogs, suggesting they often outperform expectations in this rivalry. Moreover, the over has hit in 6 of the last 8 meetings between these teams at Yankee Stadium.
+                </p>
+                <p>
+                  Given these factors, we see value in both the Orioles on the moneyline and the over on the total. The combination of Baltimore's recent form, the favorable pitching matchup, and historical trends make this an attractive betting opportunity.
+                </p>
+              </div>
+            )}
           </article>
         </section>
       )}
@@ -57,6 +81,5 @@ export default function GameSection() {
         <GamesList games={games} />
       </section>
     </>
-    
   );
 }
