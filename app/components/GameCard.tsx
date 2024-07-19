@@ -14,13 +14,13 @@ const GameCard: React.FC<GameCardProps> = ({ game, awayTeamName, homeTeamName })
     <article className="max-w-2xl mx-auto mb-8 p-6 bg-white rounded-lg shadow-sm border border-gray-200">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
-          <Image src={`/team-logos/${game.awayTeam.abbreviation}.png`} alt={`${awayTeamName} logo`} width={40} height={40} className="mr-2" />
+          <Image src={game.awayTeam.logoUrl} alt={`${awayTeamName} logo`} width={40} height={40} className="mr-2" />
           <h2 className="text-2xl font-bold text-gray-900">{awayTeamName}</h2>
         </div>
         <span className="text-xl font-bold">@</span>
         <div className="flex items-center">
           <h2 className="text-2xl font-bold text-gray-900">{homeTeamName}</h2>
-          <Image src={`/team-logos/${game.homeTeam.abbreviation}.png`} alt={`${homeTeamName} logo`} width={40} height={40} className="ml-2" />
+          <Image src={game.homeTeam.logoUrl} alt={`${homeTeamName} logo`} width={40} height={40} className="ml-2" />
         </div>
       </div>
       <div className="text-gray-500 text-sm mb-4">
