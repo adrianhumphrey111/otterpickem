@@ -1,5 +1,4 @@
-import React from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Game } from '../types';
 
@@ -8,6 +7,7 @@ interface GameOfTheDayCardProps {
 }
 
 const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
+  const [showAnalysis, setShowAnalysis] = useState(false);
   const awayTeamName = game.awayTeam.name;
   const homeTeamName = game.homeTeam.name;
 
@@ -33,14 +33,19 @@ const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
       <div className="text-sm text-gray-600 text-center mb-2">
         {game.awayStartingPitcher.name} vs {game.homeStartingPitcher.name}
       </div>
-      <p className="text-sm text-gray-700 mb-3 h-20 overflow-hidden">
-        {game.completeAnalysis || "Game analysis not available yet."}
-      </p>
-      <div className="text-center">
-        <Link href="/signup" className="inline-block px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
-          View Premium Pick
-        </Link>
+      <div className="mb-3">
+        <button
+          onClick={() => setShowAnalysis(!showAnalysis)}
+          className="w-full px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors"
+        >
+          {showAnalysis ? 'Hide Detailed Info' : 'View Detailed Info'}
+        </button>
       </div>
+      {showAnalysis && (
+        <div className="text-sm text-gray-700 mt-3">
+          {game.completeAnalysis || "Detailed analysis not available yet."}
+        </div>
+      )}
     </article>
   );
 };
