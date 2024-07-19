@@ -30,6 +30,9 @@ export default function GameSection() {
     setShowDetailedAnalysis(!showDetailedAnalysis);
   };
 
+  if (gameOfTheDay){
+    console.log(gameOfTheDay.completeAnalysis?.split("\\n"))
+  }
   return (
     <>
       {gameOfTheDay && (
@@ -58,9 +61,9 @@ export default function GameSection() {
             </button>
             {showDetailedAnalysis && (
               <div className="mt-4 text-gray-700">
-                {gameOfTheDay.completeAnalysis?.split("\n\n").map((paragraph, index) => (
+                {gameOfTheDay.completeAnalysis?.split("\\n").map((paragraph, index) => (
                   <p key={index} className="mb-4">
-                    {paragraph}
+                    {paragraph.trim()}
                   </p>
                 ))}
               </div>
