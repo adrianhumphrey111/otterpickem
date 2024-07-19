@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import { Game } from '../types';
+
 interface GameCardProps {
   game: Game;
   awayTeamName: string;
@@ -18,9 +20,9 @@ const GameCard: React.FC<GameCardProps> = ({ game, awayTeamName, homeTeamName })
       <p className="text-gray-700 mb-4">
         Game preview and analysis would go here. This is where you'd provide a brief overview of the matchup, key players to watch, and any other relevant information.
       </p>
-      <button className="inline-block px-4 py-2 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-colors">
+      <Link href="/signup" className="inline-block px-4 py-2 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-colors">
         View Premium Pick
-      </button>
+      </Link>
     </article>
   );
 };
