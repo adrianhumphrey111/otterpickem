@@ -58,4 +58,51 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// Existing models (Game, Team, Pitcher, etc.) should be added here
+model Team {
+  id               Int     @id @default(autoincrement())
+  name             String
+  logoUrl          String
+  abbreviation     String
+  fanGraphsTeamUrl String?
+  externalId       String
+  sport            String
+  homeGames        Game[]  @relation("HomeTeam")
+  awayGames        Game[]  @relation("AwayTeam")
+}
+
+model Pitcher {
+  id                Int     @id @default(autoincrement())
+  name              String
+  fanGraphsPlayerId String?
+  externalId        String
+  homeGames         Game[]  @relation("HomePitcher")
+  awayGames         Game[]  @relation("AwayPitcher")
+  playerStats       PlayerStats[]
+}
+
+model Game {
+  id                    Int      @id @default(autoincrement())
+  moneyLine             String?
+  overUnder             String?
+  completeAnalysis      String?
+  date                  String
+  time                  String
+  homeTeamId            Int
+  awayTeamId            Int
+  homeStartingPitcherId Int
+  awayStartingPitcherId Int
+  homeTeam              Team     @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam              Team     @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  homeStartingPitcher   Pitcher  @relation("HomePitcher", fields: [homeStartingPitcherId], references: [id])
+  awayStartingPitcher   Pitcher  @relation("AwayPitcher", fields: [awayStartingPitcherId], references: [id])
+  sport                 String
+  isGameOfTheDay        Boolean  @default(false)
+}
+
+model PlayerStats {
+  id                Int      @id @default(autoincrement())
+  playerId          Int
+  player            Pitcher  @relation(fields: [playerId], references: [id])
+  currentStatsValue Json
+  statType          String
+}
