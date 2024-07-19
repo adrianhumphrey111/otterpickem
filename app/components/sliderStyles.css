@@ -1,0 +1,33 @@
+/* Ensure the slider container takes full width */
+.slider-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Remove any unintended padding or margins from the slick-list */
+  .slick-list {
+    overflow: hidden;
+  }
+  
+  /* Optional: Improve the overall look and responsiveness */
+  .slick-slide {
+    padding: 0 10px; /* Optional spacing around each slide */
+  }
+  
+  .slick-dots {
+    bottom: -30px; /* Adjust dot position */
+  }
+  
+  @media (max-width: 1024px) {
+    .slick-slide {
+      padding: 0 5px; /* Adjust for smaller screens */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .slick-slide {
+      padding: 0; /* No padding for very small screens */
+    }
+  }
+  

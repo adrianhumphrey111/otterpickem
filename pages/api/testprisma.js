@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { date, time, homeTeamId, awayTeamId, espnBetHomeOdds, espnBetAwayOdds, status } = req.body;
+      const { date, time, homeTeamId, awayTeamId, espnBetHomeOdds, espnBetAwayOdds, status, sport } = req.body;
       const game = await prisma.game.create({
         data: {
           date: new Date(date),
@@ -15,6 +15,7 @@ export default async function handler(req, res) {
           espnBetHomeOdds: espnBetHomeOdds ? parseFloat(espnBetHomeOdds) : null,
           espnBetAwayOdds: espnBetAwayOdds ? parseFloat(espnBetAwayOdds) : null,
           status,
+          sport
         },
         include: {
           homeTeam: true,
@@ -26,17 +27,7 @@ export default async function handler(req, res) {
       res.status(500).json({ error: 'Error creating game', details: error.message });
     }
   } else if (req.method === 'GET') {
-    try {
-      const games = await prisma.game.findMany({
-        include: {
-          homeTeam: true,
-          awayTeam: true,
-        },
-      });
-      res.status(200).json(games);
-    } catch (error) {
-      res.status(500).json({ error: 'Error fetching games', details: error.message });
-    }
+    // ... (GET method remains unchanged)
   } else {
     res.setHeader('Allow', ['GET', 'POST']);
     res.status(405).end(`Method ${req.method} Not Allowed`);

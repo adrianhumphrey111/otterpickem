@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Team {
+  id                Int         @id @default(autoincrement())
+  name              String
+  logoUrl           String
+  abbreviation      String
+  fanGraphsTeamUrl  String?
+  externalId        String      @unique
+  sport             String
+  awayGames         Game[]      @relation("AwayTeam")
+  homeGames         Game[]      @relation("HomeTeam")
+  players           Player[]
+  teamStats         TeamStats[]
+
+  @@unique([sport, abbreviation])
+}
+
+model Game {
+  id                Int           @id @default(autoincrement())
+  date              DateTime
+  time              String
+  homeTeamId        Int
+  awayTeamId        Int
+  homeStartingPitcherId Int?
+  awayStartingPitcherId Int?
+  espnBetHomeOdds   Float?
+  espnBetAwayOdds   Float?
+  status            String
+  gameOfTheDay      Boolean @default(false)
+  completeAnalysis  String?
+  moneyLine         String?
+  overUnder         String?
+  sport             String
+  awayTeam          Team          @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  homeTeam          Team          @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  homeStartingPitcher Player?     @relation("HomeStartingPitcher", fields: [homeStartingPitcherId], references: [id])
+  awayStartingPitcher Player?     @relation("AwayStartingPitcher", fields: [awayStartingPitcherId], references: [id])
+  predictions       Prediction[]
+
+  @@unique([homeTeamId, awayTeamId, date], name: "homeTeamId_awayTeamId_date")
+}
+
+model Prediction {
+  id                 Int      @id @default(autoincrement())
+  gameId             Int
+  predictedHomeScore Float
+  predictedAwayScore Float
+  predictionDetails  Json
+  timestamp          DateTime @default(now())
+  game               Game     @relation(fields: [gameId], references: [id])
+}
+
+model PlayerStats {
+  id        Int    @id @default(autoincrement())
+  playerId  Int
+  statType String?
+  currentStatsValue Json
+  player    Player @relation(fields: [playerId], references: [id])
+
+  @@unique([playerId])
+}
+
+model TeamStats {
+  id        Int      @id @default(autoincrement())
+  teamId    Int
+  date      DateTime
+  statType  String
+  statValue Json
+  team      Team     @relation(fields: [teamId], references: [id])
+}
+
+model Player {
+  id                Int           @id @default(autoincrement())
+  name              String
+  teamId            Int
+  fanGraphsPlayerUrl String?
+  position          String
+  team              Team          @relation(fields: [teamId], references: [id])
+  playerStats       PlayerStats[]
+  homeStartingGames Game[]        @relation("HomeStartingPitcher")
+  awayStartingGames Game[]        @relation("AwayStartingPitcher")
+
+  @@unique([name, teamId], name: "name_teamId")
+}

@@ -3,6 +3,30 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+async function savePitcherStats(playerId, stats) {
+  try {
+    const playerStats = await prisma.playerStats.upsert({
+      where: {
+        playerId: playerId,
+      },
+      update: {
+        currentStatsValue: stats,
+        statType: 'pitching',
+      },
+      create: {
+        playerId: playerId,
+        statType: 'pitching',
+        currentStatsValue: stats
+      }
+    });
+    console.log('Pitcher stats saved:', playerStats)
+    return playerStats
+  } catch (error) {
+    console.error('Error saving pitcher stats:', error)
+    throw error
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
@@ -21,6 +45,7 @@ export default async function handler(req, res) {
       }
 
       const stats = await getPitcherStats(player.fanGraphsPlayerUrl);
+      await savePitcherStats(player.id, stats)
 
       res.status(200).json(stats);
     } catch (error) {

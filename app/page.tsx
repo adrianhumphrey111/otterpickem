@@ -13,19 +13,6 @@ export default function Home() {
       </header>
 
       <div className="max-w-6xl mx-auto p-4">
-        <section id="free-pick" className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-blue-400">{`Today's Free Pick`}</h2>
-          <div className="bg-white p-4 rounded-lg shadow-md border-2 border-blue-400">
-            <h3 className="text-xl font-semibold text-blue-600">Chicago @ Baltimore</h3>
-            <p className="text-gray-600">Start Time: LIVE</p>
-            <p className="text-gray-600">Pitchers: Shota Imanaga vs Corbin Burnes</p>
-            <div className="mt-4 bg-blue-100 p-4 rounded-md">
-              <p className="font-semibold">Moneyline: Baltimore (-120)</p>
-              <p className="font-semibold">Over/Under: Over 8.5 (-110)</p>
-            </div>
-          </div>
-        </section>
-
         <GameSection />
 
         <section id="subscribe" className="mb-8">

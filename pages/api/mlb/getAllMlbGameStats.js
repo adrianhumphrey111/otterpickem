@@ -6,8 +6,15 @@ const prisma = new PrismaClient();
 
 async function savePitcherStats(playerId, stats) {
   try {
-    const playerStats = await prisma.playerStats.create({
-      data: {
+    const playerStats = await prisma.playerStats.upsert({
+      where: {
+        playerId: playerId,
+      },
+      update: {
+        currentStatsValue: stats,
+        statType: 'pitching',
+      },
+      create: {
         playerId: playerId,
         statType: 'pitching',
         currentStatsValue: stats
@@ -24,34 +31,23 @@ async function savePitcherStats(playerId, stats) {
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
-      const games = await prisma.game.findMany({
-        include: {
-          homeTeam: true,
-          awayTeam: true,
-          homeStartingPitcher: true,
-          awayStartingPitcher: true,
-        },
-      });
+      const players = await prisma.player.findMany()
+      const playerStats = await prisma.playerStats.findMany()
 
-      for (const game of games) {
-        // Process away pitcher
-        if (game.awayStartingPitcher && game.awayStartingPitcher.fanGraphsPlayerUrl) {
-          const awayPitcherStats = await getPitcherStats(game.awayStartingPitcher.fanGraphsPlayerUrl);
-          await savePitcherStats(game.awayStartingPitcher.id, awayPitcherStats);
-        }
+      const findPlayers = players.filter(player => !playerStats.some(s => s.playerId === player.id));
 
-        // Process home pitcher
-        if (game.homeStartingPitcher && game.homeStartingPitcher.fanGraphsPlayerUrl) {
-          const homePitcherStats = await getPitcherStats(game.homeStartingPitcher.fanGraphsPlayerUrl);
-          await savePitcherStats(game.homeStartingPitcher.id, homePitcherStats);
-        }
+      // Use for await...of to process players sequentially with delay
+    for await (const [index, player] of findPlayers.entries()) {
+      if (player) {
+        const pitcherStats = await getPitcherStats(player.fanGraphsPlayerUrl);
+        await savePitcherStats(player.id, pitcherStats);
 
-        // Delay for 10 seconds before processing the next game
-        await delay(60000);
+        // Delay for 4 minutes (240000 ms) before processing the next player
+        await delay(240000);
       }
-
-      res.status(200).json({ message: 'All MLB game stats processed and saved successfully' });
-    } catch (error) {
+    }
+    
+    res.status(200).json({ message: 'All MLB game stats processed and saved successfully' });
       console.error('Error in getAllMlbGameStats:', error);
       res.status(500).json({ error: 'Internal server error' });
     } finally {
