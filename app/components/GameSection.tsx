@@ -62,9 +62,15 @@ export default function GameSection() {
             {showDetailedAnalysis && (
               <div className="mt-4 text-gray-700">
                 {gameOfTheDay.completeAnalysis?.split("\\n").map((paragraph, index) => (
-                  <p key={index} className="mb-4">
-                    {paragraph.trim()}
-                  </p>
+                  index === 0 ? (
+                    <h3 key={index} className="text-xl font-bold mb-4">
+                      {paragraph.trim()}
+                    </h3>
+                  ) : (
+                    <p key={index} className="mb-4">
+                      {paragraph.trim()}
+                    </p>
+                  )
                 ))}
               </div>
             )}
