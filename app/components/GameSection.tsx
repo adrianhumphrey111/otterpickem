@@ -58,10 +58,13 @@ export default function GameSection() {
             </button>
             {showDetailedAnalysis && (
               <div className="mt-4 text-gray-700">
-                <p className="mb-2">
-                  In today's matchup between the Baltimore Orioles and the New York Yankees, we're seeing a compelling opportunity for value betting. The Orioles, despite being slight underdogs, have shown remarkable consistency in their recent performances, particularly in their offensive output.
-                </p>
-                <p className="mb-2">
+                {gameOfTheDay.completeAnalysis?.split("\n\n").map((paragraph, index) => (
+                  <p key={index} className="mb-2">
+                    {paragraph}
+                  </p>
+                ))}
+                
+                {/* <p className="mb-2">
                   The pitching matchup is particularly intriguing. Baltimore's starter has been in excellent form, maintaining a sub-3.00 ERA over his last five starts. In contrast, the Yankees' pitcher, while talented, has shown some vulnerability against left-handed hitters - a strength in the Orioles' lineup.
                 </p>
                 <p className="mb-2">
@@ -69,7 +72,7 @@ export default function GameSection() {
                 </p>
                 <p>
                   Given these factors, we see value in both the Orioles on the moneyline and the over on the total. The combination of Baltimore's recent form, the favorable pitching matchup, and historical trends make this an attractive betting opportunity.
-                </p>
+                </p> */}
               </div>
             )}
           </article>
