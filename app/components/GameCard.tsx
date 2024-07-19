@@ -4,12 +4,17 @@ import Image from 'next/image';
 import { Game } from '../types';
 
 interface GameCardProps {
-  game: Game;
-  awayTeamName: string;
-  homeTeamName: string;
+  gameData: {
+    game: Game;
+    awayTeamName: string;
+    homeTeamName: string;
+  } | null;
 }
 
-const GameCard: React.FC<GameCardProps> = ({ game, awayTeamName, homeTeamName }) => {
+const GameCard: React.FC<GameCardProps> = ({ gameData }) => {
+  if (!gameData) return null;
+  
+  const { game, awayTeamName, homeTeamName } = gameData;
   return (
     <article className="w-full max-w-sm mx-auto mb-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
       <div className="grid grid-cols-3 gap-2 items-center mb-2">
