@@ -29,7 +29,7 @@ const GameCard: React.FC<GameCardProps> = ({ game, awayTeamName, homeTeamName })
         <span>{game.awayStartingPitcher.name} vs {game.homeStartingPitcher.name}</span>
       </div>
       <p className="text-gray-700 mb-4">
-        Game preview and analysis would go here. This is where you'd provide a brief overview of the matchup, key players to watch, and any other relevant information.
+        {`Game preview and analysis would go here. This is where you'd provide a brief overview of the matchup, key players to watch, and any other relevant information.`}
       </p>
       <Link href="/signup" className="inline-block px-4 py-2 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-colors">
         View Premium Pick

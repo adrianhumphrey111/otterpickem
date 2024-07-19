@@ -37,9 +37,11 @@ export default async function handler(req, res) {
                 awayTeam: true
             },
         });
+        console.log({games})
       res.status(200).json(games)
 
     } catch (error) {
+      console.log(error)
       res.status(500).json({ error: 'Internal server error' });
     } finally {
       await prisma.$disconnect();

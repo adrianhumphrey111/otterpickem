@@ -18,6 +18,8 @@ export interface Team {
 
 export interface Game {
     id: number;
+    moneyLine?: string;
+    overUnder?: string;
     completeAnalysis?: string;
     date: string;
     time: string;

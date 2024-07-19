@@ -17,7 +17,7 @@ export default function Home() {
 
         <section id="subscribe" className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-blue-400">Get All Premium Picks</h2>
-          <p className="text-lg mb-4">Unlock all our expert predictions for just $1 per game!</p>
+          <p className="text-lg mb-4">{`Unlock all our expert predictions for just $1 per game!`}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <button className="bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition-colors">
               {`$1 per game`}
@@ -36,8 +36,8 @@ export default function Home() {
       </div>
 
       <footer className="bg-blue-600 text-white p-4 text-center">
-        <p>© 2024 MLB Predictions. All rights reserved.</p>
-        <p className="mt-2 text-sm">Disclaimer: Please bet responsibly. Past performance does not guarantee future results.</p>
+        <p>{`© 2024 MLB Predictions. All rights reserved.`}</p>
+        <p className="mt-2 text-sm">{`Disclaimer: Please bet responsibly. Past performance does not guarantee future results.`}</p>
       </footer>
     </main>
   );

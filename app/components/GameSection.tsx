@@ -22,7 +22,7 @@ export default function GameSection() {
 
     fetchGames();
   }, []);
-
+ 
   const gameOfTheDay = games.find(game => game.gameOfTheDay);
   console.log({ games });
 
@@ -46,12 +46,12 @@ export default function GameSection() {
               <span>{`${gameOfTheDay.awayStartingPitcher.name} vs ${gameOfTheDay.homeStartingPitcher.name}`}</span>
             </div>
             <p className="text-gray-700 mb-4">
-              This is today's featured matchup. Our analysis suggests a strong opportunity for value betting. 
-              Key factors include recent team performance, pitcher matchups, and historical data.
+              {`This is today's featured matchup. Our analysis suggests a strong opportunity for value betting. 
+              Key factors include recent team performance, pitcher matchups, and historical data.`}
             </p>
             <div className="mb-4 p-4 bg-gray-100 rounded-md">
-              <p className="font-semibold text-gray-800">Moneyline: Baltimore (-120)</p>
-              <p className="font-semibold text-gray-800">Over/Under: Over 8.5 (-110)</p>
+              <p className="font-semibold text-gray-800">{`Moneyline: ${gameOfTheDay.moneyLine}`}</p>
+              <p className="font-semibold text-gray-800">{`Over/Under: ${gameOfTheDay.overUnder}`}</p>
             </div>
             <button 
               onClick={toggleDetailedAnalysis}
