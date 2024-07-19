@@ -33,7 +33,7 @@ const GameCard: React.FC<GameCardProps> = ({ game, awayTeamName, homeTeamName })
         {`Game preview and analysis would go here. This is where you'd provide a brief overview of the matchup, key players to watch, and any other relevant information.`}
       </p>
       <div className="text-center">
-        <Link href="/signup" className="inline-block px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-full hover:bg-green-700 transition-colors">
+        <Link href="/signup" className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-green-600 text-white text-xs sm:text-sm font-medium rounded-full hover:bg-green-700 transition-colors">
           View Premium Pick
         </Link>
       </div>
