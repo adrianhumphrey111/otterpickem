@@ -7,11 +7,31 @@ export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the signup logic
-    console.log('Signup attempt with:', { email, password });
-    // For now, we'll just log the attempt
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        // Signup successful
+        console.log('Signup successful');
+        // You can redirect the user or show a success message here
+      } else {
+        // Signup failed
+        const errorData = await response.json();
+        console.error('Signup failed:', errorData.message);
+        // You can show an error message to the user here
+      }
+    } catch (error) {
+      console.error('An error occurred during signup:', error);
+      // You can show a generic error message to the user here
+    }
   };
 
   const handleGoogleSignUp = () => {
