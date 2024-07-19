@@ -5,6 +5,7 @@ const { extractJsonFromResponse } = require("../utils/jsonExtractor")
 require('dotenv').config(); // Make sure to install dotenv and create a .env file with your API key
 
 const LIVE_SCORE_BOARD_URL = "https://www.fangraphs.com/livescoreboard.aspx?date=";
+const FANGRAPHS_BASE_URL = "https://www.fangraphs.com";
 
 async function setupBrowser() {
   const browser = await puppeteer.launch({ headless: 'new' });
@@ -63,3 +64,70 @@ export async function getAllGames(date) {
 
 
 //getAllGames("2024-07-19").catch(console.error);
+
+export async function getPitcherStats(playerUrl) {
+  try {
+    const { browser, page } = await setupBrowser();
+    await page.goto(`${FANGRAPHS_BASE_URL}${playerUrl}`);
+
+    const statsHtml = await page.evaluate(() => {
+      const statsTable = document.querySelector('#SeasonStats1_dgSeason11_ctl00');
+      return statsTable ? statsTable.outerHTML : null;
+    });
+
+    await browser.close();
+
+    if (!statsHtml) {
+      throw new Error('Stats table not found');
+    }
+
+    return await getPitcherStatsFromClaude(statsHtml);
+  } catch (error) {
+    console.error('Error fetching pitcher stats:', error);
+    throw error;
+  }
+}
+
+async function getPitcherStatsFromClaude(html) {
+  const prompt = `
+    ${html}
+
+    Extract the pitcher's statistics from the HTML table above. Return a JSON object with the following keys:
+    - name
+    - team
+    - gamesPlayed
+    - gamesStarted
+    - inningsPitched
+    - wins
+    - losses
+    - era
+    - whip
+    - strikeouts
+    - walks
+
+    Only return the JSON object, no additional text.
+  `;
+
+  try {
+    const response = await axios.post('https://api.anthropic.com/v1/messages', {
+      model: "claude-3-5-sonnet-20240620",
+      max_tokens: 1000,
+      temperature: 0,
+      system: "You are an expert data analyzer and good at pulling data out of html code and returning structured JSON objects with the information you are given. You only return structured json in your response and not text about the json",
+      messages: [
+        { role: "user", content: prompt }
+      ]
+    }, {
+      headers: {
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json'
+      }
+    });
+
+    return extractJsonFromResponse(response.data.content[0].text);
+  } catch (error) {
+    console.error('Error calling Claude API for pitcher stats:', error);
+    throw error;
+  }
+}
