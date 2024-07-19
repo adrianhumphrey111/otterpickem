@@ -50,7 +50,7 @@ export default async function handler(req, res) {
         }
 
         // Delay for 10 seconds before processing the next game
-        await delay(10000);
+        await delay(60000);
       }
 
       res.status(200).json({ message: 'All MLB game stats processed and saved successfully' });
