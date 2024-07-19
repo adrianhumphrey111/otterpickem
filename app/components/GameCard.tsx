@@ -20,9 +20,10 @@ const GameCard: React.FC<GameCardProps> = ({ game, awayTeamName, homeTeamName })
         <h3 className="text-lg font-semibold text-blue-600">{awayTeamName} @ {homeTeamName}</h3>
         <button
           onClick={toggleAccordion}
-          className="text-blue-500 hover:text-blue-700 focus:outline-none"
+          className="text-blue-500 hover:text-blue-700 focus:outline-none flex items-center"
         >
-          {isOpen ? '▲' : '▼'}
+          <span className="mr-1">Analysis</span>
+          <span>{isOpen ? '▲' : '▼'}</span>
         </button>
       </div>
       <p className="text-gray-600">Start Time: {game.time}</p>
