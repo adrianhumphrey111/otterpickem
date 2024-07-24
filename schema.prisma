@@ -140,6 +140,22 @@ model MLBVenue {
   games             MLBGame[]
 }
 
+model MLBPlayer {
+  id              String   @id
+  firstName       String
+  lastName        String
+  preferredName   String?
+  jerseyNumber    String?
+  position        String?
+  birthDate       DateTime?
+  birthCity       String?
+  birthCountry    String?
+  height          Int?
+  weight          Int?
+  teamId          String?
+  team            MLBTeam? @relation(fields: [teamId], references: [id])
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
