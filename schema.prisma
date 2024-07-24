@@ -125,14 +125,13 @@ model MLBTeam {
 model MLBVenue {
   id                String   @id
   name              String
-  market            String
   capacity          Int?
-  surface           String
-  address           String
-  city              String
-  state             String
-  zip               String
-  country           String
+  surface           String?
+  address           String?
+  city              String?
+  state             String?
+  zip               String?
+  country           String?
   fieldOrientation  String?
   stadiumType       String?
   timeZone          String?
