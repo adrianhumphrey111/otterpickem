@@ -4,6 +4,7 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function makeApiCall(url, params, delayMs) {
   await delay(delayMs);
+  console.log(url, params)
   const response = await axios.get(url, {
     params: { ...params, api_key: process.env.SPORTS_RADAR_API_KEY },
     headers: { accept: 'application/json' }
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
 
       // Get the game schedule
       const scheduleData = await makeApiCall(
-        `https://api.sportradar.com/mlb/trial/v7/en/games/${year}/${month}/${date}/schedule.json`,
+        `https://api.sportradar.com/mlb/production/v7/en/games/${year}/${month}/${date}/schedule.json`,
         {},
         cumulativeDelay
       );
@@ -29,10 +30,12 @@ export default async function handler(req, res) {
       const games = scheduleData.games;
       const gameData = [];
 
+      await delay(1500);
+
       for (const game of games) {
         // Get the box score for each game
         const boxScoreData = await makeApiCall(
-          `https://api.sportradar.com/mlb/trial/v7/en/games/${game.id}/boxscore.json`,
+          `https://api.sportradar.com/mlb/production/v7/en/games/${game.id}/boxscore.json`,
           {},
           cumulativeDelay
         );
@@ -41,23 +44,30 @@ export default async function handler(req, res) {
         const boxScore = boxScoreData.game;
 
         // Get the starting pitchers' IDs
-        const homePitcherId = boxScore.home.probable_pitcher.id;
-        const awayPitcherId = boxScore.away.probable_pitcher.id;
+        const homePitcherId = boxScore.home.probable_pitcher?.id;
+        const awayPitcherId = boxScore.away.probable_pitcher?.id;
+
+        let homeProfileData;
+        let awayProfileData;
 
         // Get the player profiles for both starting pitchers
-        const homeProfileData = await makeApiCall(
-          `https://api.sportradar.com/mlb/trial/v7/en/players/${homePitcherId}/profile.json`,
-          {},
-          cumulativeDelay
-        );
-        cumulativeDelay += delayIncrement;
-
-        const awayProfileData = await makeApiCall(
-          `https://api.sportradar.com/mlb/trial/v7/en/players/${awayPitcherId}/profile.json`,
-          {},
-          cumulativeDelay
-        );
-        cumulativeDelay += delayIncrement;
+        if(homePitcherId){
+            homeProfileData = await makeApiCall(
+                `https://api.sportradar.com/mlb/production/v7/en/players/${homePitcherId}/profile.json`,
+                {},
+                cumulativeDelay
+              );
+              cumulativeDelay += delayIncrement;
+        }
+        
+        if(awayPitcherId){
+            awayProfileData = await makeApiCall(
+                `https://api.sportradar.com/mlb/production/v7/en/players/${awayPitcherId}/profile.json`,
+                {},
+                cumulativeDelay
+              );
+              cumulativeDelay += delayIncrement;
+        }
 
         gameData.push({
           gameId: game.id,
@@ -66,6 +76,8 @@ export default async function handler(req, res) {
           homePitcher: homeProfileData,
           awayPitcher: awayProfileData
         });
+
+        continue;
       }
 
       res.status(200).json({ games: gameData });
