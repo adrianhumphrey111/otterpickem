@@ -27,11 +27,12 @@ export default async function handler(req, res) {
           }
         );
 
-        const boxScore = boxScoreResponse.data;
+        const boxScore = boxScoreResponse.data.game;
+        console.log(boxScore)
 
         // Get the starting pitchers' IDs
-        const homePitcherId = boxScore.home.starting_pitcher.id;
-        const awayPitcherId = boxScore.away.starting_pitcher.id;
+        const homePitcherId = boxScore.home.probable_pitcher.id;
+        const awayPitcherId = boxScore.away.probable_pitcher.id;
 
         // Get the player profiles for both starting pitchers
         const [homeProfileResponse, awayProfileResponse] = await Promise.all([
