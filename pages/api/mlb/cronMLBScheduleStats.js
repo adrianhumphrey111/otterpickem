@@ -139,53 +139,90 @@ export default async function handler(req, res) {
 
       await delay(1500);
 
-    //   for (const game of games) {
-    //     // Get the box score for each game
-    //     const boxScoreData = await makeApiCall(
-    //       `https://api.sportradar.com/mlb/production/v7/en/games/${game.id}/boxscore.json`,
-    //       {},
-    //       cumulativeDelay
-    //     );
-    //     cumulativeDelay += delayIncrement;
+      for (const game of games) {
+        // Get the box score for each game
+        const boxScoreData = await makeApiCall(
+          `https://api.sportradar.com/mlb/production/v7/en/games/${game.id}/boxscore.json`,
+          {},
+          cumulativeDelay
+        );
+        cumulativeDelay += delayIncrement;
 
-    //     const boxScore = boxScoreData.game;
+        const boxScore = boxScoreData.game;
 
-    //     // Get the starting pitchers' IDs
-    //     const homePitcherId = boxScore.home.probable_pitcher?.id;
-    //     const awayPitcherId = boxScore.away.probable_pitcher?.id;
+        // Get the starting pitchers' IDs
+        const homePitcherId = boxScore.home.probable_pitcher?.id;
+        const awayPitcherId = boxScore.away.probable_pitcher?.id;
 
-    //     let homeProfileData;
-    //     let awayProfileData;
+        let homeProfileData;
+        let awayProfileData;
 
-    //     // Get the player profiles for both starting pitchers
-    //     if(homePitcherId){
-    //         homeProfileData = await makeApiCall(
-    //             `https://api.sportradar.com/mlb/production/v7/en/players/${homePitcherId}/profile.json`,
-    //             {},
-    //             cumulativeDelay
-    //           );
-    //           cumulativeDelay += delayIncrement;
-    //     }
+        // Get the player profiles for both starting pitchers and save to DB
+        if(homePitcherId){
+            homeProfileData = await makeApiCall(
+                `https://api.sportradar.com/mlb/production/v7/en/players/${homePitcherId}/profile.json`,
+                {},
+                cumulativeDelay
+              );
+              cumulativeDelay += delayIncrement;
+            await savePlayerProfileToDB(homeProfileData.player);
+        }
         
-    //     if(awayPitcherId){
-    //         awayProfileData = await makeApiCall(
-    //             `https://api.sportradar.com/mlb/production/v7/en/players/${awayPitcherId}/profile.json`,
-    //             {},
-    //             cumulativeDelay
-    //           );
-    //           cumulativeDelay += delayIncrement;
-    //     }
+        if(awayPitcherId){
+            awayProfileData = await makeApiCall(
+                `https://api.sportradar.com/mlb/production/v7/en/players/${awayPitcherId}/profile.json`,
+                {},
+                cumulativeDelay
+              );
+              cumulativeDelay += delayIncrement;
+            await savePlayerProfileToDB(awayProfileData.player);
+        }
 
-    //     gameData.push({
-    //       gameId: game.id,
-    //       homeTeam: boxScore.home.name,
-    //       awayTeam: boxScore.away.name,
-    //       homePitcher: homeProfileData,
-    //       awayPitcher: awayProfileData
-    //     });
+        gameData.push({
+          gameId: game.id,
+          homeTeam: boxScore.home.name,
+          awayTeam: boxScore.away.name,
+          homePitcher: homeProfileData?.player,
+          awayPitcher: awayProfileData?.player
+        });
+      }
 
-    //     continue;
-    //   }
+      async function savePlayerProfileToDB(player) {
+        try {
+          await prisma.mLBPlayer.upsert({
+            where: { id: player.id },
+            update: {
+              firstName: player.first_name,
+              lastName: player.last_name,
+              preferredName: player.preferred_name,
+              jerseyNumber: player.jersey_number,
+              position: player.primary_position,
+              birthDate: new Date(player.birth_date),
+              birthCity: player.birth_city,
+              birthCountry: player.birth_country,
+              height: player.height,
+              weight: player.weight,
+              // Add more fields as needed
+            },
+            create: {
+              id: player.id,
+              firstName: player.first_name,
+              lastName: player.last_name,
+              preferredName: player.preferred_name,
+              jerseyNumber: player.jersey_number,
+              position: player.primary_position,
+              birthDate: new Date(player.birth_date),
+              birthCity: player.birth_city,
+              birthCountry: player.birth_country,
+              height: player.height,
+              weight: player.weight,
+              // Add more fields as needed
+            },
+          });
+        } catch (error) {
+          console.error('Error saving player profile to database:', error);
+        }
+      }
 
       res.status(200).json({ games: gameData });
     } catch (error) {
