@@ -10,6 +10,12 @@ const mlbTeams = [
     "abbr": "LAA"
   },
   {
+    "id": "a7723160-10b7-4277-a309-d8dd95a8ae65",
+    "name": "51s",
+    "market": "Las Vegas",
+    "abbr": "LV"
+  },
+  {
     "id": "7bde9f5e-f2f1-4c4e-84a1-c1a36d4d5776",
     "name": "Astros",
     "market": "Houston",
