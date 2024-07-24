@@ -78,53 +78,53 @@ export default async function handler(req, res) {
 
       await delay(1500);
 
-      for (const game of games) {
-        // Get the box score for each game
-        const boxScoreData = await makeApiCall(
-          `https://api.sportradar.com/mlb/production/v7/en/games/${game.id}/boxscore.json`,
-          {},
-          cumulativeDelay
-        );
-        cumulativeDelay += delayIncrement;
+    //   for (const game of games) {
+    //     // Get the box score for each game
+    //     const boxScoreData = await makeApiCall(
+    //       `https://api.sportradar.com/mlb/production/v7/en/games/${game.id}/boxscore.json`,
+    //       {},
+    //       cumulativeDelay
+    //     );
+    //     cumulativeDelay += delayIncrement;
 
-        const boxScore = boxScoreData.game;
+    //     const boxScore = boxScoreData.game;
 
-        // Get the starting pitchers' IDs
-        const homePitcherId = boxScore.home.probable_pitcher?.id;
-        const awayPitcherId = boxScore.away.probable_pitcher?.id;
+    //     // Get the starting pitchers' IDs
+    //     const homePitcherId = boxScore.home.probable_pitcher?.id;
+    //     const awayPitcherId = boxScore.away.probable_pitcher?.id;
 
-        let homeProfileData;
-        let awayProfileData;
+    //     let homeProfileData;
+    //     let awayProfileData;
 
-        // Get the player profiles for both starting pitchers
-        if(homePitcherId){
-            homeProfileData = await makeApiCall(
-                `https://api.sportradar.com/mlb/production/v7/en/players/${homePitcherId}/profile.json`,
-                {},
-                cumulativeDelay
-              );
-              cumulativeDelay += delayIncrement;
-        }
+    //     // Get the player profiles for both starting pitchers
+    //     if(homePitcherId){
+    //         homeProfileData = await makeApiCall(
+    //             `https://api.sportradar.com/mlb/production/v7/en/players/${homePitcherId}/profile.json`,
+    //             {},
+    //             cumulativeDelay
+    //           );
+    //           cumulativeDelay += delayIncrement;
+    //     }
         
-        if(awayPitcherId){
-            awayProfileData = await makeApiCall(
-                `https://api.sportradar.com/mlb/production/v7/en/players/${awayPitcherId}/profile.json`,
-                {},
-                cumulativeDelay
-              );
-              cumulativeDelay += delayIncrement;
-        }
+    //     if(awayPitcherId){
+    //         awayProfileData = await makeApiCall(
+    //             `https://api.sportradar.com/mlb/production/v7/en/players/${awayPitcherId}/profile.json`,
+    //             {},
+    //             cumulativeDelay
+    //           );
+    //           cumulativeDelay += delayIncrement;
+    //     }
 
-        gameData.push({
-          gameId: game.id,
-          homeTeam: boxScore.home.name,
-          awayTeam: boxScore.away.name,
-          homePitcher: homeProfileData,
-          awayPitcher: awayProfileData
-        });
+    //     gameData.push({
+    //       gameId: game.id,
+    //       homeTeam: boxScore.home.name,
+    //       awayTeam: boxScore.away.name,
+    //       homePitcher: homeProfileData,
+    //       awayPitcher: awayProfileData
+    //     });
 
-        continue;
-      }
+    //     continue;
+    //   }
 
       res.status(200).json({ games: gameData });
     } catch (error) {
