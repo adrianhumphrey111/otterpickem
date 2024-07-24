@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { PrismaClient } from '@prisma/client';
 
+const prisma = new PrismaClient();
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function makeApiCall(url, params, delayMs) {
@@ -10,6 +12,45 @@ async function makeApiCall(url, params, delayMs) {
     headers: { accept: 'application/json' }
   });
   return response.data;
+}
+
+async function saveGameToDatabase(game) {
+  try {
+    await prisma.mLBGame.upsert({
+      where: { id: game.id },
+      update: {
+        status: game.status,
+        coverage: game.coverage,
+        gameNumber: game.game_number,
+        dayNight: game.day_night,
+        scheduled: new Date(game.scheduled),
+        homeTeamId: game.home.id,
+        awayTeamId: game.away.id,
+        doubleHeader: game.double_header,
+        entryMode: game.entry_mode,
+        reference: game.reference,
+        venueId: game.venue.id,
+        broadcastNetwork: game.broadcast?.network
+      },
+      create: {
+        id: game.id,
+        status: game.status,
+        coverage: game.coverage,
+        gameNumber: game.game_number,
+        dayNight: game.day_night,
+        scheduled: new Date(game.scheduled),
+        homeTeamId: game.home.id,
+        awayTeamId: game.away.id,
+        doubleHeader: game.double_header,
+        entryMode: game.entry_mode,
+        reference: game.reference,
+        venueId: game.venue.id,
+        broadcastNetwork: game.broadcast?.network
+      },
+    });
+  } catch (error) {
+    console.error('Error saving game to database:', error);
+  }
 }
 
 export default async function handler(req, res) {
@@ -29,6 +70,11 @@ export default async function handler(req, res) {
 
       const games = scheduleData.games;
       const gameData = [];
+
+      // Save games to database
+      for (const game of games) {
+        await saveGameToDatabase(game);
+      }
 
       await delay(1500);
 
