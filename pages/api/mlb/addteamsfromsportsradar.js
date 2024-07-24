@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { mlbTeams } from '../../utils/addMLBTeams';
+import mlbTeams from '../../../mocks/mlbTeams.json';
 
 const prisma = new PrismaClient();
 
@@ -9,6 +9,7 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log(mlbTeams)
     await addTeamsToDB(mlbTeams);
     res.status(200).json({ message: 'Teams added successfully' });
   } catch (error) {
@@ -25,14 +26,12 @@ async function addTeamsToDB(teams) {
         name: team.name,
         market: team.market,
         abbr: team.abbr,
-        sport: 'MLB'
       },
       create: {
         id: team.id,
         name: team.name,
         market: team.market,
-        abbr: team.abbr,
-        sport: 'MLB'
+        abbr: team.abbr
       },
     });
   }
