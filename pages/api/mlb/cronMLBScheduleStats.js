@@ -16,6 +16,67 @@ async function makeApiCall(url, params, delayMs) {
 
 async function saveGameToDatabase(game) {
   try {
+    // Create or update home team
+    await prisma.mLBTeam.upsert({
+      where: { id: game.home.id },
+      update: {
+        name: game.home.name,
+        market: game.home.market,
+        abbr: game.home.abbr,
+      },
+      create: {
+        id: game.home.id,
+        name: game.home.name,
+        market: game.home.market,
+        abbr: game.home.abbr,
+      },
+    });
+
+    // Create or update away team
+    await prisma.mLBTeam.upsert({
+      where: { id: game.away.id },
+      update: {
+        name: game.away.name,
+        market: game.away.market,
+        abbr: game.away.abbr,
+      },
+      create: {
+        id: game.away.id,
+        name: game.away.name,
+        market: game.away.market,
+        abbr: game.away.abbr,
+      },
+    });
+
+    // Create or update venue
+    await prisma.mLBVenue.upsert({
+      where: { id: game.venue.id },
+      update: {
+        name: game.venue.name,
+        market: game.venue.market,
+        capacity: game.venue.capacity,
+        surface: game.venue.surface,
+        address: game.venue.address,
+        city: game.venue.city,
+        state: game.venue.state,
+        zip: game.venue.zip,
+        country: game.venue.country,
+      },
+      create: {
+        id: game.venue.id,
+        name: game.venue.name,
+        market: game.venue.market,
+        capacity: game.venue.capacity,
+        surface: game.venue.surface,
+        address: game.venue.address,
+        city: game.venue.city,
+        state: game.venue.state,
+        zip: game.venue.zip,
+        country: game.venue.country,
+      },
+    });
+
+    // Create or update game
     await prisma.mLBGame.upsert({
       where: { id: game.id },
       update: {
