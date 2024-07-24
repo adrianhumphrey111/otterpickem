@@ -91,6 +91,56 @@ model Player {
   @@unique([name, teamId], name: "name_teamId")
 }
 
+model MLBGame {
+  id            String   @id
+  status        String
+  coverage      String
+  gameNumber    Int
+  dayNight      String
+  scheduled     DateTime
+  homeTeamId    String
+  awayTeamId    String
+  attendance    Int?
+  duration      String?
+  doubleHeader  Boolean
+  entryMode     String
+  reference     String
+  venueId       String
+  broadcastNetwork String?
+
+  homeTeam      MLBTeam  @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam      MLBTeam  @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  venue         MLBVenue @relation(fields: [venueId], references: [id])
+}
+
+model MLBTeam {
+  id      String   @id
+  name    String
+  market  String
+  abbr    String
+  homeGames MLBGame[] @relation("HomeTeam")
+  awayGames MLBGame[] @relation("AwayTeam")
+}
+
+model MLBVenue {
+  id                String   @id
+  name              String
+  market            String
+  capacity          Int?
+  surface           String
+  address           String
+  city              String
+  state             String
+  zip               String
+  country           String
+  fieldOrientation  String?
+  stadiumType       String?
+  timeZone          String?
+  latitude          Float?
+  longitude         Float?
+  games             MLBGame[]
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
