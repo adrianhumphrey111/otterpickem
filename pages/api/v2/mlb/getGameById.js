@@ -91,7 +91,7 @@ export default async function handler(req, res) {
       }
 
       //const evaluatedGame = await evaluateGame(gameId);
-      const evaluatedGame = mockedEvaulatedGame
+      const evaluatedGame = mockedEvaluatedGame;
       
       // Get Claude's response
       let claudeResponse;
