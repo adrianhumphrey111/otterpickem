@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+export const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export async function makeDelayedApiCall(url, params, delayMs) {
   await delay(delayMs);
