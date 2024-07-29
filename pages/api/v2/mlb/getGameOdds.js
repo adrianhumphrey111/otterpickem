@@ -11,11 +11,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
   }
 
-  const { gameId } = req.query;
+  const gameId = req.query.gameId;
   
-  if (!gameId || typeof gameId !== 'string') {
+  if (!gameId || typeof gameId !== 'string' || !gameId.trim()) {
     return res.status(400).json({ error: 'Valid Game ID is required' });
   }
+
+  const trimmedGameId = gameId.trim();
 
   try {
     const oddsData = await fetchGameOdds(gameId);
