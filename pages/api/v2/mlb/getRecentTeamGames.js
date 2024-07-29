@@ -1,4 +1,7 @@
 import { makeDelayedApiCall } from '../../../../utils/apiUtils';
+import NodeCache from 'node-cache';
+
+const cache = new NodeCache({ stdTTL: 3600 }); // Cache for 1 hour
 
 async function evaluateGame(gameId, delayMs) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/games/${gameId}/boxscore.json`;
@@ -41,9 +44,25 @@ function reduceGameData(fullGameData) {
   };
 }
 
-export async function getRecentTeamGames(teamId, date) {
+async function fetchScheduleData() {
+  const cacheKey = 'scheduleData2024REG';
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    console.log('Using cached schedule data');
+    return cachedData;
+  }
+
+  console.log('Fetching fresh schedule data');
   const url = 'https://api.sportradar.com/mlb/trial/v7/en/games/2024/REG/schedule.json';
   const scheduleData = await makeDelayedApiCall(url, {}, 0);
+  
+  cache.set(cacheKey, scheduleData);
+  return scheduleData;
+}
+
+export async function getRecentTeamGames(teamId, date) {
+  const scheduleData = await fetchScheduleData();
 
   const filteredGames = scheduleData.games
     .filter(game => 
