@@ -3,6 +3,7 @@ import { getCurrentRunDifferentials } from './getCurrentRunDifferentials';
 import { getTeamStatistics } from './getTeamStatistics';
 import { getCurrentOPS } from './getCurrentOPS';
 import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
+import { saveGameToDB } from '../../../../utils/dbUtils';
 
 async function getPlayerProfile(playerId, delayed) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
@@ -89,6 +90,16 @@ export default async function handler(req, res) {
       }
 
       const evaluatedGame = await evaluateGame(gameId);
+      
+      // Save the evaluatedGame data to the database
+      try {
+        await saveGameToDB(evaluatedGame);
+        console.log(`Game ${gameId} saved to database successfully`);
+      } catch (dbError) {
+        console.error('Error saving game to database:', dbError);
+        // Note: We're not returning here, so the API will still return the evaluatedGame data even if DB save fails
+      }
+
       res.status(200).json(evaluatedGame);
     } catch (error) {
       console.error('Error evaluating game:', error);
