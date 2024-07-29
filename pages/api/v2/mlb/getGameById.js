@@ -1,6 +1,7 @@
 import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 import { getCurrentRunDifferentials } from './getCurrentRunDifferentials';
 import { getTeamStatistics } from './getTeamStatistics';
+import { getTeamStatistics } from './getTeamStatistics';
 
 async function getPlayerProfile(playerId, delayed) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
