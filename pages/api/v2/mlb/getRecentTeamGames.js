@@ -1,5 +1,11 @@
 import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 
+async function evaluateGame(gameId) {
+  const url = `https://api.sportradar.com/mlb/trial/v7/en/games/${gameId}/boxscore.json`;
+  const fullGameData = await makeDelayedApiCall(url, {}, 1500);
+  return reduceGameData(fullGameData);
+}
+
 function reduceGameData(fullGameData) {
   const { game } = fullGameData;
 
@@ -9,12 +15,16 @@ function reduceGameData(fullGameData) {
     homeTeam: {
       id: game.home.id,
       name: `${game.home.market} ${game.home.name}`,
-      runsScored: game.home.runs
+      runsScored: game.home.runs,
+      hits: game.home.hits,
+      errors: game.home.errors
     },
     awayTeam: {
       id: game.away.id,
       name: `${game.away.market} ${game.away.name}`,
-      runsScored: game.away.runs
+      runsScored: game.away.runs,
+      hits: game.away.hits,
+      errors: game.away.errors
     },
     result: {
       winner: game.home.runs > game.away.runs ? `${game.home.market} ${game.home.name}` : `${game.away.market} ${game.away.name}`,
@@ -23,6 +33,11 @@ function reduceGameData(fullGameData) {
         awayTeam: game.away.runs
       }
     },
+    innings: game.innings.map(inning => ({
+      number: inning.number,
+      homeRuns: inning.home.runs,
+      awayRuns: inning.away.runs
+    }))
   };
 }
 
@@ -39,13 +54,14 @@ async function getRecentTeamGames(teamId, date) {
     .sort((a, b) => new Date(b.scheduled) - new Date(a.scheduled))
     .slice(0, 10);
 
-  const detailedGames = await Promise.all(filteredGames.map(async (game) => {
+  const detailedGames = [];
+  for (const game of filteredGames) {
     const gameDetails = await evaluateGame(game.id);
-    return {
+    detailedGames.push({
       ...game,
       details: gameDetails
-    };
-  }));
+    });
+  }
 
   return detailedGames;
 }
