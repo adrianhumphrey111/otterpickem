@@ -93,8 +93,8 @@ export default async function handler(req, res) {
       
       // Save the evaluatedGame data to the database
       try {
-        await saveGameToDB(evaluatedGame);
-        console.log(`Game ${gameId} saved to database successfully`);
+        const savedGame = await saveGameToDB(evaluatedGame);
+        console.log(`Game ${gameId} saved to database successfully with ID: ${savedGame.id}`);
       } catch (dbError) {
         console.error('Error saving game to database:', dbError);
         // Note: We're not returning here, so the API will still return the evaluatedGame data even if DB save fails
