@@ -1,8 +1,8 @@
 import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 
-async function evaluateGame(gameId) {
+async function evaluateGame(gameId, delayMs) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/games/${gameId}/boxscore.json`;
-  const fullGameData = await makeDelayedApiCall(url, {}, 1500);
+  const fullGameData = await makeDelayedApiCall(url, {}, delayMs);
   return reduceGameData(fullGameData);
 }
 
@@ -55,8 +55,10 @@ async function getRecentTeamGames(teamId, date) {
     .slice(0, 10);
 
   const detailedGames = [];
-  for (const game of filteredGames) {
-    const gameDetails = await evaluateGame(game.id);
+  for (let i = 0; i < filteredGames.length; i++) {
+    const game = filteredGames[i];
+    const delayMs = 1500 * (i + 1);
+    const gameDetails = await evaluateGame(game.id, delayMs);
     detailedGames.push({
       ...game,
       details: gameDetails
