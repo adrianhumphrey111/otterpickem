@@ -1,5 +1,30 @@
 import { makeDelayedApiCall } from '../../../../utils/apiUtils';
-import evaluateGame from './getGameById';
+
+function reduceGameData(fullGameData) {
+  const { game } = fullGameData;
+
+  return {
+    gameId: game.id,
+    date: game.scheduled.split('T')[0],
+    homeTeam: {
+      id: game.home.id,
+      name: `${game.home.market} ${game.home.name}`,
+      runsScored: game.home.runs
+    },
+    awayTeam: {
+      id: game.away.id,
+      name: `${game.away.market} ${game.away.name}`,
+      runsScored: game.away.runs
+    },
+    result: {
+      winner: game.home.runs > game.away.runs ? `${game.home.market} ${game.home.name}` : `${game.away.market} ${game.away.name}`,
+      score: {
+        homeTeam: game.home.runs,
+        awayTeam: game.away.runs
+      }
+    },
+  };
+}
 
 async function getRecentTeamGames(teamId, date) {
   const url = 'https://api.sportradar.com/mlb/trial/v7/en/games/2024/REG/schedule.json';
