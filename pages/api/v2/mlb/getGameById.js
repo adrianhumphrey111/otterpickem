@@ -34,6 +34,7 @@ async function evaluateGame(gameId) {
   // Get run differentials
   const runDifferentials = await getCurrentRunDifferentials();
 
+  // Get team statistics
   const homeTeamStats = await getTeamStatistics(boxScore.game.home.id);
   const awayTeamStats = await getTeamStatistics(boxScore.game.away.id);
 
@@ -41,11 +42,11 @@ async function evaluateGame(gameId) {
     gameId: boxScore.game.id,
     homeTeam: {
       name: boxScore.game.home.name,
-      stats: homeTeamStats
+      stats: homeTeamStats.statistics
     },
     awayTeam: {
       name: boxScore.game.away.name,
-      stats: awayTeamStats
+      stats: awayTeamStats.statistics
     },
     homePitcher: homePitcherProfile ? {
       id: homePitcherProfile.player.id,
