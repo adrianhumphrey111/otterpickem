@@ -1,7 +1,14 @@
 import { chromium } from 'playwright';
 import axios from 'axios';
+import NodeCache from 'node-cache';
+
+const cache = new NodeCache({ stdTTL: 86400 }); // 24 hours in seconds
 
 export async function getCurrentRunDifferentials() {
+  const cachedData = cache.get('runDifferentials');
+  if (cachedData) {
+    return cachedData;
+  }
   try {
     const browser = await chromium.launch();
     const page = await browser.newPage();
@@ -38,7 +45,9 @@ export async function getCurrentRunDifferentials() {
       }
     });
 
-    return JSON.parse(response.data.content[0].text);
+    const runDifferentials = JSON.parse(response.data.content[0].text);
+    cache.set('runDifferentials', runDifferentials);
+    return runDifferentials;
   } catch (error) {
     console.error('Error getting run differentials:', error);
     throw error;
