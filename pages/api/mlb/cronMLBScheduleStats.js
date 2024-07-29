@@ -1,17 +1,8 @@
-import axios from 'axios';
 import { PrismaClient } from '@prisma/client';
+import { makeApiCall } from '../../../utils/apiUtils';
 
 const prisma = new PrismaClient();
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-async function makeApiCall(url, params, delayMs) {
-  await delay(delayMs);
-  const response = await axios.get(url, {
-    params: { ...params, api_key: process.env.SPORTS_RADAR_API_KEY },
-    headers: { accept: 'application/json' }
-  });
-  return response.data;
-}
 
 async function savePlayerProfileToDB(player) {
   try {
