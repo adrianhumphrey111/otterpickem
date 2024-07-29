@@ -3,6 +3,22 @@ import NodeCache from 'node-cache';
 
 const cache = new NodeCache({ stdTTL: 3600 }); // Cache for 1 hour
 
+export async function getHeadToHeadGames(awayTeamId, homeTeamId) {
+  const scheduleData = await fetchScheduleData();
+
+  const headToHeadGames = scheduleData.games
+    .filter(game => 
+      game.status === "closed" &&
+      ((game.home.id === homeTeamId && game.away.id === awayTeamId) ||
+       (game.home.id === awayTeamId && game.away.id === homeTeamId))
+    )
+    .sort((a, b) => new Date(b.scheduled) - new Date(a.scheduled));
+
+  const reducedGames = headToHeadGames.map(game => reduceGameData({ game }));
+
+  return reducedGames.length > 0 ? reducedGames : [];
+}
+
 async function evaluateGame(gameId, delayMs) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/games/${gameId}/boxscore.json`;
   const fullGameData = await makeDelayedApiCall(url, {}, delayMs);
