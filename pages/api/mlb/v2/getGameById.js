@@ -29,12 +29,14 @@ async function evaluateGame(gameId) {
     homePitcher: homePitcherProfile ? {
       id: homePitcherProfile.player.id,
       name: `${homePitcherProfile.player.first_name} ${homePitcherProfile.player.last_name}`,
-      stats: homePitcherProfile.player.seasons[0]?.totals?.statistics?.pitching?.overall
+      stats: homePitcherProfile.player.seasons[0]?.totals?.statistics?.pitching?.overall,
+      lastStarts: homePitcherProfile.player.seasons[0]?.totals?.statistics?.pitching?.last_starts
     } : null,
     awayPitcher: awayPitcherProfile ? {
       id: awayPitcherProfile.player.id,
       name: `${awayPitcherProfile.player.first_name} ${awayPitcherProfile.player.last_name}`,
-      stats: awayPitcherProfile.player.seasons[0]?.totals?.statistics?.pitching?.overall
+      stats: awayPitcherProfile.player.seasons[0]?.totals?.statistics?.pitching?.overall,
+      lastStarts: awayPitcherProfile.player.seasons[0]?.totals?.statistics?.pitching?.last_starts
     } : null,
     boxScore: boxScore.game
   };
