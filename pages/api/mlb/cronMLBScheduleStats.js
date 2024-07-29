@@ -6,12 +6,94 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function makeApiCall(url, params, delayMs) {
   await delay(delayMs);
-  console.log(url, params)
   const response = await axios.get(url, {
     params: { ...params, api_key: process.env.SPORTS_RADAR_API_KEY },
     headers: { accept: 'application/json' }
   });
   return response.data;
+}
+
+async function savePlayerProfileToDB(player) {
+  try {
+    const seasonsData = player.seasons.filter(season => season.year === 2024 && season.type === "REG");
+    await prisma.mLBPlayer.upsert({
+      where: { id: player.id },
+      update: {
+        firstName: player.first_name,
+        lastName: player.last_name,
+        preferredName: player.preferred_name,
+        position: player.primary_position,
+        birthcity: player.birthcity,
+        birthcountry: player.birthcountry,
+        height: player.height,
+        weight: player.weight,
+        status: player.status,
+        primary_position: player.primary_position,
+        throwHand: player.throw_hand,
+        seasons: player.seasons.filter( season => season.year === 2024 && season.type === "REG"),
+        primaryPosition: player.primary_position
+
+      },
+      create: {
+        id: player.id,
+        firstName: player.first_name,
+        lastName: player.last_name,
+        preferredName: player.preferred_name,
+        position: player.primary_position,
+        birthcity: player.birthcity,
+        throwHand: player.throw_hand,
+        birthcountry: player.birthcountry,
+        height: player.height,
+        weight: player.weight,
+        status: player.status,
+        seasons: {
+          create: seasonsData.map(season => ({
+            year: season.year,
+            type: season.type,
+            // Include other fields from your MLBSeason model
+            //For example:
+            teams: {
+              create: season.teams.map(team => ({
+                name: team.name,
+                market: team.market,
+                abbr: team.abbr,
+                teamId: team.id
+              }))
+            },
+            statistics: {
+              create: {
+                seasonId: season.id,
+                pitching: {
+                  create: {
+                    oba: season.totals.statistics.pitching.overall.oba,
+                    era: season.totals.statistics.pitching.overall.era,
+                    k9: season.totals.statistics.pitching.overall.k9,
+                    whip: season.totals.statistics.pitching.overall.whip,
+                    kbb: season.totals.statistics.pitching.overall.kbb,
+                    ip_1: season.totals.statistics.pitching.overall.ip_1,
+                    ip_2: parseInt(season.totals.statistics.pitching.overall.ip_2),
+                    bf: season.totals.statistics.pitching.overall.bf,
+                    gofo: season.totals.statistics.pitching.overall.gofo,
+                    babip: season.totals.statistics.pitching.overall.babip,
+                    war: season.totals.statistics.pitching.overall.war,
+                    fip: season.totals.statistics.pitching.overall.fip,
+                    xfip: season.totals.statistics.pitching.overall.xfip,
+                    eraMinus: season.totals.statistics.pitching.overall.era_minus,
+                    gbfb: season.totals.statistics.pitching.overall.gbfb,
+                  }
+                }
+              }
+            }
+          }))
+        },
+        
+        primaryPosition: player.primary_position
+        // Add more fields as needed
+      },
+    });
+  } catch (error) {
+    console.error('Error saving player profile to database:', error);
+  }
 }
 
 async function saveGameToDatabase(game) {
@@ -114,6 +196,23 @@ async function saveGameToDatabase(game) {
   }
 }
 
+const extractPitchingStats = (player) => {
+  const pitchingStats = player.seasons[0].totals.statistics.pitching.overall;
+  const prioritizedStats = {
+    ERA: pitchingStats.era,
+    WHIP: pitchingStats.whip,
+    FIP: pitchingStats.fip || null, // Assuming FIP is not provided in this data
+    K9: pitchingStats.k9,
+    BB9: pitchingStats.bb9 || null, // Assuming BB/9 is not provided in this data
+    HR9: pitchingStats.onbase.hr9,
+    xFIP: pitchingStats.xfip || null, // Assuming xFIP is not provided in this data
+    SwStr: pitchingStats.swstr || null, // Assuming Swinging Strike Rate is not provided in this data
+    GBFB: pitchingStats.gbfb,
+    Velocity: pitchingStats.velocity || null // Assuming Pitch Velocity is not provided in this data
+  };
+  return prioritizedStats;
+};
+
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
@@ -134,7 +233,7 @@ export default async function handler(req, res) {
 
       // Save games to database
       for (const game of games) {
-        await saveGameToDatabase(game);
+        // await saveGameToDatabase(game);
       }
 
       await delay(1500);
@@ -154,76 +253,40 @@ export default async function handler(req, res) {
         const homePitcherId = boxScore.home.probable_pitcher?.id;
         const awayPitcherId = boxScore.away.probable_pitcher?.id;
 
-        let homeProfileData;
-        let awayProfileData;
+        let homeProbablePitcherData;
+        let awayPrabablePitcherData;
 
         // Get the player profiles for both starting pitchers and save to DB
         if(homePitcherId){
-            homeProfileData = await makeApiCall(
+            homeProbablePitcherData = await makeApiCall(
                 `https://api.sportradar.com/mlb/production/v7/en/players/${homePitcherId}/profile.json`,
                 {},
                 cumulativeDelay
               );
               cumulativeDelay += delayIncrement;
-            await savePlayerProfileToDB(homeProfileData.player);
+            //await savePlayerProfileToDB(homeProbablePitcherData.player);
+            homeProbablePitcherData.extractedStats = extractPitchingStats(homeProbablePitcherData.player)
         }
         
         if(awayPitcherId){
-            awayProfileData = await makeApiCall(
+            awayPrabablePitcherData = await makeApiCall(
                 `https://api.sportradar.com/mlb/production/v7/en/players/${awayPitcherId}/profile.json`,
                 {},
                 cumulativeDelay
               );
               cumulativeDelay += delayIncrement;
-            await savePlayerProfileToDB(awayProfileData.player);
+           // await savePlayerProfileToDB(awayPrabablePitcherData.player);
+           awayPrabablePitcherData.extractPitchingStats = extractPitchingStats(awayPrabablePitcherData.player)
         }
 
         gameData.push({
           gameId: game.id,
           homeTeam: boxScore.home.name,
           awayTeam: boxScore.away.name,
-          homePitcher: homeProfileData?.player,
-          awayPitcher: awayProfileData?.player
+          homePitcher: homeProbablePitcherData.extractPitchingStats,
+          awayPitcher: awayPrabablePitcherData.extractPitchingStats
         });
       }
-
-      async function savePlayerProfileToDB(player) {
-        try {
-          await prisma.mLBPlayer.upsert({
-            where: { id: player.id },
-            update: {
-              firstName: player.first_name,
-              lastName: player.last_name,
-              preferredName: player.preferred_name,
-              jerseyNumber: player.jersey_number,
-              position: player.primary_position,
-              birthDate: new Date(player.birth_date),
-              birthCity: player.birth_city,
-              birthCountry: player.birth_country,
-              height: player.height,
-              weight: player.weight,
-              // Add more fields as needed
-            },
-            create: {
-              id: player.id,
-              firstName: player.first_name,
-              lastName: player.last_name,
-              preferredName: player.preferred_name,
-              jerseyNumber: player.jersey_number,
-              position: player.primary_position,
-              birthDate: new Date(player.birth_date),
-              birthCity: player.birth_city,
-              birthCountry: player.birth_country,
-              height: player.height,
-              weight: player.weight,
-              // Add more fields as needed
-            },
-          });
-        } catch (error) {
-          console.error('Error saving player profile to database:', error);
-        }
-      }
-
       res.status(200).json({ games: gameData });
     } catch (error) {
       console.error('Error:', error);
