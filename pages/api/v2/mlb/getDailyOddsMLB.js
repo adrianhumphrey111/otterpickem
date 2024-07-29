@@ -23,12 +23,19 @@ async function getDailyOddsMLB(date) {
     throw new Error('Invalid response from API');
   }
 
-  const mlbEvents = response.sport_events.filter(event => 
-    event.tournament.name === "MLB" && 
-    event.scheduled.startsWith(date)
-  );
+  const dateUTC = new Date(date + 'T00:00:00Z');
+  const nextDateUTC = new Date(dateUTC);
+  nextDateUTC.setDate(nextDateUTC.getDate() + 1);
+
+  const mlbEvents = response.sport_events.filter(event => {
+    const eventDate = new Date(event.scheduled);
+    return event.tournament.name === "MLB" && 
+           eventDate >= dateUTC && 
+           eventDate < nextDateUTC;
+  });
 
   return {
+    date,
     mlbEvents
   };
 }
