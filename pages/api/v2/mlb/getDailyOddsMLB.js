@@ -10,13 +10,13 @@ export default async function handler(req, res) {
   }
 }
 
-async function getDailyOddsMLB() {
-  const url = 'https://api.sportradar.com/oddscomparison-usp/trial/v2/en/sports/sr:sport:3/events/schedule.json';
-  const response = await makeDelayedApiCall(url, {}, 1500);
+async function getDailyOddsMLB(date) {
+  const url = `https://api.sportradar.com/oddscomparison-ust1/en/us/sports/sr:sport:3/{date}/schedule.json`;
+  const response = await makeDelayedApiCall(url, {}, 0);
 
   const mlbEvents = response.sport_events.filter(event => event.tournament.name === "MLB");
 
   return {
-    sport_events: mlbEvents
+    mlbEvents
   };
 }
