@@ -8,42 +8,42 @@ datasource db {
 }
 
 model Team {
-  id                Int         @id @default(autoincrement())
-  name              String
-  logoUrl           String
-  abbreviation      String
-  fanGraphsTeamUrl  String?
-  externalId        String      @unique
-  sport             String
-  awayGames         Game[]      @relation("AwayTeam")
-  homeGames         Game[]      @relation("HomeTeam")
-  players           Player[]
-  teamStats         TeamStats[]
+  id               Int         @id @default(autoincrement())
+  name             String
+  logoUrl          String
+  abbreviation     String
+  fanGraphsTeamUrl String?
+  externalId       String      @unique
+  sport            String
+  awayGames        Game[]      @relation("AwayTeam")
+  homeGames        Game[]      @relation("HomeTeam")
+  players          Player[]
+  teamStats        TeamStats[]
 
   @@unique([sport, abbreviation])
 }
 
 model Game {
-  id                Int           @id @default(autoincrement())
-  date              DateTime
-  time              String
-  homeTeamId        Int
-  awayTeamId        Int
+  id                    Int          @id @default(autoincrement())
+  date                  DateTime
+  time                  String
+  homeTeamId            Int
+  awayTeamId            Int
   homeStartingPitcherId Int?
   awayStartingPitcherId Int?
-  espnBetHomeOdds   Float?
-  espnBetAwayOdds   Float?
-  status            String
-  gameOfTheDay      Boolean @default(false)
-  completeAnalysis  String?
-  moneyLine         String?
-  overUnder         String?
-  sport             String
-  awayTeam          Team          @relation("AwayTeam", fields: [awayTeamId], references: [id])
-  homeTeam          Team          @relation("HomeTeam", fields: [homeTeamId], references: [id])
-  homeStartingPitcher Player?     @relation("HomeStartingPitcher", fields: [homeStartingPitcherId], references: [id])
-  awayStartingPitcher Player?     @relation("AwayStartingPitcher", fields: [awayStartingPitcherId], references: [id])
-  predictions       Prediction[]
+  espnBetHomeOdds       Float?
+  espnBetAwayOdds       Float?
+  status                String
+  gameOfTheDay          Boolean      @default(false)
+  completeAnalysis      String?
+  moneyLine             String?
+  overUnder             String?
+  sport                 String
+  awayTeam              Team         @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  homeTeam              Team         @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  homeStartingPitcher   Player?      @relation("HomeStartingPitcher", fields: [homeStartingPitcherId], references: [id])
+  awayStartingPitcher   Player?      @relation("AwayStartingPitcher", fields: [awayStartingPitcherId], references: [id])
+  predictions           Prediction[]
 
   @@unique([homeTeamId, awayTeamId, date], name: "homeTeamId_awayTeamId_date")
 }
@@ -59,11 +59,11 @@ model Prediction {
 }
 
 model PlayerStats {
-  id        Int    @id @default(autoincrement())
-  playerId  Int
-  statType String?
+  id                Int     @id @default(autoincrement())
+  playerId          Int
+  statType          String?
   currentStatsValue Json
-  player    Player @relation(fields: [playerId], references: [id])
+  player            Player  @relation(fields: [playerId], references: [id])
 
   @@unique([playerId])
 }
@@ -78,82 +78,284 @@ model TeamStats {
 }
 
 model Player {
-  id                Int           @id @default(autoincrement())
-  name              String
-  teamId            Int
+  id                 Int           @id @default(autoincrement())
+  name               String
+  teamId             Int
   fanGraphsPlayerUrl String?
-  position          String
-  team              Team          @relation(fields: [teamId], references: [id])
-  playerStats       PlayerStats[]
-  homeStartingGames Game[]        @relation("HomeStartingPitcher")
-  awayStartingGames Game[]        @relation("AwayStartingPitcher")
+  position           String
+  team               Team          @relation(fields: [teamId], references: [id])
+  playerStats        PlayerStats[]
+  homeStartingGames  Game[]        @relation("HomeStartingPitcher")
+  awayStartingGames  Game[]        @relation("AwayStartingPitcher")
 
   @@unique([name, teamId], name: "name_teamId")
 }
 
-model MLBGame {
-  id            String   @id
-  status        String
-  coverage      String
-  gameNumber    Int
-  dayNight      String
-  scheduled     DateTime
-  homeTeamId    String
-  awayTeamId    String
-  attendance    Int?
-  duration      String?
-  doubleHeader  Boolean
-  entryMode     String
-  reference     String
-  venueId       String
-  broadcastNetwork String?
-
-  homeTeam      MLBTeam  @relation("HomeTeam", fields: [homeTeamId], references: [id])
-  awayTeam      MLBTeam  @relation("AwayTeam", fields: [awayTeamId], references: [id])
-  venue         MLBVenue @relation(fields: [venueId], references: [id])
-}
-
-model MLBTeam {
-  id      String   @id
-  name    String
-  market  String
-  abbr    String
-  homeGames MLBGame[] @relation("HomeTeam")
-  awayGames MLBGame[] @relation("AwayTeam")
-}
-
-model MLBVenue {
-  id                String   @id
-  name              String
-  capacity          Int?
-  surface           String?
-  address           String?
-  city              String?
-  state             String?
-  zip               String?
-  country           String?
-  fieldOrientation  String?
-  stadiumType       String?
-  timeZone          String?
-  latitude          Float?
-  longitude         Float?
-  games             MLBGame[]
-}
-
 model MLBPlayer {
-  id              String   @id
+  id              String    @id @default(uuid())
+  status          String
+  position        String
+  primaryPosition String
   firstName       String
   lastName        String
   preferredName   String?
-  jerseyNumber    String?
-  position        String?
-  birthDate       DateTime?
-  birthCity       String?
-  birthCountry    String?
-  height          Int?
-  weight          Int?
-  teamId          String?
-  team            MLBTeam? @relation(fields: [teamId], references: [id])
+  fullName        String?
+  height          String?
+  weight          String?
+  throwHand       String
+  batHand         String?
+  college         String?
+  highSchool      String?
+  birthdate       DateTime?
+  birthstate      String?
+  birthcountry    String?
+  birthcity       String?
+  proDebut        DateTime?
+  updated         DateTime?
+  reference       String?
+
+  draft Draft?
+
+  seasons MLBSeason[]
+}
+
+model Draft {
+  id       String    @id @default(uuid())
+  teamId   String
+  year     Int
+  round    Int
+  pick     Int
+  playerId String    @unique
+  player   MLBPlayer @relation(fields: [playerId], references: [id])
+}
+
+model MLBSeason {
+  id       String    @id @default(uuid())
+  year     Int
+  type     String
+  playerId String
+  player   MLBPlayer @relation(fields: [playerId], references: [id])
+
+  teams MLBTeam[]
+
+  // Statistics
+  mLBStatisticsId String?
+}
+
+model MLBStatistics {
+  id              String            @id @default(uuid())
+  season          String?
+  pitching        MLBPitchingStats?
+  fielding        MLBFieldingStats?
+  MLBHittingStats MLBHittingStats?
+  MLBTeam         MLBTeam[]
+  FieldingStats   FieldingStats?
+}
+
+model MLBFieldingStats {
+  id           String        @id @default(uuid())
+  statisticsId String        @unique
+  statistics   MLBStatistics @relation(fields: [statisticsId], references: [id])
+
+  po      Int
+  a       Int
+  dp      Int
+  tp      Int
+  error   Int
+  tc      Int
+  fpct    Float
+  rf      Float
+  innings MLBInnings?
+  games   MLBGames?
+}
+
+model MLBInnings {
+  id              String           @id @default(uuid())
+  fieldingStatsId String           @unique
+  fieldingStats   MLBFieldingStats @relation(fields: [fieldingStatsId], references: [id])
+
+  inn_1 Int // inn_1 in the JSON
+  inn_2 Int // inn_2 in the JSON
+}
+
+model MLBPitchingStats {
+  id           String        @id @default(uuid())
+  statisticsId String        @unique
+  statistics   MLBStatistics @relation(fields: [statisticsId], references: [id])
+
+  oba       Float
+  era       Float
+  k9        Float
+  whip      Float
+  kbb       Float
+  ip_1      Int? // ip_1 in the JSON
+  ip_2      Int? // ip_2 in the JSON
+  bf        Int?
+  gofo      Float?
+  babip     Float?
+  war       Float?
+  fip       Float?
+  xfip      Float?
+  eraMinus  Float?
+  gbfb      Float?
+  winLosses MLBWinLosses?
+  onbase    MLBOnbase?
+  runs      MLBRuns?
+  pitches   MLBPitches?
+  games     MLBGames?
+}
+
+model MLBGames {
+  id              String            @id @default(uuid())
+  pitchingStatsId String?           @unique
+  pitchingStats   MLBPitchingStats? @relation(fields: [pitchingStatsId], references: [id])
+  fieldingStatsId String?           @unique
+  fieldingStats   MLBFieldingStats? @relation(fields: [fieldingStatsId], references: [id])
+
+  start         Int
+  play          Int
+  finish        Int
+  complete      Int
+  qualityStarts Int?
+  shutouts      Int?
+}
+
+model MLBRuns {
+  id              String           @id @default(uuid())
+  pitchingStatsId String           @unique
+  pitchingStats   MLBPitchingStats @relation(fields: [pitchingStatsId], references: [id])
+
+  total    Int
+  unearned Int
+  earned   Int
+}
+
+model MLBPitches {
+  id              String           @id @default(uuid())
+  pitchingStatsId String           @unique
+  pitchingStats   MLBPitchingStats @relation(fields: [pitchingStatsId], references: [id])
+
+  count            Int
+  balls            Int
+  strikes          Int
+  perInningPitched Float
+  perBatterFaced   Float
+  perStart         Float?
+}
+
+model MLBWinLosses {
+  id              String           @id @default(uuid())
+  pitchingStatsId String           @unique
+  pitchingStats   MLBPitchingStats @relation(fields: [pitchingStatsId], references: [id])
+
+  win       Int
+  loss      Int
+  save      Int
+  blownSave Int
+  hold      Int
+  teamWin   Int
+  teamLoss  Int
+}
+
+model MLBOnbase {
+  id              String           @id @default(uuid())
+  pitchingStatsId String           @unique
+  pitchingStats   MLBPitchingStats @relation(fields: [pitchingStatsId], references: [id])
+
+  singles          Int
+  doubles          Int
+  triples          Int
+  homeRuns         Int
+  totalBases       Int
+  walks            Int
+  intentionalWalks Int
+  hitByPitch       Int
+  hits             Int
+}
+
+model MLBHittingStats {
+  id           String        @id @default(uuid())
+  statisticsId String        @unique
+  statistics   MLBStatistics @relation(fields: [statisticsId], references: [id])
+
+  ab         Int
+  runs       Int
+  hits       Int
+  doubles    Int
+  triples    Int
+  homeRuns   Int
+  rbi        Int
+  walks      Int
+  strikeouts Int
+  avg        Float
+  obp        Float
+  slg        Float
+  ops        Float
+}
+
+model FieldingStats {
+  id           String        @id @default(uuid())
+  statisticsId String        @unique
+  statistics   MLBStatistics @relation(fields: [statisticsId], references: [id])
+
+  putouts            Int
+  assists            Int
+  errors             Int
+  doublePlays        Int
+  fieldingPercentage Float
+}
+
+model MLBGame {
+  id               String   @id
+  status           String
+  coverage         String
+  gameNumber       Int
+  dayNight         String
+  scheduled        DateTime
+  homeTeamId       String
+  awayTeamId       String
+  attendance       Int?
+  duration         String?
+  doubleHeader     Boolean
+  entryMode        String
+  reference        String
+  venueId          String
+  broadcastNetwork String?
+
+  homeTeam MLBTeam  @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam MLBTeam  @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  venue    MLBVenue @relation(fields: [venueId], references: [id])
+}
+
+model MLBTeam {
+  id              String         @id
+  name            String
+  market          String
+  abbr            String
+  homeGames       MLBGame[]      @relation("HomeTeam")
+  awayGames       MLBGame[]      @relation("AwayTeam")
+  Season          MLBSeason?     @relation(fields: [seasonId], references: [id])
+  seasonId        String?
+  Statistics      MLBStatistics? @relation(fields: [mLBStatisticsId], references: [id])
+  mLBStatisticsId String?
+}
+
+model MLBVenue {
+  id               String    @id
+  name             String
+  capacity         Int?
+  surface          String?
+  address          String?
+  city             String?
+  state            String?
+  zip              String?
+  country          String?
+  fieldOrientation String?
+  stadiumType      String?
+  timeZone         String?
+  latitude         Float?
+  longitude        Float?
+  games            MLBGame[]
 }
 
 model User {
@@ -170,18 +372,18 @@ model User {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
