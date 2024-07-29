@@ -1,5 +1,6 @@
 import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 import { getCurrentRunDifferentials } from './getCurrentRunDifferentials';
+import { getTeamStatistics } from './getTeamStatistics';
 
 async function getPlayerProfile(playerId, delayed) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
@@ -32,10 +33,19 @@ async function evaluateGame(gameId) {
   // Get run differentials
   const runDifferentials = await getCurrentRunDifferentials();
 
+  const homeTeamStats = await getTeamStatistics(boxScore.game.home.id);
+  const awayTeamStats = await getTeamStatistics(boxScore.game.away.id);
+
   return {
     gameId: boxScore.game.id,
-    homeTeam: boxScore.game.home.name,
-    awayTeam: boxScore.game.away.name,
+    homeTeam: {
+      name: boxScore.game.home.name,
+      stats: homeTeamStats
+    },
+    awayTeam: {
+      name: boxScore.game.away.name,
+      stats: awayTeamStats
+    },
     homePitcher: homePitcherProfile ? {
       id: homePitcherProfile.player.id,
       name: `${homePitcherProfile.player.first_name} ${homePitcherProfile.player.last_name}`,
