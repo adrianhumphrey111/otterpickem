@@ -28,7 +28,7 @@ async function evaluateGame(gameId) {
 
   if (awayPitcherId) {
     delayed += 1500
-    awayPitcherProfile = await getPlayerProfile(awayPitcherId);
+    awayPitcherProfile = await getPlayerProfile(awayPitcherId, delayed);
   }
 
   // Add a delay of 1500ms
@@ -90,7 +90,8 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Game ID is required' });
       }
 
-      const evaluatedGame = await evaluateGame(gameId);
+      //const evaluatedGame = await evaluateGame(gameId);
+      const evaluatedGame = mockedEvaulatedGame
       
       // Get Claude's response
       let claudeResponse;
