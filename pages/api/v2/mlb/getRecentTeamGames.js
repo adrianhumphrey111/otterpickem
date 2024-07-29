@@ -14,9 +14,9 @@ export async function getHeadToHeadGames(awayTeamId, homeTeamId) {
     )
     .sort((a, b) => new Date(b.scheduled) - new Date(a.scheduled));
 
-  const reducedGames = headToHeadGames.map(game => reduceGameData({ game }));
+  const detailedGames = await getDetailedGames(headToHeadGames);
 
-  return reducedGames.length > 0 ? reducedGames : [];
+  return detailedGames.length > 0 ? detailedGames : [];
 }
 
 async function evaluateGame(gameId, delayMs) {
@@ -77,6 +77,20 @@ export async function fetchScheduleData() {
   return scheduleData;
 }
 
+async function getDetailedGames(games) {
+  const detailedGames = [];
+  for (let i = 0; i < games.length; i++) {
+    const game = games[i];
+    const delayMs = 1500 * (i + 1);
+    const gameDetails = await evaluateGame(game.id, delayMs);
+    detailedGames.push({
+      ...game,
+      details: gameDetails
+    });
+  }
+  return detailedGames;
+}
+
 export async function getRecentTeamGames(teamId, date) {
   const scheduleData = await fetchScheduleData();
 
@@ -89,18 +103,7 @@ export async function getRecentTeamGames(teamId, date) {
     .sort((a, b) => new Date(b.scheduled) - new Date(a.scheduled))
     .slice(0, 10);
 
-  const detailedGames = [];
-  for (let i = 0; i < filteredGames.length; i++) {
-    const game = filteredGames[i];
-    const delayMs = 1500 * (i + 1);
-    const gameDetails = await evaluateGame(game.id, delayMs);
-    detailedGames.push({
-      ...game,
-      details: gameDetails
-    });
-  }
-
-  return detailedGames;
+  return await getDetailedGames(filteredGames);
 }
 
 export default async function handler(req, res) {
