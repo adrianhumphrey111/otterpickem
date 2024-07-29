@@ -5,6 +5,7 @@ import { getCurrentOPS } from './getCurrentOPS';
 import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
 import { saveGameToDB } from '../../../../utils/dbUtils';
 import { getClaudeResponse } from '../../../../utils/claudeUtils';
+import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 
 async function getPlayerProfile(playerId, delayed) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
