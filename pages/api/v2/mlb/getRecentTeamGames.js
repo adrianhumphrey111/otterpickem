@@ -33,7 +33,7 @@ function reduceGameData(fullGameData) {
         awayTeam: game.away.runs
       }
     },
-    innings: game.innings.map(inning => ({
+    innings: game?.innings?.map(inning => ({
       number: inning.number,
       homeRuns: inning.home.runs,
       awayRuns: inning.away.runs
@@ -41,9 +41,9 @@ function reduceGameData(fullGameData) {
   };
 }
 
-async function getRecentTeamGames(teamId, date) {
+export async function getRecentTeamGames(teamId, date) {
   const url = 'https://api.sportradar.com/mlb/trial/v7/en/games/2024/REG/schedule.json';
-  const scheduleData = await makeDelayedApiCall(url, {}, 1500);
+  const scheduleData = await makeDelayedApiCall(url, {}, 0);
 
   const filteredGames = scheduleData.games
     .filter(game => 
