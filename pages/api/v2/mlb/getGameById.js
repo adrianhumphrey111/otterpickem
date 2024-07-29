@@ -4,6 +4,7 @@ import { getTeamStatistics } from './getTeamStatistics';
 import { getCurrentOPS } from './getCurrentOPS';
 import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
 import { saveGameToDB } from '../../../../utils/dbUtils';
+import { getClaudeResponse } from '../../../../utils/claudeUtils';
 
 async function getPlayerProfile(playerId, delayed) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
@@ -91,9 +92,21 @@ export default async function handler(req, res) {
 
       const evaluatedGame = await evaluateGame(gameId);
       
+      // Get Claude's response
+      let claudeResponse;
+      try {
+        claudeResponse = await getClaudeResponse(evaluatedGame);
+      } catch (claudeError) {
+        console.error('Error getting Claude response:', claudeError);
+        claudeResponse = 'Error: Unable to get Claude response';
+      }
+
+      // Add Claude's response to the evaluatedGame object
+      evaluatedGame.claudeResponse = claudeResponse;
+      
       // Save the evaluatedGame data to the database
       try {
-        const savedGame = await saveGameToDB(evaluatedGame);
+        const savedGame = await saveGameToDB(evaluatedGame, claudeResponse);
         console.log(`Game ${gameId} saved to database successfully with ID: ${savedGame.id}`);
       } catch (dbError) {
         console.error('Error saving game to database:', dbError);

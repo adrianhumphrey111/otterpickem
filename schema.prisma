@@ -407,9 +407,10 @@ model VerificationToken {
 }
 
 model EvaluatedGame {
-  id        String   @id @default(cuid())
-  gameId    String   @unique
-  data      Json
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             String   @id @default(cuid())
+  gameId         String   @unique
+  data           Json
+  claudeResponse String   @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
