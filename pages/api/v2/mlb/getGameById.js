@@ -46,12 +46,10 @@ async function evaluateGame(gameId) {
     homeTeam: {
       name: boxScore.game.home.name,
       stats: homeTeamStats.statistics,
-      ops: teamOPS[boxScore.game.home.name] || null
     },
     awayTeam: {
       name: boxScore.game.away.name,
       stats: awayTeamStats.statistics,
-      ops: teamOPS[boxScore.game.away.name] || null
     },
     homePitcher: homePitcherProfile ? {
       id: homePitcherProfile.player.id,
@@ -66,7 +64,8 @@ async function evaluateGame(gameId) {
       splits: awayPitcherProfile.player.seasons[0]?.totals?.splits?.pitching?.overall
     } : null,
     boxScore: boxScore.game,
-    runDifferentials: runDifferentials
+    runDifferentials: runDifferentials,
+    opsRanings: teamOPS
   };
 }
 
