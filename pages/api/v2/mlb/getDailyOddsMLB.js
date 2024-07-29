@@ -16,10 +16,17 @@ export default async function handler(req, res) {
 }
 
 async function getDailyOddsMLB(date) {
-  const url = `https://api.sportradar.com/oddscomparison-ust1/en/us/sports/sr:sport:3/${date}/schedule.json`;
-  const response = await makeDelayedApiCall(url, {}, 0);
+  const url = `https://api.sportradar.com/oddscomparison-ust1/en/us/sports/sr%3Asport%3A3/${date}/schedule.json`;
+  const response = await makeDelayedApiCall(url, {}, 1500);
 
-  const mlbEvents = response.sport_events.filter(event => event.tournament.name === "MLB");
+  if (!response || !response.sport_events) {
+    throw new Error('Invalid response from API');
+  }
+
+  const mlbEvents = response.sport_events.filter(event => 
+    event.tournament.name === "MLB" && 
+    event.scheduled.startsWith(date)
+  );
 
   return {
     mlbEvents
