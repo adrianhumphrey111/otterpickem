@@ -23,23 +23,28 @@ export default async function handler(req, res) {
       ${tableHTML}
       `;
 
-      const claudeResponse = await axios.post('https://api.anthropic.com/v1/messages', {
-        model: "claude-3-opus-20240229",
-        max_tokens: 1000,
-        messages: [{ role: "user", content: prompt }]
+      const response = await axios.post('https://api.anthropic.com/v1/messages', {
+        model:"claude-3-5-sonnet-20240620",
+        max_tokens: 4096,
+        temperature: 0,
+        system: "You are an expert data analyzer and good at pulling data out of html code and returning structured JSON objects with the information you are given. You only return structured json in your response and not text about the json",
+        messages: [
+          { role: "user", content: prompt }
+        ]
       }, {
         headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': process.env.CLAUDE_API_KEY
+          'x-api-key': process.env.ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+          'content-type': 'application/json'
         }
       });
 
-      const runDifferentials = JSON.parse(claudeResponse.data.content[0].text);
+      const runDifferentials = JSON.parse(response.data.content[0].text);
 
       res.status(200).json(runDifferentials);
     } catch (error) {
-      console.error('Error fetching run differentials:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      console.error('Error calling Claude API:', error.response.data.error.message);
+      res.status(500).json({ error: error.response.data.error.message });
     }
   } else {
     res.setHeader('Allow', ['GET']);
