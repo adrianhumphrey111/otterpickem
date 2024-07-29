@@ -2,6 +2,7 @@ import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 import { getCurrentRunDifferentials } from './getCurrentRunDifferentials';
 import { getTeamStatistics } from './getTeamStatistics';
 import { getCurrentOPS } from './getCurrentOPS';
+import getRecentTeamGames from './getRecentTeamGames';
 
 async function getPlayerProfile(playerId, delayed) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
@@ -41,15 +42,21 @@ async function evaluateGame(gameId) {
   // Get team OPS
   const teamOPS = await getCurrentOPS();
 
+  // Get recent games for both teams
+  const homeRecentGames = await getRecentTeamGames(boxScore.game.home.id, boxScore.game.scheduled);
+  const awayRecentGames = await getRecentTeamGames(boxScore.game.away.id, boxScore.game.scheduled);
+
   return {
     gameId: boxScore.game.id,
     homeTeam: {
       name: boxScore.game.home.name,
       stats: homeTeamStats.statistics,
+      recentGames: homeRecentGames
     },
     awayTeam: {
       name: boxScore.game.away.name,
       stats: awayTeamStats.statistics,
+      recentGames: awayRecentGames
     },
     homePitcher: homePitcherProfile ? {
       id: homePitcherProfile.player.id,
