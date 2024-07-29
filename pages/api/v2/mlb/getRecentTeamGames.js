@@ -44,7 +44,7 @@ function reduceGameData(fullGameData) {
   };
 }
 
-async function fetchScheduleData() {
+export async function fetchScheduleData() {
   const cacheKey = 'scheduleData2024REG';
   const cachedData = cache.get(cacheKey);
 
