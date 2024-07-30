@@ -1,5 +1,5 @@
 import { getScheduleByDate } from '../../utils/mlbScheduleUtils';
-import { evaluateGame } from '../../utils/evaluateGame';
+import { evaluateGame } from '../api/v2/mlb/getGameById';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
