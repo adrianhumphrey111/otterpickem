@@ -1,4 +1,4 @@
-import { saveGameToDB } from '../../../../utils/dbUtils';
+import { saveGameToDB } from '../../../../utils/dbUtils.js';
 
 const mockGame = {
   gameId: 'test-game-id-123',

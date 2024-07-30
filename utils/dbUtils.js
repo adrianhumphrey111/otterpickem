@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export async function saveGameToDB(evaluatedGame, claudeResponse) {
+export const saveGameToDB = async (evaluatedGame, claudeResponse) => {
   try {
     const savedGame = await prisma.evaluatedGame.create({
       data: {
