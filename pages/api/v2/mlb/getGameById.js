@@ -7,6 +7,11 @@ import { saveGameToDB } from '../../../../utils/dbUtils';
 import { getClaudeResponse } from '../../../../utils/claudeUtils';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 
+async function getTeamStandings() {
+  const url = 'https://api.sportradar.com/mlb/trial/v7/en/seasons/2024/REG/standings.json';
+  return await makeDelayedApiCall(url, {}, 1500);
+}
+
 async function getPlayerProfile(playerId, delayed) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
   return await makeDelayedApiCall(url, {}, delayed);
@@ -51,6 +56,9 @@ async function evaluateGame(gameId) {
 
   const headToHeadGames = await getHeadToHeadGames(boxScore.game.away.id, boxScore.game.home.id);
 
+  // Get team standings
+  const standings = await getTeamStandings();
+
   return {
     gameId: boxScore.game.id,
     homeTeam: {
@@ -78,7 +86,8 @@ async function evaluateGame(gameId) {
     } : null,
     boxScore: boxScore.game,
     runDifferentials: runDifferentials,
-    opsRanings: teamOPS
+    opsRanings: teamOPS,
+    standings: standings
   };
 }
 
