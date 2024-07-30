@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         const evaluatedGame = await evaluateGame(game.id);
         evaluatedGames.push(evaluatedGame);
         if (game !== games[games.length - 1]) {
-          await delay(20000); // 20 second delay between each call, except after the last game
+          await delay(300000); // 5 minute (300,000 ms) delay between each call, except after the last game
         }
       }
       
