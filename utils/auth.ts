@@ -1,23 +1,27 @@
 import { useState, useEffect } from 'react';
-import { createClient, User, Session } from '@supabase/supabase-js';
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+// Mock User type
+interface User {
+  id: string;
+  email: string;
+}
 
+// Mock authentication functions
 export const signUp = async (email: string, password: string): Promise<User | null> => {
-  const { data, error } = await supabase.auth.signUp({ email, password });
-  if (error) throw error;
-  return data.user;
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return { id: 'mock-user-id', email };
 };
 
 export const signIn = async (email: string, password: string): Promise<User | null> => {
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) throw error;
-  return data.user;
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return { id: 'mock-user-id', email };
 };
 
 export const signOut = async (): Promise<void> => {
-  const { error } = await supabase.auth.signOut();
-  if (error) throw error;
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
 };
 
 export const useUser = () => {
@@ -25,22 +29,14 @@ export const useUser = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    // Simulate fetching user session
     const fetchSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setUser({ id: 'mock-user-id', email: 'mock@example.com' });
       setLoading(false);
     };
 
     fetchSession();
-
-    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    return () => {
-      authListener.subscription.unsubscribe();
-    };
   }, []);
 
   return { user, loading };
