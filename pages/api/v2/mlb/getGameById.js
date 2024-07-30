@@ -3,31 +3,10 @@ import { getCurrentRunDifferentials } from './getCurrentRunDifferentials';
 import { getTeamStatistics } from './getTeamStatistics';
 import { getCurrentOPS } from './getCurrentOPS';
 import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
+import { getTeamStandings } from './getTeamStandings';
 import { saveGameToDB } from '../../../../utils/dbUtils';
 import { getClaudeResponse } from '../../../../utils/claudeUtils';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
-
-async function getTeamStandings(homeTeamId, awayTeamId) {
-  const url = 'https://api.sportradar.com/mlb/trial/v7/en/seasons/2024/REG/standings.json';
-  const standings = await makeDelayedApiCall(url, {}, 0);
-  const [al, nl] = standings.league.season.leagues
-
-  // combine the leages
-  const allLeagues = [...al, ...nl]
-  let allTeams = []
-  for( let league of allLeagues){
-    for (let division of league.divisions){
-      for (let team of division.teams){
-        allTeams.push(team)
-      }
-    }
-  }
-
-  const awayTeamStandings = allTeams.find( t => t.id === awayTeamId) || {}
-  const homeTeamStandings = allTeams.findIndex( t => t.id === homeTeamId) || {}
-
-  return { awayTeamStandings, homeTeamStandings}
-}
 
 
 async function getPlayerProfile(playerId, delayed) {
