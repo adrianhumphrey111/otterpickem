@@ -1,6 +1,4 @@
-export default async function handler(req, res) {
-    res.status(200).send();
-}export default function handler(req, res) {
+export default function handler(req, res) {
   if (req.method === 'GET') {
     const currentDate = new Date();
     const response = {
