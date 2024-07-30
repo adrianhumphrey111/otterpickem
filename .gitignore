@@ -39,3 +39,7 @@ next-env.d.ts
 .env
 scripts/
 backup.dump
+
+spinner.html
+throwaway
+throwaway1/

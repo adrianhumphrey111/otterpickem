@@ -1,4 +1,4 @@
-import { makeDelayedApiCall } from '../../../../utils/apiUtils.js';
+import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 import { getCurrentRunDifferentials } from './getCurrentRunDifferentials';
 import { getTeamStatistics } from './getTeamStatistics';
 import { getCurrentOPS } from './getCurrentOPS';
@@ -9,6 +9,7 @@ import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
+
 let lastApiCallTime = 0;
 
 async function makeApiCallWithDelay(apiCallFunction, ...args) {

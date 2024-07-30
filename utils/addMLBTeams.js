@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const mlbTeams = [
+export const mlbTeams = [
   {
     "id": "93941372-eb4c-4c40-aced-fe3267174393",
     "name": "Angels",

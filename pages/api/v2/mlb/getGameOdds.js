@@ -2,7 +2,7 @@ import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 
 async function fetchGameOdds(gameId) {
   const url = `https://api.sportradar.com/oddscomparison-usp/trial/v2/en/sports/sr:sport:3/events/sr:match:${gameId}/markets.json`;
-  return await makeDelayedApiCall(url, {}, 1500);
+  return await makeDelayedApiCall(url, {}, 0);
 }
 
 export default async function handler(req, res) {
