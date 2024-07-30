@@ -11,7 +11,14 @@ export default async function handler(req, res) {
 
       const games = await getScheduleByDate(year, month, date);
       
-      res.status(200).json(games);
+      const evaluatedGames = [];
+      for (let i = 0; i < games.length; i++) {
+        const game = games[i];
+        const evaluatedGame = await evaluateGame(game.id);
+        evaluatedGames.push(evaluatedGame);
+      }
+      
+      res.status(200).json(evaluatedGames);
     } catch (error) {
       console.error('Error:', error);
       res.status(500).json({ message: 'Internal Server Error' });
