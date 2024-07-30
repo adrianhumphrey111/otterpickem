@@ -7,10 +7,28 @@ import { saveGameToDB } from '../../../../utils/dbUtils';
 import { getClaudeResponse } from '../../../../utils/claudeUtils';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 
-async function getTeamStandings() {
+async function getTeamStandings(homeTeamId, awayTeamId) {
   const url = 'https://api.sportradar.com/mlb/trial/v7/en/seasons/2024/REG/standings.json';
-  return await makeDelayedApiCall(url, {}, 1500);
+  const standings = await makeDelayedApiCall(url, {}, 0);
+  const [al, nl] = standings.league.season.leagues
+
+  // combine the leages
+  const allLeagues = [...al, ...nl]
+  let allTeams = []
+  for( let league of allLeagues){
+    for (let division of league.divisions){
+      for (let team of division.teams){
+        allTeams.push(team)
+      }
+    }
+  }
+
+  const awayTeamStandings = allTeams.find( t => t.id === awayTeamId) || {}
+  const homeTeamStandings = allTeams.findIndex( t => t.id === homeTeamId) || {}
+
+  return { awayTeamStandings, homeTeamStandings}
 }
+
 
 async function getPlayerProfile(playerId, delayed) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
@@ -56,20 +74,25 @@ async function evaluateGame(gameId) {
 
   const headToHeadGames = await getHeadToHeadGames(boxScore.game.away.id, boxScore.game.home.id);
 
+  // Add a delay of 1500ms
+  await new Promise(resolve => setTimeout(resolve, 1500));
+
   // Get team standings
-  const standings = await getTeamStandings();
+  const {homeTeamStandings, awayTeamStandings} = await getTeamStandings(boxScore.game.home.id, boxScore.game.away.id);
 
   return {
     gameId: boxScore.game.id,
     homeTeam: {
       name: boxScore.game.home.name,
       stats: homeTeamStats.statistics,
-      recentGames: homeRecentGames
+      recentGames: homeRecentGames,
+      standings: homeTeamStandings
     },
     awayTeam: {
       name: boxScore.game.away.name,
       stats: awayTeamStats.statistics,
-      recentGames: awayRecentGames
+      recentGames: awayRecentGames,
+      standings: awayTeamStandings
     },
     headToHeadGames: headToHeadGames,
     homePitcher: homePitcherProfile ? {
@@ -87,7 +110,6 @@ async function evaluateGame(gameId) {
     boxScore: boxScore.game,
     runDifferentials: runDifferentials,
     opsRanings: teamOPS,
-    standings: standings
   };
 }
 
