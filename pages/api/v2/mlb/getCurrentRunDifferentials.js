@@ -7,6 +7,7 @@ const cache = new NodeCache({ stdTTL: 86400 }); // 24 hours in seconds
 export async function getCurrentRunDifferentials() {
   const cachedData = cache.get('runDifferentials');
   if (cachedData) {
+    console.log("we have cached data")
     return cachedData;
   }
   try {
@@ -24,6 +25,9 @@ export async function getCurrentRunDifferentials() {
     const prompt = `
     Extract the MLB team run differentials from this HTML table and return it as a JSON object.
     The JSON object should have team names as keys and their run differentials as values.
+    
+    I would like the the run differential for each team both home and away
+    
     Only include the JSON object in your response, without any additional text.
     
     ${tableHTML}
