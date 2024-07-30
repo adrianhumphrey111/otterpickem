@@ -8,16 +8,28 @@ import { saveGameToDB } from '../../../../utils/dbUtils';
 import { getClaudeResponse } from '../../../../utils/claudeUtils';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 
+let lastApiCallTime = 0;
 
-async function getPlayerProfile(playerId, delayed) {
+async function makeApiCallWithDelay(apiCallFunction, ...args) {
+  const now = Date.now();
+  const timeSinceLastCall = now - lastApiCallTime;
+  if (timeSinceLastCall < 1500) {
+    await new Promise(resolve => setTimeout(resolve, 1500 - timeSinceLastCall));
+  }
+  const result = await apiCallFunction(...args);
+  lastApiCallTime = Date.now();
+  return result;
+}
+
+
+async function getPlayerProfile(playerId) {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
-  return await makeDelayedApiCall(url, {}, delayed);
+  return await makeApiCallWithDelay(makeDelayedApiCall, url, {}, 0);
 }
 
 async function evaluateGame(gameId) {
-  let delayed = 0
   const boxScoreUrl = `https://api.sportradar.com/mlb/trial/v7/en/games/${gameId}/boxscore.json`;
-  const boxScore = await makeDelayedApiCall(boxScoreUrl, {}, delayed);
+  const boxScore = await makeApiCallWithDelay(makeDelayedApiCall, boxScoreUrl, {}, 0);
 
   const homePitcherId = boxScore.game.home.probable_pitcher?.id;
   const awayPitcherId = boxScore.game.away.probable_pitcher?.id;
@@ -25,56 +37,30 @@ async function evaluateGame(gameId) {
   let homePitcherProfile, awayPitcherProfile;
 
   if (homePitcherId) {
-    delayed += 1500
-    homePitcherProfile = await getPlayerProfile(homePitcherId, delayed);
+    homePitcherProfile = await makeApiCallWithDelay(getPlayerProfile, homePitcherId);
   }
 
   if (awayPitcherId) {
-    delayed += 1500
-    awayPitcherProfile = await getPlayerProfile(awayPitcherId, delayed);
+    awayPitcherProfile = await makeApiCallWithDelay(getPlayerProfile, awayPitcherId);
   }
 
-  // Add a delay of 1500ms
-  await new Promise(resolve => setTimeout(resolve, 1500));
-
   // Get run differentials
-  const runDifferentials = await getCurrentRunDifferentials();
-
-  // Add a delay of 1500ms
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  const runDifferentials = await makeApiCallWithDelay(getCurrentRunDifferentials);
 
   // Get team statistics
-  const homeTeamStats = await getTeamStatistics(boxScore.game.home.id);
-
-  // Add a delay of 1500ms
-  await new Promise(resolve => setTimeout(resolve, 1500));
-  const awayTeamStats = await getTeamStatistics(boxScore.game.away.id);
-
-  // Add a delay of 1500ms
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  const homeTeamStats = await makeApiCallWithDelay(getTeamStatistics, boxScore.game.home.id);
+  const awayTeamStats = await makeApiCallWithDelay(getTeamStatistics, boxScore.game.away.id);
 
   // Get team OPS
-  const teamOPS = await getCurrentOPS();
-
-  // Add a delay of 1500ms
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  const teamOPS = await makeApiCallWithDelay(getCurrentOPS);
 
   // Get recent games for both teams
-  const homeRecentGames = await getRecentTeamGames(boxScore.game.home.id, boxScore.game.scheduled);
-
-  // Add a delay of 1500ms
-  await new Promise(resolve => setTimeout(resolve, 1500));
-  const awayRecentGames = await getRecentTeamGames(boxScore.game.away.id, boxScore.game.scheduled);
-
-  // Add a delay of 1500ms
-  await new Promise(resolve => setTimeout(resolve, 1500));
-  const headToHeadGames = await getHeadToHeadGames(boxScore.game.away.id, boxScore.game.home.id);
-
-  // Add a delay of 1500ms
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  const homeRecentGames = await makeApiCallWithDelay(getRecentTeamGames, boxScore.game.home.id, boxScore.game.scheduled);
+  const awayRecentGames = await makeApiCallWithDelay(getRecentTeamGames, boxScore.game.away.id, boxScore.game.scheduled);
+  const headToHeadGames = await makeApiCallWithDelay(getHeadToHeadGames, boxScore.game.away.id, boxScore.game.home.id);
 
   // Get team standings
-  const {homeTeamStandings, awayTeamStandings} = await getTeamStandings(boxScore.game.home.id, boxScore.game.away.id);
+  const {homeTeamStandings, awayTeamStandings} = await makeApiCallWithDelay(getTeamStandings, boxScore.game.home.id, boxScore.game.away.id);
 
   return {
     gameId: boxScore.game.id,
