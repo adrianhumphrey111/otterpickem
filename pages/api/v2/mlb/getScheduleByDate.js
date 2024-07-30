@@ -17,7 +17,7 @@ export default async function handler(req, res) {
           0
         );
 
-        res.status(200).json(scheduleData.games)
+        res.status(200).json(scheduleData.games).send()
 
         }catch(e){
             console.error('Error:', error);
