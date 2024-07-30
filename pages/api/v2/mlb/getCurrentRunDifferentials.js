@@ -1,4 +1,4 @@
-import { chromium } from 'playwright';
+import puppeteer from 'puppeteer';
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
@@ -11,7 +11,7 @@ export async function getCurrentRunDifferentials() {
     return cachedData;
   }
   try {
-    const browser = await chromium.launch();
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto('https://www.teamrankings.com/mlb/stat/run-differential');
 
