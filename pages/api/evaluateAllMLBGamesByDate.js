@@ -1,5 +1,6 @@
 import { getScheduleByDate } from '../../utils/mlbScheduleUtils';
 import { evaluateGame } from '../api/v2/mlb/getGameById';
+import prisma from '../../lib/prisma';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
@@ -14,8 +15,19 @@ export default async function handler(req, res) {
       const evaluatedGames = [];
       for (let i = 0; i < games.length; i++) {
         const game = games[i];
-        const evaluatedGame = await evaluateGame(game.id);
-        evaluatedGames.push(evaluatedGame);
+        
+        // Check if the game has already been evaluated
+        const existingEvaluatedGame = await prisma.evaluatedGame.findUnique({
+          where: { gameId: game.id },
+        });
+
+        if (existingEvaluatedGame) {
+          console.log(`Game ${game.id} already evaluated. Skipping.`);
+          evaluatedGames.push(existingEvaluatedGame.data);
+        } else {
+          const evaluatedGame = await evaluateGame(game.id);
+          evaluatedGames.push(evaluatedGame);
+        }
       }
       
       res.status(200).json(evaluatedGames);
