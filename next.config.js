@@ -1,9 +1,9 @@
-const { CronJob } = require('cron');
-const { dailyTask } = require('./cron/dailyTask');
+import { CronJob } from 'cron';
+import { dailyTask } from './cron/dailyTask.js';
 
 const cronJob = new CronJob('0 8 * * *', dailyTask, null, false, 'America/New_York');
 
-module.exports = {
+const nextConfig = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       cronJob.start();
@@ -11,3 +11,5 @@ module.exports = {
     return config;
   },
 };
+
+export default nextConfig;
