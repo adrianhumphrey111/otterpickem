@@ -40,17 +40,34 @@ async function evaluateGame(gameId) {
   // Get run differentials
   const runDifferentials = await getCurrentRunDifferentials();
 
+  // Add a delay of 1500ms
+  await new Promise(resolve => setTimeout(resolve, 1500));
+
   // Get team statistics
   const homeTeamStats = await getTeamStatistics(boxScore.game.home.id);
+
+  // Add a delay of 1500ms
+  await new Promise(resolve => setTimeout(resolve, 1500));
   const awayTeamStats = await getTeamStatistics(boxScore.game.away.id);
+
+  // Add a delay of 1500ms
+  await new Promise(resolve => setTimeout(resolve, 1500));
 
   // Get team OPS
   const teamOPS = await getCurrentOPS();
 
+  // Add a delay of 1500ms
+  await new Promise(resolve => setTimeout(resolve, 1500));
+
   // Get recent games for both teams
   const homeRecentGames = await getRecentTeamGames(boxScore.game.home.id, boxScore.game.scheduled);
+
+  // Add a delay of 1500ms
+  await new Promise(resolve => setTimeout(resolve, 1500));
   const awayRecentGames = await getRecentTeamGames(boxScore.game.away.id, boxScore.game.scheduled);
 
+  // Add a delay of 1500ms
+  await new Promise(resolve => setTimeout(resolve, 1500));
   const headToHeadGames = await getHeadToHeadGames(boxScore.game.away.id, boxScore.game.home.id);
 
   // Add a delay of 1500ms
@@ -101,8 +118,8 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Game ID is required' });
       }
 
-      //const evaluatedGame = await evaluateGame(gameId);
-      const evaluatedGame = mockedEvaluatedGame;
+      const evaluatedGame = await evaluateGame(gameId);
+      // const evaluatedGame = mockedEvaluatedGame;
       
       // Get Claude's response
       let claudeResponse;
