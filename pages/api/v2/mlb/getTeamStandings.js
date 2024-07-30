@@ -1,6 +1,6 @@
 import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 
-async function getTeamStandings(homeTeamId, awayTeamId) {
+export async function getTeamStandings(homeTeamId, awayTeamId) {
   const url = 'https://api.sportradar.com/mlb/trial/v7/en/seasons/2024/REG/standings.json';
   const standings = await makeDelayedApiCall(url, {}, 0);
   const [al, nl] = standings.league.season.leagues;
