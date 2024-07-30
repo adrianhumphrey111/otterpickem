@@ -1,7 +1,7 @@
 {
   "crons": [
     {
-      "path": "/api/cron",
+      "path": "/api/evaluateAllMLBGamesByDate",
       "schedule": "*/5 * * * *"
     }
   ]
