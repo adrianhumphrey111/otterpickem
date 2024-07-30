@@ -1,32 +1,32 @@
 import { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, User, Session } from '@supabase/supabase-js';
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
-export const signUp = async (email: string, password: string) => {
-  const { user, error } = await supabase.auth.signUp({ email, password });
+export const signUp = async (email: string, password: string): Promise<User | null> => {
+  const { data, error } = await supabase.auth.signUp({ email, password });
   if (error) throw error;
-  return user;
+  return data.user;
 };
 
-export const signIn = async (email: string, password: string) => {
-  const { user, error } = await supabase.auth.signIn({ email, password });
+export const signIn = async (email: string, password: string): Promise<User | null> => {
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) throw error;
-  return user;
+  return data.user;
 };
 
-export const signOut = async () => {
+export const signOut = async (): Promise<void> => {
   const { error } = await supabase.auth.signOut();
   if (error) throw error;
 };
 
 export const useUser = () => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const session = supabase.auth.session();
-    setUser(session?.user ?? null);
+    const session = supabase.auth.getSession();
+    setUser(session ? session.data.session?.user ?? null : null);
     setLoading(false);
 
     const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
@@ -35,7 +35,7 @@ export const useUser = () => {
     });
 
     return () => {
-      authListener?.unsubscribe();
+      authListener.subscription.unsubscribe();
     };
   }, []);
 
