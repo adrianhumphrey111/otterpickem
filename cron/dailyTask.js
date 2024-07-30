@@ -1,7 +1,7 @@
-import axios from 'axios';
-import { getGameById } from '../pages/api/v2/mlb/getGameById';
+const axios = require('axios');
+const { getGameById } = require('../pages/api/v2/mlb/getGameById');
 
-export async function dailyTask() {
+async function dailyTask() {
   console.log('Running daily task at', new Date().toISOString());
 
   try {
@@ -26,3 +26,5 @@ export async function dailyTask() {
     console.error('Error in daily task:', error);
   }
 }
+
+module.exports = { dailyTask };
