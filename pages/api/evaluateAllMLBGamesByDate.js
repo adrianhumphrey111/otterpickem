@@ -1,8 +1,6 @@
 import { getScheduleByDate } from '../../utils/mlbScheduleUtils';
 import { evaluateGame } from '../../utils/evaluateGame';
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
@@ -13,17 +11,7 @@ export default async function handler(req, res) {
 
       const games = await getScheduleByDate(year, month, date);
       
-      const evaluatedGames = [];
-      for (let i = 0; i < games.length; i++) {
-        const game = games[i];
-        const evaluatedGame = await evaluateGame(game.id);
-        evaluatedGames.push(evaluatedGame);
-        if (i < games.length - 1) {
-          await delay(300000); // 5 minute (300,000 ms) delay between each call, except after the last game
-        }
-      }
-      
-      res.status(200).json(evaluatedGames);
+      res.status(200).json(games);
     } catch (error) {
       console.error('Error:', error);
       res.status(500).json({ message: 'Internal Server Error' });
