@@ -1,27 +1,27 @@
-import { PrismaClient } from '@prisma/client';
-import { makeDelayedApiCall } from '../../../../utils/apiUtils';
-
-const prisma = new PrismaClient();
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
+import { getScheduleByDate } from '../../../../utils/mlbScheduleUtils';
 
 export default async function handler(req, res) {
-    if (req.method === 'POST') {
-      try {
-        const { year, month, date } = req.body;
-  
-        // Get the game schedule
-        const scheduleData = await makeDelayedApiCall(
-          `https://api.sportradar.com/mlb/production/v7/en/games/${year}/${month}/${date}/schedule.json`,
-          {},
-          0
-        );
+  if (req.method === 'GET' || req.method === 'POST') {
+    try {
+      let year, month, date;
+      if (req.method === 'GET') {
+        ({ year, month, date } = req.query);
+      } else {
+        ({ year, month, date } = req.body);
+      }
 
-        res.status(200).json(scheduleData.games).send()
+      if (!year || !month || !date) {
+        return res.status(400).json({ message: 'Missing required parameters' });
+      }
 
-        }catch(e){
-            console.error('Error:', error);
-            res.status(500).json({ message: 'Internal Server Error' });
-        }
+      const games = await getScheduleByDate(year, month, date);
+      res.status(200).json(games);
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
     }
+  } else {
+    res.setHeader('Allow', ['GET', 'POST']);
+    res.status(405).json({ message: `Method ${req.method} Not Allowed` });
+  }
 }
