@@ -14,10 +14,11 @@ export default async function handler(req, res) {
       const games = await getScheduleByDate(year, month, date);
       
       const evaluatedGames = [];
-      for (const game of games) {
+      for (let i = 0; i < games.length; i++) {
+        const game = games[i];
         const evaluatedGame = await evaluateGame(game.id);
         evaluatedGames.push(evaluatedGame);
-        if (game !== games[games.length - 1]) {
+        if (i < games.length - 1) {
           await delay(300000); // 5 minute (300,000 ms) delay between each call, except after the last game
         }
       }
