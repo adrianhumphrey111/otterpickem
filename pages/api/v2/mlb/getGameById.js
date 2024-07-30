@@ -4,10 +4,11 @@ import { getTeamStatistics } from './getTeamStatistics';
 import { getCurrentOPS } from './getCurrentOPS';
 import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
 import { getTeamStandings } from './getTeamStandings';
-import { saveGameToDB } from '../../../../utils/dbUtils';
 import { getClaudeResponse } from '../../../../utils/claudeUtils';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
+import { PrismaClient } from '@prisma/client';
 
+const prisma = new PrismaClient();
 let lastApiCallTime = 0;
 
 async function makeApiCallWithDelay(apiCallFunction, ...args) {
@@ -19,6 +20,22 @@ async function makeApiCallWithDelay(apiCallFunction, ...args) {
   const result = await apiCallFunction(...args);
   lastApiCallTime = Date.now();
   return result;
+}
+
+export async function saveGameToDB(evaluatedGame, claudeResponse) {
+  try {
+    const savedGame = await prisma.evaluatedGame.create({
+      data: {
+        gameId: evaluatedGame.gameId,
+        data: evaluatedGame,
+        claudeResponse: claudeResponse,
+      },
+    });
+    return savedGame;
+  } catch (error) {
+    console.error('Error saving game to database:', error);
+    throw error;
+  }
 }
 
 
