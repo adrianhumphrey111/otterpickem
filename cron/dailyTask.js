@@ -1,20 +1,20 @@
-import { PrismaClient } from '@prisma/client';
+import axios from 'axios';
 import { getGameById } from '../pages/api/v2/mlb/getGameById';
-
-const prisma = new PrismaClient();
 
 export async function dailyTask() {
   console.log('Running daily task at', new Date().toISOString());
 
   try {
-    // Fetch today's games
-    const today = new Date();
-    const games = await prisma.game.findMany({
-      where: {
-        date: today,
-        status: 'scheduled'
-      }
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0];
+
+    // Fetch today's MLB schedule from Sports Radar API
+    const scheduleUrl = `https://api.sportradar.com/mlb/trial/v7/en/games/${today}/schedule.json`;
+    const response = await axios.get(scheduleUrl, {
+      params: { api_key: process.env.SPORTS_RADAR_API_KEY },
     });
+
+    const games = response.data.games;
 
     // Process each game
     for (const game of games) {
