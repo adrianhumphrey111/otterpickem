@@ -38,8 +38,8 @@ const GameCard: React.FC<GameCardProps> = ({ game, isGameOfTheDay = false }) => 
         {game.claudeResponse ? game.claudeResponse.split('\n')[0] : "Game preview and analysis not available."}
       </p>
       <div className="text-center">
-        <Link href="/signup" className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-green-600 text-white text-xs sm:text-sm font-medium rounded-full hover:bg-green-700 transition-colors">
-          View Premium Pick
+        <Link href={`/game/${game.gameId}`} className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-green-600 text-white text-xs sm:text-sm font-medium rounded-full hover:bg-green-700 transition-colors">
+          View Game Details
         </Link>
       </div>
     </article>
