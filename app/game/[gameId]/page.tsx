@@ -1,7 +1,12 @@
 import { EvaluatedGame } from '../../types';
 
 async function getGameDetails(gameId: string) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v2/mlb/getGameDetails?gameId=${gameId}`, { cache: 'no-store' });
+  const response = await fetch(`/api/v2/mlb/getGameDetails?gameId=${gameId}`, {
+    cache: 'no-store',
+    headers: {
+      'x-invoke-path': '/api/v2/mlb/getGameDetails',
+    },
+  });
   if (!response.ok) {
     throw new Error('Failed to fetch game details');
   }
