@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Game } from '../types';
+import { EvaluatedGame, Game } from '../types';
 
 interface GameOfTheDayCardProps {
-  game: Game;
+  game: EvaluatedGame;
 }
 
 const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
   const [showAnalysis, setShowAnalysis] = useState(false);
-  const awayTeamName = game.awayTeam.name;
-  const homeTeamName = game.homeTeam.name;
+  const { data: gameData } = game
+  const awayTeamName = gameData.awayTeam.name;
+  const homeTeamName = gameData.homeTeam.name;
 
   return (
     <article className="w-full max-w-md mx-auto mb-4 p-4 bg-white rounded-lg shadow-md border border-blue-300">
@@ -18,7 +19,7 @@ const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
       </div>
       <div className="grid grid-cols-3 gap-2 items-center mb-2">
         <div className="flex flex-col items-center">
-          <Image src={game.awayTeam.logoUrl} alt={`${awayTeamName} logo`} width={60} height={60} className="mb-1" />
+          <Image src={gameData.awayTeam.logoUrl} alt={`${awayTeamName} logo`} width={60} height={60} className="mb-1" />
           <h2 className="text-sm font-bold text-gray-900 text-center truncate w-full">{awayTeamName}</h2>
         </div>
         <div className="flex flex-col items-center justify-center">
@@ -26,7 +27,7 @@ const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
           <span className="text-sm text-gray-500">{game.time}</span>
         </div>
         <div className="flex flex-col items-center">
-          <Image src={game.homeTeam.logoUrl} alt={`${homeTeamName} logo`} width={60} height={60} className="mb-1" />
+          <Image src={gameData.homeTeam.logoUrl} alt={`${homeTeamName} logo`} width={60} height={60} className="mb-1" />
           <h2 className="text-sm font-bold text-gray-900 text-center truncate w-full">{homeTeamName}</h2>
         </div>
       </div>
