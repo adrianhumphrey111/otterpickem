@@ -23,7 +23,7 @@ const GameCard: React.FC<GameCardProps> = ({ game, isGameOfTheDay = false }) => 
         <div className="flex flex-col items-center justify-center">
           <span className="text-lg font-bold">@</span>
           <span className="text-xs text-gray-500">
-            {gameData.scheduled ? new Date(gameData.scheduled).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'TBA'}
+            {gameData.boxScore.scheduled ? new Date(gameData.boxScore.scheduled).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'TBA'}
           </span>
         </div>
         <div className="flex flex-col items-center">
