@@ -4,7 +4,11 @@ import Slider from 'react-slick';
 import GameCard from './GameCard';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { GamesListProps } from '../types';
+import { EvaluatedGame } from '../types';
+
+interface GamesListProps {
+  games: EvaluatedGame[];
+}
 
 const GamesList: React.FC<GamesListProps> = ({ games }) => {
   const settings = {
