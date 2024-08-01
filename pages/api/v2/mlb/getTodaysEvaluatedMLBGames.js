@@ -20,15 +20,6 @@ export default async function handler(req, res) {
         orderBy: {
           createdAt: 'desc',
         },
-        select: {
-          id: true,
-          gameId: true,
-          data: true,
-          claudeResponse: true,
-          gameOfTheDay: true,
-          createdAt: true,
-          updatedAt: true,
-        },
       });
 
       res.status(200).json(todaysGames);
