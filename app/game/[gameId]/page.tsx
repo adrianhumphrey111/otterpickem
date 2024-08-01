@@ -1,37 +1,22 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import { EvaluatedGame } from '../../types';
 
-export default function GameDetails() {
-  const router = useRouter();
-  const { gameId } = router.query;
-  const [game, setGame] = useState<EvaluatedGame | null>(null);
-  const [loading, setLoading] = useState(true);
+async function getGameDetails(gameId: string) {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v2/mlb/getGameDetails?gameId=${gameId}`, { cache: 'no-store' });
+  if (!response.ok) {
+    throw new Error('Failed to fetch game details');
+  }
+  return response.json();
+}
 
-  useEffect(() => {
-    if (gameId) {
-      fetchGameDetails();
-    }
-  }, [gameId]);
+export default async function GameDetails({ params }: { params: { gameId: string } }) {
+  const gameId = params.gameId;
+  let game: EvaluatedGame;
 
-  const fetchGameDetails = async () => {
-    try {
-      const response = await fetch(`/api/v2/mlb/getGameDetails?gameId=${gameId}`);
-      if (response.ok) {
-        const data = await response.json();
-        setGame(data);
-      } else {
-        console.error('Failed to fetch game details');
-      }
-    } catch (error) {
-      console.error('Error fetching game details:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return <div>Loading...</div>;
+  try {
+    game = await getGameDetails(gameId);
+  } catch (error) {
+    console.error('Error fetching game details:', error);
+    return <div>Error loading game details</div>;
   }
 
   if (!game) {
