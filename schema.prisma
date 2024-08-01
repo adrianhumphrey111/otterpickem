@@ -411,6 +411,7 @@ model EvaluatedGame {
   gameId         String   @unique
   data           Json
   claudeResponse String   @db.Text
+  gameOfTheDay   Boolean  @default(false)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
