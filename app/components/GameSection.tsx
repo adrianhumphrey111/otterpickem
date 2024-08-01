@@ -4,25 +4,22 @@ import { useState, useEffect } from "react";
 import GamesList from "./GameList";
 import GameOfTheDayCard from "./GameOfTheDayCard";
 import LoadingCard from "./LoadingCard";
-import { Game } from "../types";
+import { Game, EvaluatedGame } from "../types";
 
 export default function GameSection() {
-  const [games, setGames] = useState<Game[]>([]);
-  const [gameOfTheDay, setGameOfTheDay] = useState<Game | null>(null);
+  const [games, setGames] = useState<EvaluatedGame[]>([]);
+  const [gameOfTheDay, setGameOfTheDay] = useState<EvaluatedGame | undefined>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
         setLoading(true);
-        const [gamesResponse, gameOfTheDayResponse] = await Promise.all([
-          fetch('/api/mlb/getTodaysCompletedGameAnalysis'),
-          fetch('/api/mlb/getGameOfTheDay')
-        ]);
-        const gamesData = await gamesResponse.json();
-        const gameOfTheDayData = await gameOfTheDayResponse.json();
+        const evaluatedGamesResponse = await fetch('/api/v2/mlb/getTodaysEvaluatedMLBGames')
+        const evaluatedGames: EvaluatedGame[] = await evaluatedGamesResponse.json();
+        const gameOfTheDayData : EvaluatedGame | undefined = evaluatedGames.find( ev => ev.gameOfTheDay) | null
         
-        setGames(gamesData);
+        setGames(evaluatedGames);
         setGameOfTheDay(gameOfTheDayData);
       } catch (error) {
         console.error('Error fetching data:', error);
