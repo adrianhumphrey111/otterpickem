@@ -9,7 +9,7 @@ interface GameCardProps {
 }
 
 const GameCard: React.FC<GameCardProps> = ({ game, isGameOfTheDay = false }) => {
-  const { data: gameData, boxScore } = game;
+  const { data: gameData } = game;
   const awayTeamName = gameData.awayTeam.name;
   const homeTeamName = gameData.homeTeam.name;
 
@@ -17,15 +17,15 @@ const GameCard: React.FC<GameCardProps> = ({ game, isGameOfTheDay = false }) => 
     <article className="w-full max-w-sm mx-auto mb-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
       <div className="grid grid-cols-3 gap-2 items-center mb-2">
         <div className="flex flex-col items-center">
-          <Image src={`/team-logos/${gameData.awayTeam.abbr.toLowerCase()}.png`} alt={`${awayTeamName} logo`} width={40} height={40} className="mb-1" />
+          {/* <Image src={`/team-logos/${gameData.awayTeam.abbr.toLowerCase()}.png`} alt={`${awayTeamName} logo`} width={40} height={40} className="mb-1" /> */}
           <h2 className="text-sm font-bold text-gray-900 text-center truncate w-full">{awayTeamName}</h2>
         </div>
         <div className="flex flex-col items-center justify-center">
           <span className="text-lg font-bold">@</span>
-          <span className="text-xs text-gray-500">{new Date(gameData.scheduled).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+          <span className="text-xs text-gray-500">{new Date(gameData.boxScore.scheduled).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
         </div>
         <div className="flex flex-col items-center">
-          <Image src={`/team-logos/${gameData.homeTeam.abbr.toLowerCase()}.png`} alt={`${homeTeamName} logo`} width={40} height={40} className="mb-1" />
+          {/* <Image src={`/team-logos/${gameData.homeTeam.abbr.toLowerCase()}.png`} alt={`${homeTeamName} logo`} width={40} height={40} className="mb-1" /> */}
           <h2 className="text-sm font-bold text-gray-900 text-center truncate w-full">{homeTeamName}</h2>
         </div>
       </div>
