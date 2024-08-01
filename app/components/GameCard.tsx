@@ -9,7 +9,7 @@ interface GameCardProps {
 }
 
 const GameCard: React.FC<GameCardProps> = ({ game, isGameOfTheDay = false }) => {
-  const { data: gameData, boxScore } = game;
+  const { data: gameData } = game;
   const awayTeamName = gameData.awayTeam.name;
   const homeTeamName = gameData.homeTeam.name;
 
@@ -32,7 +32,7 @@ const GameCard: React.FC<GameCardProps> = ({ game, isGameOfTheDay = false }) => 
         </div>
       </div>
       <div className="text-xs text-gray-500 text-center mb-2">
-        {boxScore?.away?.probable_pitcher?.full_name || 'TBA'} vs {boxScore?.home?.probable_pitcher?.full_name || 'TBA'}
+        {gameData.boxScore?.away?.probable_pitcher?.full_name || 'TBA'} vs {gameData.boxScore?.home?.probable_pitcher?.full_name || 'TBA'}
       </div>
       <p className="text-xs text-gray-700 mb-3 h-16 overflow-hidden">
         {game.claudeResponse ? game.claudeResponse.split('\n')[0] : "Game preview and analysis not available."}
