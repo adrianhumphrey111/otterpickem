@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import GamesList from "./GameList";
 import GameOfTheDayCard from "./GameOfTheDayCard";
 import LoadingCard from "./LoadingCard";
-import { Game, EvaluatedGame } from "../types";
+import { EvaluatedGame } from "../types";
 
 export default function GameSection() {
   const [games, setGames] = useState<EvaluatedGame[]>([]);
@@ -17,10 +17,10 @@ export default function GameSection() {
         setLoading(true);
         const evaluatedGamesResponse = await fetch('/api/v2/mlb/getTodaysEvaluatedMLBGames')
         const evaluatedGames: EvaluatedGame[] = await evaluatedGamesResponse.json();
-        const gameOfTheDayData : EvaluatedGame | undefined = evaluatedGames.find( ev => ev.gameOfTheDay) || undefined
+        const gameOfTheDay : EvaluatedGame | undefined = evaluatedGames.find( ev => ev.gameOfTheDay) || undefined
         
         setGames(evaluatedGames);
-        setGameOfTheDay(gameOfTheDayData);
+        setGameOfTheDay(gameOfTheDay);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
