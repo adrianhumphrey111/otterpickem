@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { EvaluatedGame, Game } from '../types';
+import { EvaluatedGame } from '../types';
 
 interface GameOfTheDayCardProps {
   game: EvaluatedGame;
@@ -8,7 +8,7 @@ interface GameOfTheDayCardProps {
 
 const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
   const [showAnalysis, setShowAnalysis] = useState(false);
-  const { data: gameData } = game
+  const { data: gameData, boxScore } = game;
   const awayTeamName = gameData.awayTeam.name;
   const homeTeamName = gameData.homeTeam.name;
 
@@ -19,20 +19,20 @@ const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
       </div>
       <div className="grid grid-cols-3 gap-2 items-center mb-2">
         <div className="flex flex-col items-center">
-          <Image src={gameData.awayTeam.logoUrl} alt={`${awayTeamName} logo`} width={60} height={60} className="mb-1" />
+          <Image src={`/team-logos/${gameData.awayTeam.abbr.toLowerCase()}.png`} alt={`${awayTeamName} logo`} width={60} height={60} className="mb-1" />
           <h2 className="text-sm font-bold text-gray-900 text-center truncate w-full">{awayTeamName}</h2>
         </div>
         <div className="flex flex-col items-center justify-center">
           <span className="text-xl font-bold">@</span>
-          <span className="text-sm text-gray-500">{game.time}</span>
+          <span className="text-sm text-gray-500">{new Date(game.data.scheduled).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
         </div>
         <div className="flex flex-col items-center">
-          <Image src={gameData.homeTeam.logoUrl} alt={`${homeTeamName} logo`} width={60} height={60} className="mb-1" />
+          <Image src={`/team-logos/${gameData.homeTeam.abbr.toLowerCase()}.png`} alt={`${homeTeamName} logo`} width={60} height={60} className="mb-1" />
           <h2 className="text-sm font-bold text-gray-900 text-center truncate w-full">{homeTeamName}</h2>
         </div>
       </div>
       <div className="text-sm text-gray-600 text-center mb-2">
-        {game.awayStartingPitcher.name} vs {game.homeStartingPitcher.name}
+        {boxScore.away.probable_pitcher.full_name} vs {boxScore.home.probable_pitcher.full_name}
       </div>
       <div className="mb-3">
         <button
@@ -44,8 +44,8 @@ const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
       </div>
       {showAnalysis && (
         <div className="text-sm text-gray-700 mt-3">
-          {game.completeAnalysis ? (
-            game.completeAnalysis.split("\\n").map((paragraph, index) => (
+          {game.claudeResponse ? (
+            game.claudeResponse.split("\n").map((paragraph, index) => (
               index === 0 ? (
                 <h3 key={index} className="text-lg font-bold mb-2">{paragraph}</h3>
               ) : (
