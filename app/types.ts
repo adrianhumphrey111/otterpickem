@@ -16,6 +16,16 @@ export interface Team {
     sport: string;
 }
 
+export interface EvaluatedGame {
+    id: string;
+    gameId: string;
+    data: any; // Using 'any' for Json type, you might want to define a more specific type
+    claudeResponse: string;
+    gameOfTheDay: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
 export interface Game {
     id: number;
     moneyLine?: string;
