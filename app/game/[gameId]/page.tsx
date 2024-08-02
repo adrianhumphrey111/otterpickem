@@ -1,4 +1,11 @@
+import React, { useState } from 'react';
 import { EvaluatedGame } from '../../types';
+
+interface Message {
+  id: string;
+  text: string;
+  isUser: boolean;
+}
 
 async function getGameDetails(gameId: string) {
   const isDev = process.env.NODE_ENV === 'development';
@@ -16,24 +23,50 @@ async function getGameDetails(gameId: string) {
   return response.json();
 }
 
-export default async function GameDetails({ params }: { params: { gameId: string } }) {
+export default function GameDetails({ params }: { params: { gameId: string } }) {
   const gameId = params.gameId;
-  let game: EvaluatedGame;
+  const [game, setGame] = useState<EvaluatedGame | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [inputMessage, setInputMessage] = useState<string>('');
 
-  try {
-    game = await getGameDetails(gameId);
-  } catch (error) {
-    console.error('Error fetching game details:', error);
-    return <div className="text-center text-red-600">Error loading game details</div>;
+  React.useEffect(() => {
+    async function fetchGameDetails() {
+      try {
+        const gameData = await getGameDetails(gameId);
+        setGame(gameData);
+      } catch (error) {
+        console.error('Error fetching game details:', error);
+        setError('Error loading game details');
+      }
+    }
+    fetchGameDetails();
+  }, [gameId]);
+
+  const handleSendMessage = () => {
+    if (inputMessage.trim()) {
+      const newMessage: Message = {
+        id: Date.now().toString(),
+        text: inputMessage,
+        isUser: true,
+      };
+      setMessages([...messages, newMessage]);
+      setInputMessage('');
+      // Here you would typically call an API to get the bot's response
+    }
+  };
+
+  if (error) {
+    return <div className="text-center text-red-600">{error}</div>;
   }
 
   if (!game) {
-    return <div className="text-center text-gray-800">Game not found</div>;
+    return <div className="text-center text-gray-800">Loading game details...</div>;
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 flex flex-col">
+      <div className="max-w-7xl mx-auto flex-grow">
         <h1 className="text-3xl font-extrabold text-center text-black mb-10">
           Game Details
         </h1>
@@ -54,36 +87,30 @@ export default async function GameDetails({ params }: { params: { gameId: string
 
           {/* Sidebar */}
           <div className="lg:w-1/3">
-            <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
-              <h3 className="text-xl font-semibold mb-4 text-black">Game Details</h3>
-              <p className="mb-2 text-gray-600"><span className="font-semibold">Date:</span> {new Date(game.data.boxScore.scheduled).toLocaleDateString()}</p>
-              <p className="mb-2 text-gray-600"><span className="font-semibold">Time:</span> {new Date(game.data.boxScore.scheduled).toLocaleTimeString()}</p>
-              <p className="mb-2 text-gray-600"><span className="font-semibold">Venue:</span> {game.data.boxScore.venue?.name || 'TBA'}</p>
-              <p className="mb-2 text-gray-600"><span className="font-semibold">Broadcast:</span> {game.data.boxScore.broadcast?.network || 'TBA'}</p>
-            </div>
-            <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
-              <h3 className="text-xl font-semibold mb-4 text-black">Probable Pitchers</h3>
-              <p className="mb-2 text-gray-600"><span className="font-semibold">{game.data.awayTeam.name}:</span> {game.data.boxScore.away.probable_pitcher?.full_name || 'TBA'}</p>
-              <p className="text-gray-600"><span className="font-semibold">{game.data.homeTeam.name}:</span> {game.data.boxScore.home.probable_pitcher?.full_name || 'TBA'}</p>
-            </div>
-            <div className="bg-white shadow-lg rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-4 text-black">Team Stats</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-semibold mb-2 text-gray-800">{game.data.awayTeam.name}</h4>
-                  <p className="text-sm text-gray-600">AVG: {game.data.awayTeam.stats.hitting.overall.avg}</p>
-                  <p className="text-sm text-gray-600">OPS: {game.data.awayTeam.stats.hitting.overall.ops}</p>
-                  <p className="text-sm text-gray-600">ERA: {game.data.awayTeam.stats.pitching.overall.era}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2 text-gray-800">{game.data.homeTeam.name}</h4>
-                  <p className="text-sm text-gray-600">AVG: {game.data.homeTeam.stats.hitting.overall.avg}</p>
-                  <p className="text-sm text-gray-600">OPS: {game.data.homeTeam.stats.hitting.overall.ops}</p>
-                  <p className="text-sm text-gray-600">ERA: {game.data.homeTeam.stats.pitching.overall.era}</p>
-                </div>
-              </div>
-            </div>
+            {/* ... (keep the existing sidebar content) */}
           </div>
+        </div>
+      </div>
+
+      {/* Chat interface for desktop */}
+      <div className="hidden lg:block fixed bottom-0 left-0 right-0 bg-white border-t">
+        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center">
+          <input
+            type="text"
+            placeholder="Ask about this game..."
+            className="flex-grow border rounded-full py-2 px-4 mr-2"
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+          />
+          <button 
+            className="bg-blue-500 text-white rounded-full p-2"
+            onClick={handleSendMessage}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
