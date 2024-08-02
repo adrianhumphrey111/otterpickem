@@ -16,8 +16,8 @@ let lastApiCallTime = 0;
 async function makeApiCallWithDelay(apiCallFunction, ...args) {
   const now = Date.now();
   const timeSinceLastCall = now - lastApiCallTime;
-  if (timeSinceLastCall < 1500) {
-    await new Promise(resolve => setTimeout(resolve, 1500 - timeSinceLastCall));
+  if (timeSinceLastCall < 200) {
+    await new Promise(resolve => setTimeout(resolve, 200 - timeSinceLastCall));
   }
   console.log("making api call ...")
   console.log(apiCallFunction)
@@ -47,7 +47,7 @@ export async function saveGameToDB(evaluatedGame, claudeResponse) {
 async function makeApiCallByUrl(url, params = {}){
   try{
     const response = await axios.get(url, {
-      params: { ...params, api_key: process.env.SPORTS_RADAR_API_KEY },
+      params: { ...params, api_key: process.env.SPORTS_RADAR_API_KEY_UPDATED },
       headers: { accept: 'application/json' }
     });
     return response.data;
@@ -76,6 +76,7 @@ export async function evaluateGame(gameId) {
   const awayPitcherId = boxScore.game.away.probable_pitcher?.id;
 
   let homePitcherProfile, awayPitcherProfile;
+
 
   if (homePitcherId) {
     homePitcherProfile = await makeApiCallWithDelay(getPlayerProfile, homePitcherId);

@@ -4,7 +4,6 @@ const puppeteer = require("puppeteer");
 const axios = require("axios");
 const cheerio = require('cheerio');
 const { extractJsonFromResponse } = require("../utils/jsonExtractor")
-require('dotenv').config(); // Make sure to install dotenv and create a .env file with your API key
 
 const LIVE_SCORE_BOARD_URL = "https://www.fangraphs.com/livescoreboard.aspx?date=";
 const FANGRAPHS_BASE_URL = "https://www.fangraphs.com";

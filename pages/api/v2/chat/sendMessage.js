@@ -42,14 +42,25 @@ export default async function handler(req, res) {
       // For this example, we'll use a placeholder response
       // Replace this with your actual LLM API call
       // const llmResponse = await axios.post('YOUR_LLM_API_ENDPOINT', { prompt });
-      const llmResponse = { data: { response: "This is a placeholder response. Replace with actual LLM API call." }};
+      const response = await axios.post('https://api.anthropic.com/v1/messages', {
+          model: "claude-3-opus-20240229",
+          max_tokens: 4000,
+          temperature: 0.3,
+          messages: [{ role: "user", content: prompt }]
+      }, {
+          headers: {
+              'Content-Type': 'application/json',
+              'anthropic-version': '2023-06-01',
+              'x-api-key': process.env.ANTHROPIC_API_KEY
+          }
+      });
 
       const message = {
         id,
         text,
         isUser,
         gameId,
-        response: llmResponse.data.response
+        response: response.data.content[0].text
       };
 
       // Store the message in the database if needed

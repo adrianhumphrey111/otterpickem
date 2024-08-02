@@ -7,6 +7,8 @@ interface Message {
   id: string;
   text: string;
   isUser: boolean;
+  gameId: string;
+
 }
 
 async function getGameDetails(gameId: string) {

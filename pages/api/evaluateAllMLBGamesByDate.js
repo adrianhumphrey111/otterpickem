@@ -1,6 +1,8 @@
 import { getScheduleByDate } from '../../utils/mlbScheduleUtils';
 import { evaluateGame } from '../api/v2/mlb/getGameById';
 import { PrismaClient } from '@prisma/client';
+delete require.cache[require.resolve('dotenv')]
+require('dotenv').config(); // Make sure to install dotenv and create a .env file with your API key
 
 const prisma = new PrismaClient();
 
