@@ -45,7 +45,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
     fetchGameDetails();
   }, [gameId]);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (inputMessage.trim()) {
       const newMessage: Message = {
         id: Date.now().toString(),
@@ -54,7 +54,31 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
       };
       setMessages([...messages, newMessage]);
       setInputMessage('');
-      // Here you would typically call an API to get the bot's response
+
+      try {
+        const response = await fetch('/api/v2/chat/sendMessage', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: newMessage.id,
+            text: newMessage.text,
+            gameId: gameId,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to send message');
+        }
+
+        const data = await response.json();
+        console.log('Server response:', data);
+
+        // Here you can handle the bot's response if needed
+      } catch (error) {
+        console.error('Error sending message:', error);
+      }
     }
   };
 
