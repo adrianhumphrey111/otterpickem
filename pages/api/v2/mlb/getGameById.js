@@ -30,8 +30,13 @@ async function makeApiCallWithDelay(apiCallFunction, ...args) {
 
 export async function saveGameToDB(evaluatedGame, claudeResponse) {
   try {
-    const savedGame = await prisma.evaluatedGame.create({
-      data: {
+    const savedGame = await prisma.evaluatedGame.upsert({
+      where: { gameId: evaluatedGame.gameId },
+      update: {
+        data: evaluatedGame,
+        claudeResponse: claudeResponse,
+      },
+      create: {
         gameId: evaluatedGame.gameId,
         data: evaluatedGame,
         claudeResponse: claudeResponse,
