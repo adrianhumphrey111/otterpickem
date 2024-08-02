@@ -100,7 +100,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
           <input
             type="text"
             placeholder="Ask about this game..."
-            className="flex-grow border rounded-full py-2 px-4 mr-2"
+            className="flex-grow border rounded-full py-2 px-4 mr-2 text-black"
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
