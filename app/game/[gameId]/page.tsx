@@ -51,6 +51,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
         id: Date.now().toString(),
         text: inputMessage,
         isUser: true,
+        gameId: gameId, // Add gameId to the message object
       };
       setMessages([...messages, newMessage]);
       setInputMessage('');
@@ -61,11 +62,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            id: newMessage.id,
-            text: newMessage.text,
-            gameId: gameId,
-          }),
+          body: JSON.stringify(newMessage), // Send the entire newMessage object
         });
 
         if (!response.ok) {
