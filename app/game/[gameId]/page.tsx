@@ -13,7 +13,7 @@ interface Message {
 
 async function getGameDetails(gameId: string) {
   const isDev = process.env.NODE_ENV === 'development';
-  const baseUrl = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl = isDev ? 'http://localhost:3000' : 'https://otterpickem.com';
   if (!baseUrl) {
     throw new Error('API base URL is not defined');
   }
