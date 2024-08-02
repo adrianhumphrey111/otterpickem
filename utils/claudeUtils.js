@@ -15,7 +15,7 @@ As well as if the teams have a big difference in there run differentials
       const response = await axios.post('https://api.anthropic.com/v1/messages', {
         model: "claude-3-opus-20240229",
         max_tokens: 4000,
-        temperature: 0,
+        temperature: 0.3,
         messages: [{ role: "user", content: prompt }]
     }, {
         headers: {

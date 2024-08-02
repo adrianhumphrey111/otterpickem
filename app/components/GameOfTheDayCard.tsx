@@ -8,7 +8,7 @@ interface GameOfTheDayCardProps {
 
 const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
   const [showAnalysis, setShowAnalysis] = useState(false);
-  const { data: gameData, boxScore } = game;
+  const { data: gameData } = game;
   const awayTeamName = gameData.awayTeam.name;
   const homeTeamName = gameData.homeTeam.name;
 
@@ -19,20 +19,20 @@ const GameOfTheDayCard: React.FC<GameOfTheDayCardProps> = ({ game }) => {
       </div>
       <div className="grid grid-cols-3 gap-2 items-center mb-2">
         <div className="flex flex-col items-center">
-          <Image src={`/team-logos/${gameData.awayTeam.abbr.toLowerCase()}.png`} alt={`${awayTeamName} logo`} width={60} height={60} className="mb-1" />
+          {/* <Image src={`/team-logos/${gameData.awayTeam.abbr.toLowerCase()}.png`} alt={`${awayTeamName} logo`} width={60} height={60} className="mb-1" /> */}
           <h2 className="text-sm font-bold text-gray-900 text-center truncate w-full">{awayTeamName}</h2>
         </div>
         <div className="flex flex-col items-center justify-center">
           <span className="text-xl font-bold">@</span>
-          <span className="text-sm text-gray-500">{new Date(game.data.scheduled).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+          {/* <span className="text-sm text-gray-500">{new Date(game.data.scheduled).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span> */}
         </div>
         <div className="flex flex-col items-center">
-          <Image src={`/team-logos/${gameData.homeTeam.abbr.toLowerCase()}.png`} alt={`${homeTeamName} logo`} width={60} height={60} className="mb-1" />
+          {/* <Image src={`/team-logos/${gameData.homeTeam.abbr.toLowerCase()}.png`} alt={`${homeTeamName} logo`} width={60} height={60} className="mb-1" /> */}
           <h2 className="text-sm font-bold text-gray-900 text-center truncate w-full">{homeTeamName}</h2>
         </div>
       </div>
       <div className="text-sm text-gray-600 text-center mb-2">
-        {boxScore.away.probable_pitcher.full_name} vs {boxScore.home.probable_pitcher.full_name}
+        {gameData.boxScore.away.probable_pitcher.full_name} vs {gameData.boxScore.home.probable_pitcher.full_name}
       </div>
       <div className="mb-3">
         <button

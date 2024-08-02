@@ -15,7 +15,12 @@ export default function GameSection() {
     async function fetchData() {
       try {
         setLoading(true);
-        const evaluatedGamesResponse = await fetch('/api/v2/mlb/getTodaysEvaluatedMLBGames')
+        const evaluatedGamesResponse = await fetch('/api/v2/mlb/getTodaysEvaluatedMLBGames', {
+          cache: 'no-store'
+        });
+        if (!evaluatedGamesResponse.ok) {
+          throw new Error('Failed to fetch evaluated games');
+        }
         const evaluatedGames: EvaluatedGame[] = await evaluatedGamesResponse.json();
         const gameOfTheDay : EvaluatedGame | undefined = evaluatedGames.find( ev => ev.gameOfTheDay) || undefined
         

@@ -7,6 +7,7 @@ import { getTeamStandings } from './getTeamStandings';
 import { getClaudeResponse } from '../../../../utils/claudeUtils';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 import { PrismaClient } from '@prisma/client';
+import axios from "axios"
 
 const prisma = new PrismaClient();
 
@@ -18,6 +19,10 @@ async function makeApiCallWithDelay(apiCallFunction, ...args) {
   if (timeSinceLastCall < 1500) {
     await new Promise(resolve => setTimeout(resolve, 1500 - timeSinceLastCall));
   }
+  console.log("making api call ...")
+  console.log(apiCallFunction)
+  console.log(` with arguments ${args}`)
+  console.log({timeSinceLastCall})
   const result = await apiCallFunction(...args);
   lastApiCallTime = Date.now();
   return result;
@@ -39,15 +44,33 @@ export async function saveGameToDB(evaluatedGame, claudeResponse) {
   }
 }
 
-
-async function getPlayerProfile(playerId) {
-  const url = `https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`;
-  return await makeApiCallWithDelay(makeDelayedApiCall, url, {}, 0);
+async function makeApiCallByUrl(url, params = {}){
+  try{
+    const response = await axios.get(url, {
+      params: { ...params, api_key: process.env.SPORTS_RADAR_API_KEY },
+      headers: { accept: 'application/json' }
+    });
+    return response.data;
+  }catch(error){
+    console.log(error.request)
+  }
+  
 }
 
-async function evaluateGame(gameId) {
+async function getPlayerProfile(playerId) {
+  const response = await makeApiCallByUrl(`https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`)
+  return response.player
+}
+
+async function getBoxScore(gameId){
   const boxScoreUrl = `https://api.sportradar.com/mlb/trial/v7/en/games/${gameId}/boxscore.json`;
-  const boxScore = await makeApiCallWithDelay(makeDelayedApiCall, boxScoreUrl, {}, 0);
+  const response = await makeApiCallByUrl(boxScoreUrl)
+  return response
+}
+
+export async function evaluateGame(gameId) {
+
+  const boxScore = await makeApiCallWithDelay(getBoxScore, gameId);
 
   const homePitcherId = boxScore.game.home.probable_pitcher?.id;
   const awayPitcherId = boxScore.game.away.probable_pitcher?.id;
@@ -80,7 +103,7 @@ async function evaluateGame(gameId) {
   // Get team standings
   const {homeTeamStandings, awayTeamStandings} = await makeApiCallWithDelay(getTeamStandings, boxScore.game.home.id, boxScore.game.away.id);
 
-  return {
+  const gameData = {
     gameId: boxScore.game.id,
     homeTeam: {
       name: boxScore.game.home.name,
@@ -96,21 +119,45 @@ async function evaluateGame(gameId) {
     },
     headToHeadGames: headToHeadGames,
     homePitcher: homePitcherProfile ? {
-      id: homePitcherProfile.player.id,
-      name: `${homePitcherProfile.player.first_name} ${homePitcherProfile.player.last_name}`,
-      stats: homePitcherProfile.player.seasons[0]?.totals?.statistics?.pitching?.overall,
-      splits: homePitcherProfile.player.seasons[0]?.totals?.splits?.pitching?.overall
+      id: homePitcherProfile.id,
+      name: `${homePitcherProfile.first_name} ${homePitcherProfile.last_name}`,
+      stats: homePitcherProfile.seasons[0]?.totals?.statistics?.pitching?.overall,
+      splits: homePitcherProfile.seasons[0]?.totals?.splits?.pitching?.overall
     } : null,
     awayPitcher: awayPitcherProfile ? {
-      id: awayPitcherProfile.player.id,
-      name: `${awayPitcherProfile.player.first_name} ${awayPitcherProfile.player.last_name}`,
-      stats: awayPitcherProfile.player.seasons[0]?.totals?.statistics?.pitching?.overall,
-      splits: awayPitcherProfile.player.seasons[0]?.totals?.splits?.pitching?.overall
+      id: awayPitcherProfile.id,
+      name: `${awayPitcherProfile.first_name} ${awayPitcherProfile.last_name}`,
+      stats: awayPitcherProfile.seasons[0]?.totals?.statistics?.pitching?.overall,
+      splits: awayPitcherProfile.seasons[0]?.totals?.splits?.pitching?.overall
     } : null,
     boxScore: boxScore.game,
     runDifferentials: runDifferentials,
     opsRanings: teamOPS,
   };
+
+  // Get Claude's response
+  let claudeResponse;
+  try {
+    claudeResponse = await getClaudeResponse(gameData);
+  } catch (claudeError) {
+    console.error('Error getting Claude response:', claudeError);
+    claudeResponse = 'Error: Unable to get Claude response';
+  }
+
+  // Add Claude's response to the evaluatedGame object
+  gameData.claudeResponse = claudeResponse;
+
+  // Save the evaluatedGame data to the database
+  try {
+    const savedGame = await saveGameToDB(gameData, claudeResponse);
+    console.log(`Game ${gameId} saved to database successfully with ID: ${savedGame.id}`);
+  } catch (dbError) {
+    console.error('Error saving game to database:', dbError);
+    // Note: We're not returning here, so the API will still return the evaluatedGame data even if DB save fails
+  }
+
+  lastApiCallTime = 0
+  return gameData
 }
 
 export default async function handler(req, res) {
@@ -124,27 +171,6 @@ export default async function handler(req, res) {
 
       const evaluatedGame = await evaluateGame(gameId);
       // const evaluatedGame = mockedEvaluatedGame;
-      
-      // Get Claude's response
-      let claudeResponse;
-      try {
-        claudeResponse = await getClaudeResponse(evaluatedGame);
-      } catch (claudeError) {
-        console.error('Error getting Claude response:', claudeError);
-        claudeResponse = 'Error: Unable to get Claude response';
-      }
-
-      // Add Claude's response to the evaluatedGame object
-      evaluatedGame.claudeResponse = claudeResponse;
-      
-      // Save the evaluatedGame data to the database
-      try {
-        const savedGame = await saveGameToDB(evaluatedGame, claudeResponse);
-        console.log(`Game ${gameId} saved to database successfully with ID: ${savedGame.id}`);
-      } catch (dbError) {
-        console.error('Error saving game to database:', dbError);
-        // Note: We're not returning here, so the API will still return the evaluatedGame data even if DB save fails
-      }
 
       res.status(200).json(evaluatedGame);
     } catch (error) {

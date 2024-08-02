@@ -22,6 +22,8 @@ export default async function handler(req, res) {
         },
       });
 
+      console.log({todaysGames})
+
       res.status(200).json(todaysGames);
     } catch (error) {
       console.error('Error fetching today\'s evaluated MLB games:', error);
