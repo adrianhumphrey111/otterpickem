@@ -22,11 +22,11 @@ export default async function handler(req, res) {
         const game = games[i];
         
         // Check if the game has already been evaluated
-        // const existingEvaluatedGame = await prisma.evaluatedGame.findUnique({
-        //   where: { gameId: game.id },
-        // });
+        const existingEvaluatedGame = await prisma.evaluatedGame.findUnique({
+          where: { gameId: game.id },
+        });
 
-        if (false) {
+        if (existingEvaluatedGame) {
           console.log(`Game ${game.id} already evaluated. Skipping.`);
           evaluatedGames.push(existingEvaluatedGame.data);
         } else {
