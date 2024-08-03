@@ -45,7 +45,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
         </h1>
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main content */}
-          <div className="lg:w-2/3">
+          <div className="lg:w-1/2">
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h2 className="text-2xl font-semibold mb-4 text-black">
                 {game.data.awayTeam.name} vs {game.data.homeTeam.name}
@@ -58,9 +58,27 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="lg:w-1/3">
-            {/* ... (keep the existing sidebar content) */}
+          {/* Right panel for game details */}
+          <div className="lg:w-1/2">
+            <div className="bg-white shadow-lg rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-4 text-black">Game Details</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <h4 className="text-lg font-semibold mb-2 text-black">{game.data.awayTeam.name}</h4>
+                  <p>Wins: {game.data.awayTeam.standings.win}</p>
+                  <p>Losses: {game.data.awayTeam.standings.loss}</p>
+                  <p>Probable Pitcher: {game.data.boxScore.away.probable_pitcher.full_name}</p>
+                  <p>ERA: {game.data.boxScore.away.probable_pitcher.era}</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold mb-2 text-black">{game.data.homeTeam.name}</h4>
+                  <p>Wins: {game.data.homeTeam.standings.win}</p>
+                  <p>Losses: {game.data.homeTeam.standings.loss}</p>
+                  <p>Probable Pitcher: {game.data.boxScore.home.probable_pitcher.full_name}</p>
+                  <p>ERA: {game.data.boxScore.home.probable_pitcher.era}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
