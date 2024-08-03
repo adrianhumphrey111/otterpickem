@@ -2,7 +2,7 @@ import { EvaluatedGame } from '../../types';
 
 async function getGameDetails(gameId: string) {
   // This function now runs on the server
-  const response = await fetch(`${process.env.API_BASE_URL}/api/v2/mlb/getGameDetails?gameId=${gameId}`, {
+  const response = await fetch(`/api/v2/mlb/getGameDetails?gameId=${gameId}`, {
     cache: 'no-store',
   });
   if (!response.ok) {
