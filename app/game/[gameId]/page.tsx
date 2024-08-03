@@ -45,7 +45,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
         </h1>
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main content */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-2/3">
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h2 className="text-2xl font-semibold mb-4 text-black">
                 {game.data.awayTeam.name} vs {game.data.homeTeam.name}
@@ -59,7 +59,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
           </div>
 
           {/* Right panel for game details */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/3">
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h3 className="text-xl font-semibold mb-4 text-black">Game Details</h3>
               <div className="grid grid-cols-2 gap-4">
