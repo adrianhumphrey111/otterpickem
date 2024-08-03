@@ -1,27 +1,33 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { EvaluatedGame } from '../../types';
 
 async function getGameDetails(gameId: string) {
-  // This function now runs on the server
-  const response = await fetch(`/api/v2/mlb/getGameDetails?gameId=${gameId}`, {
-    cache: 'no-store',
-  });
+  const response = await fetch(`/api/v2/mlb/getGameDetails?gameId=${gameId}`);
   if (!response.ok) {
     throw new Error('Failed to fetch game details');
   }
   return response.json();
 }
 
-export default async function GameDetails({ params }: { params: { gameId: string } }) {
-  const gameId = params.gameId;
-  let game: EvaluatedGame;
-  let error: string | null = null;
+export default function GameDetails({ params }: { params: { gameId: string } }) {
+  const [game, setGame] = useState<EvaluatedGame | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  try {
-    game = await getGameDetails(gameId);
-  } catch (err) {
-    console.error('Error fetching game details:', err);
-    error = 'Error loading game details';
-  }
+  useEffect(() => {
+    async function fetchGameDetails() {
+      try {
+        const gameData = await getGameDetails(params.gameId);
+        setGame(gameData);
+      } catch (err) {
+        console.error('Error fetching game details:', err);
+        setError('Error loading game details');
+      }
+    }
+
+    fetchGameDetails();
+  }, [params.gameId]);
 
   if (error) {
     return <div className="text-center text-red-600">{error}</div>;
