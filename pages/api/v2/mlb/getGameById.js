@@ -19,10 +19,7 @@ async function makeApiCallWithDelay(apiCallFunction, ...args) {
   if (timeSinceLastCall < 200) {
     await new Promise(resolve => setTimeout(resolve, 200 - timeSinceLastCall));
   }
-  console.log("making api call ...")
-  console.log(apiCallFunction)
-  console.log(` with arguments ${args}`)
-  console.log({timeSinceLastCall})
+
   const result = await apiCallFunction(...args);
   lastApiCallTime = Date.now();
   return result;
