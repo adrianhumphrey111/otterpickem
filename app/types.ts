@@ -39,6 +39,7 @@ export interface TeamStatsDetailed {
         win: number
         loss: number
     }
+    market: string;
     stats: {
         hitting: {
             overall: {

@@ -1,4 +1,4 @@
-import { getMLBSchedule } from "../../utils/getMlbGames.js";
+// import { getMLBSchedule } from "../../utils/getMlbGames.js";
 import { mockedEvaluatedGame } from "../../utils/mockData.js";
 
 export default async function handler(req, res) {

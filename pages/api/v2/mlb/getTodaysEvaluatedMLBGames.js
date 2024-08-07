@@ -22,9 +22,11 @@ export default async function handler(req, res) {
         },
       });
 
-      console.log({todaysGames})
+      // TODO: save the games by scheduled
+      const sortedGames = todaysGames.sort( (a, b) => new Date(a.data.boxScore.scheduled) - new Date(b.data.boxScore.scheduled))
 
-      res.status(200).json(todaysGames);
+      console.log(sortedGames.map( g => g.data.boxScore.scheduled))
+      res.status(200).json(sortedGames);
     } catch (error) {
       console.error('Error fetching today\'s evaluated MLB games:', error);
       res.status(500).json({ error: 'An error occurred while fetching today\'s evaluated MLB games' });
