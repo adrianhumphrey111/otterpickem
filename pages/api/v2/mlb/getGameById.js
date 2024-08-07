@@ -71,6 +71,7 @@ async function getBoxScore(gameId){
 }
 
 export async function evaluateGame(gameId) {
+  const startTime = Date.now();
 
   const boxScore = await makeApiCallWithDelay(getBoxScore, gameId);
 
@@ -159,8 +160,13 @@ export async function evaluateGame(gameId) {
     // Note: We're not returning here, so the API will still return the evaluatedGame data even if DB save fails
   }
 
-  lastApiCallTime = 0
-  return gameData
+  lastApiCallTime = 0;
+  
+  const endTime = Date.now();
+  const executionTimeInSeconds = (endTime - startTime) / 1000;
+  console.log(`evaluateGame execution time: ${executionTimeInSeconds.toFixed(2)} seconds`);
+
+  return gameData;
 }
 
 export default async function handler(req, res) {
