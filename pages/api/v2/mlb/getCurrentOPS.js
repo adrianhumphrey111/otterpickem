@@ -1,8 +1,8 @@
-import { chromium } from 'playwright';
 import axios from 'axios';
 import NodeCache from 'node-cache';
+import puppeteer from 'puppeteer';
 
-const cache = new NodeCache({ stdTTL: 86400 }); // 24 hours in seconds
+const cache = new NodeCache({ stdTTL: 43200 }); // 12 hours in seconds
 
 export async function getCurrentOPS() {
   const cachedData = cache.get('teamOPS');
@@ -11,20 +11,21 @@ export async function getCurrentOPS() {
     return cachedData;
   }
   try {
-    const browser = await chromium.launch();
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto('https://www.teamrankings.com/mlb/stat/on-base-plus-slugging-pct');
+    await page.goto('https://www.espn.com/mlb/stats/team', { waitUntil: 'networkidle2', timeout: 60000 });
 
     const tableHTML = await page.evaluate(() => {
-      const table = document.querySelector('.datatable');
+      const table = document.querySelector('.Table2__title--remove-capitalization');
+      console.log()
       return table.outerHTML;
     });
 
     await browser.close();
 
     const prompt = `
-    Extract the MLB team On-Base Plus Slugging (OPS) percentages from this HTML table and return it as a JSON object.
-    The JSON object should have team names as keys and their OPS as values.
+    Extract the MLB team batting stats and group the object keys by batting stat, with the value being an 
+    array of the teams values ranked from highest to least with the corresponding stat the team has
     Only include the JSON object in your response, without any additional text.
     
     ${tableHTML}
