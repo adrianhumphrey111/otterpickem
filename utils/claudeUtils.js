@@ -4,11 +4,35 @@ export async function getClaudeResponse(evaluatedGame) {
   const prompt = `
 ${JSON.stringify(evaluatedGame, null, 2)}
 
-Analyze the following statistics for Team A and Team B to predict the winner and score of their upcoming MLB game. Consider the relative importance of each stat and how they interact.
-Additional Contextual Factors:1. Home/Away: [Which team is home/away]2. Weather conditions: [Brief description]3. Recent performance: [Last 10 games record for each team]4. Head-to-head record this season: [Record]5. Key injuries or roster changes: [Brief description]Based on this data:1. Analyze the offensive strengths and weaknesses of each team.2. Evaluate the pitching matchup and each team's pitching stats.3. Consider the defensive capabilities of each team.4. Factor in the contextual elements like home field advantage and recent performance.5. Identify any significant statistical advantages for either team.Then, provide:1. A prediction of the winner2. A predicted score for each team3. A brief explanation of the key factors that led to this prediction4. A confidence level in your prediction (low, medium, or high)Remember to weigh recent performance more heavily than season-long stats, and consider how specific matchups (e.g., a team's hitting strengths vs. the opposing pitcher's weaknesses) might influence the outcome.
+Analyze the following statistics for Team A and Team B to predict the winner and score of their upcoming MLB game. Consider the relative importance of each stat, how they interact, and specific scenarios that might influence the outcome.
 
-Give more weight to a pitchers recent performances than then pitchers season long stats.
-As well as if the teams have a big difference in their run differentials
+### Contextual Factors:
+1. Head-to-head record this season: [Record]
+2. Recent performance: [Last 10 games record for each team]
+3. Key injuries or roster changes: [Brief description]
+4. Home/Away: [Which team is home/away]
+5. Weather conditions: [Brief description]
+
+### Additional Game-Specific Considerations:
+1. Series Context: Consider whether this is the final game in a series, and factor in the difficulty of sweeping a series, particularly in favor of the underdog if they have lost the first two games.
+2. Betting Line Movement: Review any shifts in betting odds that might indicate market sentiment, especially if it favors the underdog.
+3. Motivation and Fatigue: Consider the psychological and physical factors, such as a team’s motivation to avoid a sweep, potential fatigue, or rest days.
+4. Situational Statistics: Analyze stats like performance in close games, day vs. night game records, and success against specific types of pitchers (e.g., left-handed vs. right-handed).
+5. Underdog Opportunities: Identify scenarios where an underdog might be more likely to win, such as strong recent performance, favorable pitching matchups, or situational advantages.
+
+### Analytical Tasks:
+1. **Offensive Analysis:** Assess the offensive strengths and weaknesses of each team, considering recent form and specific matchups.
+2. **Pitching Evaluation:** Evaluate the pitching matchup with an emphasis on recent performances, and how each team’s lineup might exploit the opposing pitcher’s weaknesses.
+3. **Defensive Review:** Examine the defensive capabilities and any potential vulnerabilities, including errors, fielding range, and catcher performance.
+4. **Contextual Impact:** Weigh the influence of home field advantage, recent performance, and series context on the game’s outcome.
+5. **Identify Statistical Edges:** Highlight any significant statistical advantages, especially those favoring the underdog in this specific game.
+
+### Deliverables:
+1. **Winner Prediction:** Provide a prediction for the winner, taking into account both statistical analysis and situational factors.
+2. **Score Prediction:** Predict the score for each team, considering potential scenarios like high-scoring or low-scoring games.
+3. **Key Factors:** Explain the key factors driving your prediction, emphasizing any underdog advantages or reasons why the favorite might not win.
+4. **Confidence Level:** Assign a confidence level (low, medium, high) to your prediction, with an explanation of factors that could lead to an upset or unexpected outcome.
+
 `;
 
   try {

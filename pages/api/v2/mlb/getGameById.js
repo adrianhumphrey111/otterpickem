@@ -6,6 +6,7 @@ import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
 import { getTeamStandings } from './getTeamStandings';
 import { getClaudeResponse } from '../../../../utils/claudeUtils';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
+import { getDailyOddsMLB } from './getDailyOddsMLB.js';
 import { PrismaClient } from '@prisma/client';
 import axios from "axios"
 
@@ -19,6 +20,8 @@ async function makeApiCallWithDelay(apiCallFunction, ...args) {
   if (timeSinceLastCall < 200) {
     await new Promise(resolve => setTimeout(resolve, 200 - timeSinceLastCall));
   }
+
+  console.log(apiCallFunction)
 
   const result = await apiCallFunction(...args);
   lastApiCallTime = Date.now();
@@ -56,8 +59,21 @@ async function makeApiCallByUrl(url, params = {}){
   }catch(error){
     console.log(error.request)
   }
-  
 }
+
+function getFormattedDate() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Ensure two digits
+  const date = String(currentDate.getDate()).padStart(2, '0'); // Ensure two digits
+
+  return `${year}-${month}-${date}`;
+}
+
+// Usage example:
+const formattedDate = getFormattedDate();
+console.log(formattedDate); // Outputs: "YYYY-MM-DD"
+
 
 async function getPlayerProfile(playerId) {
   const response = await makeApiCallByUrl(`https://api.sportradar.com/mlb/trial/v7/en/players/${playerId}/profile.json`)
@@ -107,6 +123,8 @@ export async function evaluateGame(gameId) {
   // Get team standings
   const {homeTeamStandings, awayTeamStandings} = await makeApiCallWithDelay(getTeamStandings, boxScore.game.home.id, boxScore.game.away.id);
 
+  const oddsByMarket = await makeApiCallWithDelay(getDailyOddsMLB, getFormattedDate(), boxScore.game.home.abbr)
+
   const gameData = {
     gameId: boxScore.game.id,
     homeTeam: {
@@ -137,15 +155,28 @@ export async function evaluateGame(gameId) {
     boxScore: boxScore.game,
     runDifferentials: runDifferentials,
     opsRanings: teamOPS,
+    oddsByMarket: oddsByMarket
   };
 
   // Get Claude's response
   let claudeResponse;
   try {
+    // We want to reset the tokens per minute, so wait a minute and a half
     claudeResponse = await getClaudeResponse(gameData);
   } catch (claudeError) {
-    console.error('Error getting Claude response:', claudeError);
-    claudeResponse = 'Error: Unable to get Claude response';
+    // Log and output only the error message
+    if (error.response) {
+      // Server responded with a status code out of the range of 2xx
+      console.error('Error message:', error.message);
+      console.error('Error response data:', error.response.data);
+    } else if (error.request) {
+      // No response was received after the request was made
+      console.error('Error message:', error.message);
+      console.error('Error request:', error.request);
+    } else {
+      // Something happened in setting up the request
+      console.error('Error message:', error.message);
+    }
   }
 
   // Add Claude's response to the evaluatedGame object
