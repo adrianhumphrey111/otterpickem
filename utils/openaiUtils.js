@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function getClaudeResponse(evaluatedGame) {
+export async function getOpenAIResponse(evaluatedGame) {
   await new Promise(resolve => setTimeout(resolve, 1500));
   const prompt = `
 ${JSON.stringify(evaluatedGame, null, 2)}
@@ -37,21 +37,20 @@ Analyze the following statistics for Team A and Team B to predict the winner and
 `;
 
   try {
-      const response = await axios.post('https://api.anthropic.com/v1/messages', {
-        model: "claude-3-5-sonnet-20240620",
+      const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+        model: "gpt-4-0613", // Use GPT-4 model
+        messages: [{ role: "user", content: prompt }],
         max_tokens: 4000,
-        temperature: 0.3,
-        messages: [{ role: "user", content: prompt }]
+        temperature: 0.3
     }, {
         headers: {
             'Content-Type': 'application/json',
-            'anthropic-version': '2023-06-01',
-            'x-api-key': process.env.ANTHROPIC_API_KEY
+            'Authorization': `Bearer ${process.env.OPENAI_API_KEY}` // Use OpenAI API key
         }
     });
-    return response.data.content[0].text;
+    return response.data.choices[0].message.content;
   } catch (error) {
-    console.error('Error getting Claude response:', error);
+    console.error('Error getting OpenAI response:', error);
     throw error;
   }
 }

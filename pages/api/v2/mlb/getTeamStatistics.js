@@ -2,15 +2,8 @@ import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 
 export async function getTeamStatistics(teamId, season = '2024', competition = 'REG') {
   const url = `https://api.sportradar.com/mlb/trial/v7/en/seasons/2024/REG/leaders/statistics.json`;
-  return await makeDelayedApiCall(url, {}, 0);
-}
-
-export default async function handler(req, res) {
-  if (req.method === 'GET') {
-    try {
-      
-      const teamStats = await getTeamStatistics()
-      const mlbLeaders = teamStats.leagues.find(l => l.alias === "MLB") || {};
+  const response = await makeDelayedApiCall(url, {}, 0);
+  const mlbLeaders = response.leagues.find(l => l.alias === "MLB") || {};
       const {batting_average, runs_scored, doubles, triples, home_runs, runs_batted_in, stolen_bases, hits} = mlbLeaders.hitting || {};
       let truncatedTeamStats = {
         battingAverage: batting_average?.teams.map(t => ({name: t.name, rank: t.rank, avg: t.avg})) || [],
@@ -21,8 +14,16 @@ export default async function handler(req, res) {
         runsBattedIn: runs_batted_in?.teams.map(t => ({name: t.name, rank: t.rank, rbis: t.rbi})) || [],
         hits: hits?.teams.map(t => ({name: t.name, rank: t.rank, hits: t.h})) || [],
         stolenBases: stolen_bases?.teams.map(t => ({name: t.name, rank: t.rank, stolenBases: t.sb})) || [],
-      };
-      res.status(200).json(truncatedTeamStats);
+      }; 
+    return truncatedTeamStats
+}
+
+export default async function handler(req, res) {
+  if (req.method === 'GET') {
+    try {
+      
+      const teamStats = await getTeamStatistics()
+      res.status(200).json(teamStats);
     } catch (error) {
       console.error('Error fetching team statistics:', error);
       res.status(500).json({ error: 'Internal Server Error' });

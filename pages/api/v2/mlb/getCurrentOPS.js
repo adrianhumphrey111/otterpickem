@@ -1,27 +1,46 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 import puppeteer from 'puppeteer';
-import { Configuration, OpenAIApi } from 'openai';
+import { JSDOM } from 'jsdom';
 
 const cache = new NodeCache({ stdTTL: 43200 }); // 12 hours in seconds
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+function cleanHTML(htmlString) {
+  // Parse the HTML string using jsdom
+  const dom = new JSDOM(htmlString);
+  const document = dom.window.document;
 
-async function getOpenAIResponse(prompt) {
-  try {
-    const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0,
+  // Remove all unwanted attributes from elements
+  const elements = document.querySelectorAll('*');
+
+  elements.forEach(element => {
+    // Remove specific attributes related to styling, class, href, and accessibility
+    element.removeAttribute('class');
+    element.removeAttribute('style');
+    element.removeAttribute('tabindex');
+    element.removeAttribute('role');
+    element.removeAttribute('href');
+
+    // Remove any attributes that start with 'data-'
+    Array.from(element.attributes).forEach(attr => {
+      if (attr.name.startsWith('data-')) {
+        element.removeAttribute(attr.name);
+      }
     });
-    return response.data.choices[0].message.content;
-  } catch (error) {
-    console.error('Error calling OpenAI API:', error);
-    throw error;
-  }
+
+    // Remove empty elements
+    if (!element.textContent.trim() && !element.children.length) {
+      element.remove();
+    }
+
+    // Remove unnecessary tags (e.g., svg, use)
+    if (['svg', 'use'].includes(element.tagName.toLowerCase())) {
+      element.remove();
+    }
+  });
+
+  // Return the cleaned HTML string
+  return document.body.innerHTML;
 }
 
 export async function getCurrentOPS() {
@@ -48,17 +67,31 @@ export async function getCurrentOPS() {
     array of the teams values ranked from highest to least with the corresponding stat the team has
     Only include the JSON object in your response, without any additional text.
     
-    ${tableHTML}
+    ${cleanHTML(tableHTML)}
     `;
 
-    const response = await getOpenAIResponse(prompt);
-    const teamOPS = JSON.parse(response);
+    const response = await axios.post('https://api.anthropic.com/v1/messages', {
+      model: "claude-3-5-sonnet-20240620",
+      max_tokens: 4096,
+      temperature: 0,
+      system: "You are an expert data analyzer and good at pulling data out of html code and returning structured JSON objects with the information you are given. You only return structured json in your response and not text about the json",
+      messages: [
+        { role: "user", content: prompt }
+      ]
+    }, {
+      headers: {
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json'
+      }
+    });
+
+    const teamOPS = JSON.parse(response.data.content[0].text);
     cache.set('teamOPS', teamOPS);
     return teamOPS;
   } catch (error) {
     console.error('Error getting team OPS:', error);
-    throw error; 
-  
+    throw error;
   }
 }
 

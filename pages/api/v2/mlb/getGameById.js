@@ -4,11 +4,12 @@ import { getTeamStatistics } from './getTeamStatistics';
 import { getCurrentOPS } from './getCurrentOPS';
 import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
 import { getTeamStandings } from './getTeamStandings';
-import { getClaudeResponse } from '../../../../utils/claudeUtils';
+import { getOpenAIResponse } from '../../../../utils/openaiUtils';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 import { getDailyOddsMLB } from './getDailyOddsMLB.js';
 import { PrismaClient } from '@prisma/client';
 import axios from "axios"
+import { getOpenAIResponse } from '../../../../utils/openaiUtils.js';
 
 const prisma = new PrismaClient();
 
@@ -113,7 +114,8 @@ export async function evaluateGame(gameId) {
   const awayTeamStats = await makeApiCallWithDelay(getTeamStatistics, boxScore.game.away.id);
 
   // Get team OPS
-  const teamOPS = await makeApiCallWithDelay(getCurrentOPS);
+  //const teamOPS = await makeApiCallWithDelay(getCurrentOPS);
+  const teamBattingLeaders = await makeApiCallWithDelay(getTeamStatistics)
 
   // Get recent games for both teams
   const homeRecentGames = await makeApiCallWithDelay(getRecentTeamGames, boxScore.game.home.id, boxScore.game.scheduled);
@@ -154,7 +156,7 @@ export async function evaluateGame(gameId) {
     } : null,
     boxScore: boxScore.game,
     runDifferentials: runDifferentials,
-    opsRanings: teamOPS,
+    battingleadersByTeam: teamBattingLeaders,
     oddsByMarket: oddsByMarket
   };
 
@@ -162,7 +164,8 @@ export async function evaluateGame(gameId) {
   let claudeResponse;
   try {
     // We want to reset the tokens per minute, so wait a minute and a half
-    claudeResponse = await getClaudeResponse(gameData);
+    claudeResponse = await getOpenAIResponse(gameData)
+    //claudeResponse = await getClaudeResponse(gameData);
   } catch (claudeError) {
     // Log and output only the error message
     if (error.response) {
