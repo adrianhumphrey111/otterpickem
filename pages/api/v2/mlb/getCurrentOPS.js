@@ -36,7 +36,7 @@ export async function getCurrentOPS() {
     cache.set('teamOPS', teamOPS);
     return teamOPS;
   } catch (error) {
-    console.error('Error getting team OPS:', error.response.data);
+    console.error('Error getting team OPS:', error);
     throw error; 
   
   }
