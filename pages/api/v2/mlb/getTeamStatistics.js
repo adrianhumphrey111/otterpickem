@@ -10,19 +10,18 @@ export default async function handler(req, res) {
     try {
       
       const teamStats = await getTeamStatistics()
-      const mlbLeaders = teamStats.leagues.filter( l => l.alias === "MLB") || {}
-      const {batting_average, runs_scored, doubles, triples, home_runs, runs_batted_in, stolen_bases, hits} = mlbLeaders.hitting
+      const mlbLeaders = teamStats.leagues.find(l => l.alias === "MLB") || {};
+      const {batting_average, runs_scored, doubles, triples, home_runs, runs_batted_in, stolen_bases, hits} = mlbLeaders.hitting || {};
       let truncatedTeamStats = {
-        battingAverage: batting_average.teams.map( t => ({name: t.name, rank: t.rank, name: t.name, avg: t.avg})),
-        runsScored: runs_scored.teams.map( t => ({name: t.name, rank: t.rank, name: t.name, runs: t.runs})),
-        doubles: doubles.teams.map( t => ({name: t.name, rank: t.rank, name: t.name, doubles: t.doubles})),
-        triples: triples.teams.map( t => ({name: t.name, rank: t.rank, name: t.name, triples: t.triples})),
-        homeRuns: home_runs.teams.map( t => ({name: t.name, rank: t.rank, name: t.name, homeRuns: t.hr})),
-        runsBattedIn: runs_batted_in.teams.map( t => ({name: t.name, rank: t.rank, name: t.name, rbis: t.rbi})),
-        hits: hits.teams.map( t => ({name: t.name, rank: t.rank, name: t.name, hits: t.h})),
-        stolenBases: stolen_bases.teams.map( t => ({name: t.name, rank: t.rank, name: t.name, stolenBases: t.sb})),
-      }
-      = mlbLeaders.hitting
+        battingAverage: batting_average?.teams.map(t => ({name: t.name, rank: t.rank, avg: t.avg})) || [],
+        runsScored: runs_scored?.teams.map(t => ({name: t.name, rank: t.rank, runs: t.runs})) || [],
+        doubles: doubles?.teams.map(t => ({name: t.name, rank: t.rank, doubles: t.doubles})) || [],
+        triples: triples?.teams.map(t => ({name: t.name, rank: t.rank, triples: t.triples})) || [],
+        homeRuns: home_runs?.teams.map(t => ({name: t.name, rank: t.rank, homeRuns: t.hr})) || [],
+        runsBattedIn: runs_batted_in?.teams.map(t => ({name: t.name, rank: t.rank, rbis: t.rbi})) || [],
+        hits: hits?.teams.map(t => ({name: t.name, rank: t.rank, hits: t.h})) || [],
+        stolenBases: stolen_bases?.teams.map(t => ({name: t.name, rank: t.rank, stolenBases: t.sb})) || [],
+      };
       res.status(200).json(truncatedTeamStats);
     } catch (error) {
       console.error('Error fetching team statistics:', error);
