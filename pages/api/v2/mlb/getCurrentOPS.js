@@ -1,8 +1,28 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 import puppeteer from 'puppeteer';
+import { Configuration, OpenAIApi } from 'openai';
 
 const cache = new NodeCache({ stdTTL: 43200 }); // 12 hours in seconds
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+async function getOpenAIResponse(prompt) {
+  try {
+    const response = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0,
+    });
+    return response.data.choices[0].message.content;
+  } catch (error) {
+    console.error('Error calling OpenAI API:', error);
+    throw error;
+  }
+}
 
 export async function getCurrentOPS() {
   const cachedData = cache.get('teamOPS');
