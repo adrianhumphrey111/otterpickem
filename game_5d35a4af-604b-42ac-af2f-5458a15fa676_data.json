@@ -1,0 +1,6779 @@
+{
+  "gameId": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+  "homeTeam": {
+    "name": "Pirates",
+    "recentGames": [
+      {
+        "id": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "D",
+        "scheduled": "2024-08-08T16:35:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "attendance": 19952,
+        "duration": "3:01",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745466",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "broadcast": {
+          "network": "MLB Network"
+        },
+        "details": {
+          "gameId": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+          "date": "2024-08-08",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 6,
+            "hits": 12,
+            "errors": 1
+          },
+          "awayTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 7,
+            "hits": 7,
+            "errors": 0
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 6,
+              "awayTeam": 7
+            }
+          }
+        }
+      },
+      {
+        "id": "c72c8550-cd9f-4e46-a45f-6720f9d04607",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-07T22:40:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "attendance": 21528,
+        "duration": "3:56",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745469",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "broadcast": {
+          "network": "SDPA"
+        },
+        "details": {
+          "gameId": "c72c8550-cd9f-4e46-a45f-6720f9d04607",
+          "date": "2024-08-07",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 8,
+            "hits": 11,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 9,
+            "hits": 14,
+            "errors": 2
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 8,
+              "awayTeam": 9
+            }
+          }
+        }
+      },
+      {
+        "id": "eee62e5f-d734-492f-aa5b-a627bb29ddcb",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-06T22:40:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "attendance": 17814,
+        "duration": "2:37",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745467",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "broadcast": {
+          "network": "SportsNet PT"
+        },
+        "details": {
+          "gameId": "eee62e5f-d734-492f-aa5b-a627bb29ddcb",
+          "date": "2024-08-06",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 0,
+            "hits": 5,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 6,
+            "hits": 14,
+            "errors": 0
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 0,
+              "awayTeam": 6
+            }
+          }
+        }
+      },
+      {
+        "id": "e4b76681-024f-40d8-ba19-4261b6323b0f",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "D",
+        "scheduled": "2024-08-04T17:35:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "25507be1-6a68-4267-bd82-e097d94b359b",
+        "attendance": 32624,
+        "duration": "3:03",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745468",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Diamondbacks",
+          "market": "Arizona",
+          "abbr": "AZ",
+          "id": "25507be1-6a68-4267-bd82-e097d94b359b"
+        },
+        "broadcast": {
+          "network": "SportsNet PT"
+        },
+        "details": {
+          "gameId": "e4b76681-024f-40d8-ba19-4261b6323b0f",
+          "date": "2024-08-04",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 5,
+            "hits": 10,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "25507be1-6a68-4267-bd82-e097d94b359b",
+            "name": "Arizona Diamondbacks",
+            "runsScored": 6,
+            "hits": 9,
+            "errors": 0
+          },
+          "result": {
+            "winner": "Arizona Diamondbacks",
+            "score": {
+              "homeTeam": 5,
+              "awayTeam": 6
+            }
+          }
+        }
+      },
+      {
+        "id": "d720e1c7-8e43-4e38-bfbf-4bd5d39e0cad",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-03T22:40:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "25507be1-6a68-4267-bd82-e097d94b359b",
+        "attendance": 35515,
+        "duration": "2:39",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745474",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Diamondbacks",
+          "market": "Arizona",
+          "abbr": "AZ",
+          "id": "25507be1-6a68-4267-bd82-e097d94b359b"
+        },
+        "broadcast": {
+          "network": "ARID"
+        },
+        "details": {
+          "gameId": "d720e1c7-8e43-4e38-bfbf-4bd5d39e0cad",
+          "date": "2024-08-03",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 4,
+            "hits": 6,
+            "errors": 1
+          },
+          "awayTeam": {
+            "id": "25507be1-6a68-4267-bd82-e097d94b359b",
+            "name": "Arizona Diamondbacks",
+            "runsScored": 2,
+            "hits": 6,
+            "errors": 0
+          },
+          "result": {
+            "winner": "Pittsburgh Pirates",
+            "score": {
+              "homeTeam": 4,
+              "awayTeam": 2
+            }
+          }
+        }
+      },
+      {
+        "id": "b3499ee5-0c3b-41be-92f0-b9c0e3d82dd9",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-02T22:40:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "25507be1-6a68-4267-bd82-e097d94b359b",
+        "attendance": 22834,
+        "duration": "3:11",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745471",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Diamondbacks",
+          "market": "Arizona",
+          "abbr": "AZ",
+          "id": "25507be1-6a68-4267-bd82-e097d94b359b"
+        },
+        "broadcast": {
+          "network": "ARID"
+        },
+        "details": {
+          "gameId": "b3499ee5-0c3b-41be-92f0-b9c0e3d82dd9",
+          "date": "2024-08-02",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 8,
+            "hits": 13,
+            "errors": 2
+          },
+          "awayTeam": {
+            "id": "25507be1-6a68-4267-bd82-e097d94b359b",
+            "name": "Arizona Diamondbacks",
+            "runsScored": 9,
+            "hits": 11,
+            "errors": 0
+          },
+          "result": {
+            "winner": "Arizona Diamondbacks",
+            "score": {
+              "homeTeam": 8,
+              "awayTeam": 9
+            }
+          }
+        }
+      },
+      {
+        "id": "da78f5a8-e4e2-4a86-baa6-bec75ccd775b",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-01T00:10:00+00:00",
+        "home_team": "eb21dadd-8f10-4095-8bf3-dfb3b779f107",
+        "away_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "attendance": 30038,
+        "duration": "2:20",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "746363",
+        "venue": {
+          "name": "Minute Maid Park",
+          "market": "Houston",
+          "capacity": 41000,
+          "surface": "grass",
+          "address": "501 Crawford Street",
+          "city": "Houston",
+          "state": "TX",
+          "zip": "77002",
+          "country": "USA",
+          "id": "f0600f04-1386-4c61-a412-804960c46cb1",
+          "field_orientation": "N",
+          "stadium_type": "retractable",
+          "time_zone": "US/Central",
+          "location": {
+            "lat": "29.7577058",
+            "lng": "-95.35453989999999"
+          }
+        },
+        "home": {
+          "name": "Astros",
+          "market": "Houston",
+          "abbr": "HOU",
+          "id": "eb21dadd-8f10-4095-8bf3-dfb3b779f107"
+        },
+        "away": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "broadcast": {
+          "network": "MLB Network"
+        },
+        "details": {
+          "gameId": "da78f5a8-e4e2-4a86-baa6-bec75ccd775b",
+          "date": "2024-08-01",
+          "homeTeam": {
+            "id": "eb21dadd-8f10-4095-8bf3-dfb3b779f107",
+            "name": "Houston Astros",
+            "runsScored": 5,
+            "hits": 4,
+            "errors": 2
+          },
+          "awayTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 4,
+            "hits": 9,
+            "errors": 3
+          },
+          "result": {
+            "winner": "Houston Astros",
+            "score": {
+              "homeTeam": 5,
+              "awayTeam": 4
+            }
+          }
+        }
+      },
+      {
+        "id": "fd907a1f-5e63-4121-a05b-9bcc9ac0daed",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-07-31T00:10:00+00:00",
+        "home_team": "eb21dadd-8f10-4095-8bf3-dfb3b779f107",
+        "away_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "attendance": 37518,
+        "duration": "2:47",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "746365",
+        "venue": {
+          "name": "Minute Maid Park",
+          "market": "Houston",
+          "capacity": 41000,
+          "surface": "grass",
+          "address": "501 Crawford Street",
+          "city": "Houston",
+          "state": "TX",
+          "zip": "77002",
+          "country": "USA",
+          "id": "f0600f04-1386-4c61-a412-804960c46cb1",
+          "field_orientation": "N",
+          "stadium_type": "retractable",
+          "time_zone": "US/Central",
+          "location": {
+            "lat": "29.7577058",
+            "lng": "-95.35453989999999"
+          }
+        },
+        "home": {
+          "name": "Astros",
+          "market": "Houston",
+          "abbr": "HOU",
+          "id": "eb21dadd-8f10-4095-8bf3-dfb3b779f107"
+        },
+        "away": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "broadcast": {
+          "network": "SCHN"
+        },
+        "details": {
+          "gameId": "fd907a1f-5e63-4121-a05b-9bcc9ac0daed",
+          "date": "2024-07-31",
+          "homeTeam": {
+            "id": "eb21dadd-8f10-4095-8bf3-dfb3b779f107",
+            "name": "Houston Astros",
+            "runsScored": 2,
+            "hits": 10,
+            "errors": 3
+          },
+          "awayTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 6,
+            "hits": 11,
+            "errors": 1
+          },
+          "result": {
+            "winner": "Pittsburgh Pirates",
+            "score": {
+              "homeTeam": 2,
+              "awayTeam": 6
+            }
+          }
+        }
+      },
+      {
+        "id": "accf1fd4-ff00-43d4-bd0f-bcc3580353b0",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-07-30T00:10:00+00:00",
+        "home_team": "eb21dadd-8f10-4095-8bf3-dfb3b779f107",
+        "away_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "attendance": 40522,
+        "duration": "2:51",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "746360",
+        "venue": {
+          "name": "Minute Maid Park",
+          "market": "Houston",
+          "capacity": 41000,
+          "surface": "grass",
+          "address": "501 Crawford Street",
+          "city": "Houston",
+          "state": "TX",
+          "zip": "77002",
+          "country": "USA",
+          "id": "f0600f04-1386-4c61-a412-804960c46cb1",
+          "field_orientation": "N",
+          "stadium_type": "retractable",
+          "time_zone": "US/Central",
+          "location": {
+            "lat": "29.7577058",
+            "lng": "-95.35453989999999"
+          }
+        },
+        "home": {
+          "name": "Astros",
+          "market": "Houston",
+          "abbr": "HOU",
+          "id": "eb21dadd-8f10-4095-8bf3-dfb3b779f107"
+        },
+        "away": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "broadcast": {
+          "network": "SCHN"
+        },
+        "details": {
+          "gameId": "accf1fd4-ff00-43d4-bd0f-bcc3580353b0",
+          "date": "2024-07-30",
+          "homeTeam": {
+            "id": "eb21dadd-8f10-4095-8bf3-dfb3b779f107",
+            "name": "Houston Astros",
+            "runsScored": 3,
+            "hits": 9,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 5,
+            "hits": 6,
+            "errors": 3
+          },
+          "result": {
+            "winner": "Pittsburgh Pirates",
+            "score": {
+              "homeTeam": 3,
+              "awayTeam": 5
+            }
+          }
+        }
+      },
+      {
+        "id": "2c214ae6-6a61-4453-a7c6-db5e0e2d4ec2",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "D",
+        "scheduled": "2024-07-28T20:10:00+00:00",
+        "home_team": "25507be1-6a68-4267-bd82-e097d94b359b",
+        "away_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "attendance": 27162,
+        "duration": "2:57",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "747173",
+        "venue": {
+          "name": "Chase Field",
+          "market": "Arizona",
+          "capacity": 48359,
+          "surface": "turf",
+          "address": "401 East Jefferson Street",
+          "city": "Phoenix",
+          "state": "AZ",
+          "zip": "85004",
+          "country": "USA",
+          "id": "bf05de0d-7ced-4a19-8e17-2bbd985f8a92",
+          "field_orientation": "N",
+          "stadium_type": "retractable",
+          "time_zone": "US/Arizona",
+          "location": {
+            "lat": "33.445302",
+            "lng": "-112.066687"
+          }
+        },
+        "home": {
+          "name": "Diamondbacks",
+          "market": "Arizona",
+          "abbr": "AZ",
+          "id": "25507be1-6a68-4267-bd82-e097d94b359b"
+        },
+        "away": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "broadcast": {
+          "network": "SportsNet PT"
+        },
+        "details": {
+          "gameId": "2c214ae6-6a61-4453-a7c6-db5e0e2d4ec2",
+          "date": "2024-07-28",
+          "homeTeam": {
+            "id": "25507be1-6a68-4267-bd82-e097d94b359b",
+            "name": "Arizona Diamondbacks",
+            "runsScored": 5,
+            "hits": 5,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 6,
+            "hits": 7,
+            "errors": 0
+          },
+          "result": {
+            "winner": "Pittsburgh Pirates",
+            "score": {
+              "homeTeam": 5,
+              "awayTeam": 6
+            }
+          }
+        }
+      }
+    ],
+    "standings": {
+      "name": "Pirates",
+      "market": "Pittsburgh",
+      "abbr": "PIT",
+      "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+      "away_loss": 27,
+      "away_win": 29,
+      "elimination_number": 44,
+      "games_back": 9,
+      "home_loss": 31,
+      "home_win": 27,
+      "last_10_lost": 6,
+      "last_10_won": 4,
+      "loss": 58,
+      "streak": "L4",
+      "wild_card_back": "4.5",
+      "win": 56,
+      "win_p": 0.491,
+      "al_loss": 17,
+      "al_win": 14,
+      "c_loss": 15,
+      "c_win": 17,
+      "w_loss": 14,
+      "w_win": 10,
+      "e_loss": 12,
+      "e_win": 15,
+      "division_elimination_number": 40,
+      "rank": {
+        "division": 3,
+        "league": 10
+      }
+    }
+  },
+  "awayTeam": {
+    "name": "Padres",
+    "recentGames": [
+      {
+        "id": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "D",
+        "scheduled": "2024-08-08T16:35:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "attendance": 19952,
+        "duration": "3:01",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745466",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "broadcast": {
+          "network": "MLB Network"
+        },
+        "details": {
+          "gameId": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+          "date": "2024-08-08",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 6,
+            "hits": 12,
+            "errors": 1
+          },
+          "awayTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 7,
+            "hits": 7,
+            "errors": 0
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 6,
+              "awayTeam": 7
+            }
+          }
+        }
+      },
+      {
+        "id": "c72c8550-cd9f-4e46-a45f-6720f9d04607",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-07T22:40:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "attendance": 21528,
+        "duration": "3:56",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745469",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "broadcast": {
+          "network": "SDPA"
+        },
+        "details": {
+          "gameId": "c72c8550-cd9f-4e46-a45f-6720f9d04607",
+          "date": "2024-08-07",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 8,
+            "hits": 11,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 9,
+            "hits": 14,
+            "errors": 2
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 8,
+              "awayTeam": 9
+            }
+          }
+        }
+      },
+      {
+        "id": "eee62e5f-d734-492f-aa5b-a627bb29ddcb",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-06T22:40:00+00:00",
+        "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+        "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "attendance": 17814,
+        "duration": "2:37",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745467",
+        "venue": {
+          "name": "PNC Park",
+          "market": "Pittsburgh",
+          "capacity": 38753,
+          "surface": "grass",
+          "address": "115 Federal Street",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "zip": "15212",
+          "country": "USA",
+          "id": "61314394-c8b8-411e-b891-ca41285d5362",
+          "field_orientation": "E",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "40.4471507",
+            "lng": "-80.0064087"
+          }
+        },
+        "home": {
+          "name": "Pirates",
+          "market": "Pittsburgh",
+          "abbr": "PIT",
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+        },
+        "away": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "broadcast": {
+          "network": "SportsNet PT"
+        },
+        "details": {
+          "gameId": "eee62e5f-d734-492f-aa5b-a627bb29ddcb",
+          "date": "2024-08-06",
+          "homeTeam": {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pittsburgh Pirates",
+            "runsScored": 0,
+            "hits": 5,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 6,
+            "hits": 14,
+            "errors": 0
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 0,
+              "awayTeam": 6
+            }
+          }
+        }
+      },
+      {
+        "id": "35899533-0d87-42f3-b573-ed4b114f3eb3",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "D",
+        "scheduled": "2024-08-04T20:10:00+00:00",
+        "home_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "away_team": "29dd9a87-5bcc-4774-80c3-7f50d985068b",
+        "attendance": 41828,
+        "duration": "2:44",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745384",
+        "venue": {
+          "name": "PETCO Park",
+          "market": "San Diego",
+          "capacity": 40222,
+          "surface": "grass",
+          "address": "100 Park Boulevard",
+          "city": "San Diego",
+          "state": "CA",
+          "zip": "92101",
+          "country": "USA",
+          "id": "0ab45d79-5475-4308-9f94-74b0c185ee6f",
+          "field_orientation": "N",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Pacific",
+          "location": {
+            "lat": "32.70752890000001",
+            "lng": "-117.1568083"
+          }
+        },
+        "home": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "away": {
+          "name": "Rockies",
+          "market": "Colorado",
+          "abbr": "COL",
+          "id": "29dd9a87-5bcc-4774-80c3-7f50d985068b"
+        },
+        "broadcast": {
+          "network": "COLR"
+        },
+        "details": {
+          "gameId": "35899533-0d87-42f3-b573-ed4b114f3eb3",
+          "date": "2024-08-04",
+          "homeTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 10,
+            "hits": 12,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "29dd9a87-5bcc-4774-80c3-7f50d985068b",
+            "name": "Colorado Rockies",
+            "runsScored": 2,
+            "hits": 5,
+            "errors": 0
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 10,
+              "awayTeam": 2
+            }
+          }
+        }
+      },
+      {
+        "id": "72f5855c-7b84-4b67-90ae-6671ab80e9d6",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-04T00:40:00+00:00",
+        "home_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "away_team": "29dd9a87-5bcc-4774-80c3-7f50d985068b",
+        "attendance": 44029,
+        "duration": "1:59",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745388",
+        "venue": {
+          "name": "PETCO Park",
+          "market": "San Diego",
+          "capacity": 40222,
+          "surface": "grass",
+          "address": "100 Park Boulevard",
+          "city": "San Diego",
+          "state": "CA",
+          "zip": "92101",
+          "country": "USA",
+          "id": "0ab45d79-5475-4308-9f94-74b0c185ee6f",
+          "field_orientation": "N",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Pacific",
+          "location": {
+            "lat": "32.70752890000001",
+            "lng": "-117.1568083"
+          }
+        },
+        "home": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "away": {
+          "name": "Rockies",
+          "market": "Colorado",
+          "abbr": "COL",
+          "id": "29dd9a87-5bcc-4774-80c3-7f50d985068b"
+        },
+        "broadcast": {
+          "network": "SDPA"
+        },
+        "details": {
+          "gameId": "72f5855c-7b84-4b67-90ae-6671ab80e9d6",
+          "date": "2024-08-04",
+          "homeTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 3,
+            "hits": 5,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "29dd9a87-5bcc-4774-80c3-7f50d985068b",
+            "name": "Colorado Rockies",
+            "runsScored": 2,
+            "hits": 5,
+            "errors": 0
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 3,
+              "awayTeam": 2
+            }
+          }
+        }
+      },
+      {
+        "id": "d81aed92-0061-4e05-9737-7d10ca69f457",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-03T01:40:00+00:00",
+        "home_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "away_team": "29dd9a87-5bcc-4774-80c3-7f50d985068b",
+        "attendance": 44393,
+        "duration": "2:35",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745387",
+        "venue": {
+          "name": "PETCO Park",
+          "market": "San Diego",
+          "capacity": 40222,
+          "surface": "grass",
+          "address": "100 Park Boulevard",
+          "city": "San Diego",
+          "state": "CA",
+          "zip": "92101",
+          "country": "USA",
+          "id": "0ab45d79-5475-4308-9f94-74b0c185ee6f",
+          "field_orientation": "N",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Pacific",
+          "location": {
+            "lat": "32.70752890000001",
+            "lng": "-117.1568083"
+          }
+        },
+        "home": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "away": {
+          "name": "Rockies",
+          "market": "Colorado",
+          "abbr": "COL",
+          "id": "29dd9a87-5bcc-4774-80c3-7f50d985068b"
+        },
+        "broadcast": {
+          "network": "MLB Network"
+        },
+        "details": {
+          "gameId": "d81aed92-0061-4e05-9737-7d10ca69f457",
+          "date": "2024-08-03",
+          "homeTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 2,
+            "hits": 5,
+            "errors": 1
+          },
+          "awayTeam": {
+            "id": "29dd9a87-5bcc-4774-80c3-7f50d985068b",
+            "name": "Colorado Rockies",
+            "runsScored": 5,
+            "hits": 8,
+            "errors": 0
+          },
+          "result": {
+            "winner": "Colorado Rockies",
+            "score": {
+              "homeTeam": 2,
+              "awayTeam": 5
+            }
+          }
+        }
+      },
+      {
+        "id": "36925862-8733-4c23-abc7-bc47f9bbb0b3",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-08-01T00:40:00+00:00",
+        "home_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "away_team": "ef64da7f-cfaf-4300-87b0-9313386b977c",
+        "attendance": 46997,
+        "duration": "2:35",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745386",
+        "venue": {
+          "name": "PETCO Park",
+          "market": "San Diego",
+          "capacity": 40222,
+          "surface": "grass",
+          "address": "100 Park Boulevard",
+          "city": "San Diego",
+          "state": "CA",
+          "zip": "92101",
+          "country": "USA",
+          "id": "0ab45d79-5475-4308-9f94-74b0c185ee6f",
+          "field_orientation": "N",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Pacific",
+          "location": {
+            "lat": "32.70752890000001",
+            "lng": "-117.1568083"
+          }
+        },
+        "home": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "away": {
+          "name": "Dodgers",
+          "market": "Los Angeles",
+          "abbr": "LAD",
+          "id": "ef64da7f-cfaf-4300-87b0-9313386b977c"
+        },
+        "broadcast": {
+          "network": "SportsNet LA"
+        },
+        "details": {
+          "gameId": "36925862-8733-4c23-abc7-bc47f9bbb0b3",
+          "date": "2024-08-01",
+          "homeTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 8,
+            "hits": 12,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "ef64da7f-cfaf-4300-87b0-9313386b977c",
+            "name": "Los Angeles Dodgers",
+            "runsScored": 1,
+            "hits": 3,
+            "errors": 3
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 8,
+              "awayTeam": 1
+            }
+          }
+        }
+      },
+      {
+        "id": "ee48df65-65ac-4125-8103-3f067d2a8132",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "N",
+        "scheduled": "2024-07-31T01:40:00+00:00",
+        "home_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "away_team": "ef64da7f-cfaf-4300-87b0-9313386b977c",
+        "attendance": 47559,
+        "duration": "2:48",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "745389",
+        "venue": {
+          "name": "PETCO Park",
+          "market": "San Diego",
+          "capacity": 40222,
+          "surface": "grass",
+          "address": "100 Park Boulevard",
+          "city": "San Diego",
+          "state": "CA",
+          "zip": "92101",
+          "country": "USA",
+          "id": "0ab45d79-5475-4308-9f94-74b0c185ee6f",
+          "field_orientation": "N",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Pacific",
+          "location": {
+            "lat": "32.70752890000001",
+            "lng": "-117.1568083"
+          }
+        },
+        "home": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "away": {
+          "name": "Dodgers",
+          "market": "Los Angeles",
+          "abbr": "LAD",
+          "id": "ef64da7f-cfaf-4300-87b0-9313386b977c"
+        },
+        "broadcast": {
+          "network": "SDPA"
+        },
+        "details": {
+          "gameId": "ee48df65-65ac-4125-8103-3f067d2a8132",
+          "date": "2024-07-31",
+          "homeTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 6,
+            "hits": 9,
+            "errors": 0
+          },
+          "awayTeam": {
+            "id": "ef64da7f-cfaf-4300-87b0-9313386b977c",
+            "name": "Los Angeles Dodgers",
+            "runsScored": 5,
+            "hits": 7,
+            "errors": 0
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 6,
+              "awayTeam": 5
+            }
+          }
+        }
+      },
+      {
+        "id": "a21d7c6f-196e-48ab-80c0-018ea96bde5d",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "D",
+        "scheduled": "2024-07-28T17:35:00+00:00",
+        "home_team": "75729d34-bca7-4a0f-b3df-6f26c6ad3719",
+        "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "attendance": 38411,
+        "duration": "3:19",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "747008",
+        "venue": {
+          "name": "Oriole Park at Camden Yards",
+          "market": "Baltimore",
+          "capacity": 45971,
+          "surface": "grass",
+          "address": "333 West Camden Street",
+          "city": "Baltimore",
+          "state": "MD",
+          "zip": "21201",
+          "country": "USA",
+          "id": "434aa63c-1049-4a54-a6bc-3790c7772ee1",
+          "field_orientation": "NE",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "39.283787",
+            "lng": "-76.621689"
+          }
+        },
+        "home": {
+          "name": "Orioles",
+          "market": "Baltimore",
+          "abbr": "BAL",
+          "id": "75729d34-bca7-4a0f-b3df-6f26c6ad3719"
+        },
+        "away": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "broadcast": {
+          "network": "MASN"
+        },
+        "details": {
+          "gameId": "a21d7c6f-196e-48ab-80c0-018ea96bde5d",
+          "date": "2024-07-28",
+          "homeTeam": {
+            "id": "75729d34-bca7-4a0f-b3df-6f26c6ad3719",
+            "name": "Baltimore Orioles",
+            "runsScored": 8,
+            "hits": 9,
+            "errors": 2
+          },
+          "awayTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 6,
+            "hits": 10,
+            "errors": 1
+          },
+          "result": {
+            "winner": "Baltimore Orioles",
+            "score": {
+              "homeTeam": 8,
+              "awayTeam": 6
+            }
+          }
+        }
+      },
+      {
+        "id": "9ec9d835-2738-4f81-be8f-7539d1e503bb",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "D",
+        "scheduled": "2024-07-27T20:05:00+00:00",
+        "home_team": "75729d34-bca7-4a0f-b3df-6f26c6ad3719",
+        "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+        "attendance": 30008,
+        "duration": "2:46",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "747006",
+        "venue": {
+          "name": "Oriole Park at Camden Yards",
+          "market": "Baltimore",
+          "capacity": 45971,
+          "surface": "grass",
+          "address": "333 West Camden Street",
+          "city": "Baltimore",
+          "state": "MD",
+          "zip": "21201",
+          "country": "USA",
+          "id": "434aa63c-1049-4a54-a6bc-3790c7772ee1",
+          "field_orientation": "NE",
+          "stadium_type": "outdoor",
+          "time_zone": "US/Eastern",
+          "location": {
+            "lat": "39.283787",
+            "lng": "-76.621689"
+          }
+        },
+        "home": {
+          "name": "Orioles",
+          "market": "Baltimore",
+          "abbr": "BAL",
+          "id": "75729d34-bca7-4a0f-b3df-6f26c6ad3719"
+        },
+        "away": {
+          "name": "Padres",
+          "market": "San Diego",
+          "abbr": "SD",
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+        },
+        "broadcast": {
+          "network": "Fox Sports 1"
+        },
+        "details": {
+          "gameId": "9ec9d835-2738-4f81-be8f-7539d1e503bb",
+          "date": "2024-07-27",
+          "homeTeam": {
+            "id": "75729d34-bca7-4a0f-b3df-6f26c6ad3719",
+            "name": "Baltimore Orioles",
+            "runsScored": 4,
+            "hits": 7,
+            "errors": 2
+          },
+          "awayTeam": {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "San Diego Padres",
+            "runsScored": 9,
+            "hits": 14,
+            "errors": 0
+          },
+          "result": {
+            "winner": "San Diego Padres",
+            "score": {
+              "homeTeam": 4,
+              "awayTeam": 9
+            }
+          }
+        }
+      }
+    ],
+    "standings": {
+      "name": "Padres",
+      "market": "San Diego",
+      "abbr": "SD",
+      "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+      "away_loss": 23,
+      "away_win": 34,
+      "elimination_number": 0,
+      "games_back": 2.5,
+      "home_loss": 29,
+      "home_win": 30,
+      "last_10_lost": 2,
+      "last_10_won": 8,
+      "loss": 52,
+      "streak": "W5",
+      "wild_card_back": "+2.5",
+      "win": 64,
+      "win_p": 0.552,
+      "al_loss": 14,
+      "al_win": 15,
+      "c_loss": 8,
+      "c_win": 17,
+      "w_loss": 18,
+      "w_win": 19,
+      "e_loss": 12,
+      "e_win": 13,
+      "division_elimination_number": 45,
+      "rank": {
+        "division": 2,
+        "league": 4
+      }
+    }
+  },
+  "headToHeadGames": [
+    {
+      "id": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+      "status": "closed",
+      "coverage": "full",
+      "game_number": 1,
+      "day_night": "D",
+      "scheduled": "2024-08-08T16:35:00+00:00",
+      "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+      "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+      "attendance": 19952,
+      "duration": "3:01",
+      "double_header": false,
+      "entry_mode": "STOMP",
+      "reference": "745466",
+      "venue": {
+        "name": "PNC Park",
+        "market": "Pittsburgh",
+        "capacity": 38753,
+        "surface": "grass",
+        "address": "115 Federal Street",
+        "city": "Pittsburgh",
+        "state": "PA",
+        "zip": "15212",
+        "country": "USA",
+        "id": "61314394-c8b8-411e-b891-ca41285d5362",
+        "field_orientation": "E",
+        "stadium_type": "outdoor",
+        "time_zone": "US/Eastern",
+        "location": {
+          "lat": "40.4471507",
+          "lng": "-80.0064087"
+        }
+      },
+      "home": {
+        "name": "Pirates",
+        "market": "Pittsburgh",
+        "abbr": "PIT",
+        "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+      },
+      "away": {
+        "name": "Padres",
+        "market": "San Diego",
+        "abbr": "SD",
+        "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+      },
+      "broadcast": {
+        "network": "MLB Network"
+      },
+      "details": {
+        "gameId": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+        "date": "2024-08-08",
+        "homeTeam": {
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+          "name": "Pittsburgh Pirates",
+          "runsScored": 6,
+          "hits": 12,
+          "errors": 1
+        },
+        "awayTeam": {
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+          "name": "San Diego Padres",
+          "runsScored": 7,
+          "hits": 7,
+          "errors": 0
+        },
+        "result": {
+          "winner": "San Diego Padres",
+          "score": {
+            "homeTeam": 6,
+            "awayTeam": 7
+          }
+        }
+      }
+    },
+    {
+      "id": "c72c8550-cd9f-4e46-a45f-6720f9d04607",
+      "status": "closed",
+      "coverage": "full",
+      "game_number": 1,
+      "day_night": "N",
+      "scheduled": "2024-08-07T22:40:00+00:00",
+      "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+      "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+      "attendance": 21528,
+      "duration": "3:56",
+      "double_header": false,
+      "entry_mode": "STOMP",
+      "reference": "745469",
+      "venue": {
+        "name": "PNC Park",
+        "market": "Pittsburgh",
+        "capacity": 38753,
+        "surface": "grass",
+        "address": "115 Federal Street",
+        "city": "Pittsburgh",
+        "state": "PA",
+        "zip": "15212",
+        "country": "USA",
+        "id": "61314394-c8b8-411e-b891-ca41285d5362",
+        "field_orientation": "E",
+        "stadium_type": "outdoor",
+        "time_zone": "US/Eastern",
+        "location": {
+          "lat": "40.4471507",
+          "lng": "-80.0064087"
+        }
+      },
+      "home": {
+        "name": "Pirates",
+        "market": "Pittsburgh",
+        "abbr": "PIT",
+        "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+      },
+      "away": {
+        "name": "Padres",
+        "market": "San Diego",
+        "abbr": "SD",
+        "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+      },
+      "broadcast": {
+        "network": "SDPA"
+      },
+      "details": {
+        "gameId": "c72c8550-cd9f-4e46-a45f-6720f9d04607",
+        "date": "2024-08-07",
+        "homeTeam": {
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+          "name": "Pittsburgh Pirates",
+          "runsScored": 8,
+          "hits": 11,
+          "errors": 0
+        },
+        "awayTeam": {
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+          "name": "San Diego Padres",
+          "runsScored": 9,
+          "hits": 14,
+          "errors": 2
+        },
+        "result": {
+          "winner": "San Diego Padres",
+          "score": {
+            "homeTeam": 8,
+            "awayTeam": 9
+          }
+        }
+      }
+    },
+    {
+      "id": "eee62e5f-d734-492f-aa5b-a627bb29ddcb",
+      "status": "closed",
+      "coverage": "full",
+      "game_number": 1,
+      "day_night": "N",
+      "scheduled": "2024-08-06T22:40:00+00:00",
+      "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+      "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+      "attendance": 17814,
+      "duration": "2:37",
+      "double_header": false,
+      "entry_mode": "STOMP",
+      "reference": "745467",
+      "venue": {
+        "name": "PNC Park",
+        "market": "Pittsburgh",
+        "capacity": 38753,
+        "surface": "grass",
+        "address": "115 Federal Street",
+        "city": "Pittsburgh",
+        "state": "PA",
+        "zip": "15212",
+        "country": "USA",
+        "id": "61314394-c8b8-411e-b891-ca41285d5362",
+        "field_orientation": "E",
+        "stadium_type": "outdoor",
+        "time_zone": "US/Eastern",
+        "location": {
+          "lat": "40.4471507",
+          "lng": "-80.0064087"
+        }
+      },
+      "home": {
+        "name": "Pirates",
+        "market": "Pittsburgh",
+        "abbr": "PIT",
+        "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd"
+      },
+      "away": {
+        "name": "Padres",
+        "market": "San Diego",
+        "abbr": "SD",
+        "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3"
+      },
+      "broadcast": {
+        "network": "SportsNet PT"
+      },
+      "details": {
+        "gameId": "eee62e5f-d734-492f-aa5b-a627bb29ddcb",
+        "date": "2024-08-06",
+        "homeTeam": {
+          "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+          "name": "Pittsburgh Pirates",
+          "runsScored": 0,
+          "hits": 5,
+          "errors": 0
+        },
+        "awayTeam": {
+          "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+          "name": "San Diego Padres",
+          "runsScored": 6,
+          "hits": 14,
+          "errors": 0
+        },
+        "result": {
+          "winner": "San Diego Padres",
+          "score": {
+            "homeTeam": 0,
+            "awayTeam": 6
+          }
+        }
+      }
+    }
+  ],
+  "homePitcher": {
+    "id": "a87a4eb5-c735-4431-ac59-c2cb85e2c82b",
+    "name": "Luis L. Ortiz",
+    "stats": {
+      "oba": 0.227,
+      "lob": 161,
+      "era": 3.4,
+      "k9": 6.804,
+      "whip": 1.1556,
+      "kbb": 2.43,
+      "pitch_count": 1400,
+      "wp": 1,
+      "bk": 1,
+      "ip_1": 270,
+      "ip_2": 90,
+      "bf": 371,
+      "gofo": 0.813,
+      "babip": 0.257,
+      "bf_ip": 4.122,
+      "gbfb": 1.405,
+      "oab": 335,
+      "slg": 0.373,
+      "obp": 0.294,
+      "onbase": {
+        "s": 49,
+        "d": 14,
+        "t": 4,
+        "hr": 9,
+        "tb": 125,
+        "bb": 26,
+        "ibb": 2,
+        "hbp": 5,
+        "fc": 9,
+        "roe": 4,
+        "h": 76,
+        "h9": 7.596,
+        "hr9": 0.9
+      },
+      "runs": {
+        "total": 36,
+        "unearned": 2,
+        "earned": 34,
+        "ir": 14,
+        "ira": 5,
+        "bqr": 14,
+        "bqra": 4
+      },
+      "outcome": {
+        "klook": 225,
+        "kswing": 144,
+        "ktotal": 369,
+        "ball": 467,
+        "iball": 0,
+        "dirtball": 21,
+        "foul": 268
+      },
+      "outs": {
+        "po": 24,
+        "fo": 58,
+        "fidp": 1,
+        "lo": 25,
+        "lidp": 0,
+        "go": 87,
+        "gidp": 11,
+        "klook": 14,
+        "kswing": 54,
+        "ktotal": 68,
+        "sacfly": 3,
+        "sachit": 0
+      },
+      "steal": {
+        "caught": 0,
+        "stolen": 2,
+        "pickoff": 0
+      },
+      "pitches": {
+        "count": 1400,
+        "btotal": 493,
+        "ktotal": 907,
+        "per_ip": 15.556,
+        "per_bf": 3.774
+      },
+      "in_play": {
+        "linedrive": 55,
+        "groundball": 111,
+        "popup": 25,
+        "flyball": 79
+      },
+      "games": {
+        "start": 7,
+        "play": 29,
+        "finish": 2,
+        "svo": 3,
+        "qstart": 3,
+        "shutout": 0,
+        "complete": 0,
+        "win": 5,
+        "loss": 2,
+        "save": 1,
+        "hold": 1,
+        "blown_save": 2,
+        "team_win": 3,
+        "team_loss": 4
+      }
+    },
+    "splits": [
+      {
+        "total": [
+          {
+            "win": 5,
+            "loss": 2,
+            "save": 1,
+            "svo": 3,
+            "start": 7,
+            "play": 29,
+            "complete": 0,
+            "team_win": 3,
+            "team_loss": 4,
+            "ip_1": 270,
+            "ip_2": 90,
+            "h": 76,
+            "runs": 36,
+            "er": 34,
+            "hr": 9,
+            "bb": 26,
+            "ibb": 2,
+            "oba": 0.227,
+            "era": 3.4,
+            "ktotal": 68,
+            "s": 49,
+            "d": 14,
+            "t": 4,
+            "rbi": 0,
+            "hbp": 5,
+            "sb": 2,
+            "cs": 0,
+            "obp": 0.294,
+            "slg": 0.373,
+            "ops": 0.667,
+            "bf": 371
+          }
+        ],
+        "day_night": [
+          {
+            "value": "day",
+            "win": 3,
+            "loss": 1,
+            "save": 1,
+            "svo": 2,
+            "start": 4,
+            "play": 17,
+            "complete": 0,
+            "ip_1": 153,
+            "ip_2": 51,
+            "h": 32,
+            "runs": 12,
+            "er": 10,
+            "hr": 2,
+            "bb": 11,
+            "ibb": 2,
+            "oba": 0.179,
+            "era": 1.765,
+            "ktotal": 44,
+            "team_win": 2,
+            "team_loss": 2
+          },
+          {
+            "value": "night",
+            "win": 2,
+            "loss": 1,
+            "save": 0,
+            "svo": 1,
+            "start": 3,
+            "play": 12,
+            "complete": 0,
+            "ip_1": 117,
+            "ip_2": 39,
+            "h": 44,
+            "runs": 24,
+            "er": 24,
+            "hr": 7,
+            "bb": 15,
+            "ibb": 0,
+            "oba": 0.282,
+            "era": 5.538,
+            "ktotal": 24,
+            "team_win": 1,
+            "team_loss": 2
+          }
+        ],
+        "venue": [
+          {
+            "id": "84d72338-2173-4a90-9d25-99adc6c86f4b",
+            "name": "Rogers Centre",
+            "market": "Toronto",
+            "surface": "turf",
+            "win": 0,
+            "loss": 0,
+            "save": 1,
+            "svo": 1,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 9,
+            "ip_2": 3,
+            "h": 1,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.1,
+            "era": 0,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "ef9a5eef-06c6-4963-ac70-7fd02c8c8d42",
+            "name": "Comerica Park",
+            "market": "Detroit",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 8,
+            "ip_2": 2.2,
+            "h": 4,
+            "runs": 1,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.308,
+            "era": 0,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "d5a66fb3-ff26-4f36-910c-3df5cedb36b3",
+            "name": "loanDepot park",
+            "market": "Miami",
+            "surface": "grass",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 12,
+            "ip_2": 4,
+            "h": 0,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 2,
+            "oba": 0,
+            "era": 0,
+            "ktotal": 1,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "61314394-c8b8-411e-b891-ca41285d5362",
+            "name": "PNC Park",
+            "market": "Pittsburgh",
+            "surface": "grass",
+            "win": 2,
+            "loss": 1,
+            "save": 0,
+            "svo": 1,
+            "start": 4,
+            "play": 15,
+            "complete": 0,
+            "ip_1": 150,
+            "ip_2": 50,
+            "h": 41,
+            "runs": 23,
+            "er": 22,
+            "hr": 8,
+            "bb": 16,
+            "ibb": 0,
+            "oba": 0.22,
+            "era": 3.96,
+            "ktotal": 32,
+            "team_win": 1,
+            "team_loss": 3
+          },
+          {
+            "id": "3d13c8a7-283f-482b-ade1-441e25b6465d",
+            "name": "American Family Field",
+            "market": "Milwaukee",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 6,
+            "ip_2": 2,
+            "h": 2,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.25,
+            "era": 4.5,
+            "ktotal": 5,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "2d7542f5-7b80-49f7-9b24-c53ffdc75af6",
+            "name": "Oracle Park",
+            "market": "San Francisco",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 6,
+            "ip_2": 2,
+            "h": 2,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.25,
+            "era": 0,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "f102d8fb-de67-4b86-9053-8b55f578d45c",
+            "name": "Great American Ball Park",
+            "market": "Cincinnati",
+            "surface": "grass",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 18,
+            "ip_2": 6,
+            "h": 4,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.19,
+            "era": 1.5,
+            "ktotal": 7,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "b4186004-b6d0-42e7-8dc1-82ef0d946ecc",
+            "name": "Citizens Bank Park",
+            "market": "Philadelphia",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 3,
+            "ip_2": 1,
+            "h": 1,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.25,
+            "era": 0,
+            "ktotal": 1,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "265c7d6c-427a-4b8a-8def-392c41954bec",
+            "name": "Citi Field",
+            "market": "New York",
+            "surface": "grass",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 1,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 5,
+            "ip_2": 1.2,
+            "h": 2,
+            "runs": 3,
+            "er": 3,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.286,
+            "era": 16.2,
+            "ktotal": 0,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "bf05de0d-7ced-4a19-8e17-2bbd985f8a92",
+            "name": "Chase Field",
+            "market": "Arizona",
+            "surface": "turf",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 15,
+            "ip_2": 5,
+            "h": 5,
+            "runs": 3,
+            "er": 3,
+            "hr": 1,
+            "bb": 3,
+            "ibb": 0,
+            "oba": 0.278,
+            "era": 5.4,
+            "ktotal": 4,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "85dd5cd6-7324-4b52-a1cc-68f816d0cdce",
+            "name": "Coors Field",
+            "market": "Colorado",
+            "surface": "grass",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 15,
+            "ip_2": 5,
+            "h": 7,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.35,
+            "era": 1.8,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "bb062fb1-e268-412e-b3d2-2ddb6acc1822",
+            "name": "Nationals Park",
+            "market": "Washington",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 3,
+            "ip_2": 1,
+            "h": 2,
+            "runs": 2,
+            "er": 2,
+            "hr": 0,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.4,
+            "era": 18,
+            "ktotal": 1,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "4a550fc1-c03d-4294-b63a-30ff197bedc4",
+            "name": "Guaranteed Rate Field",
+            "market": "Chicago",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 17,
+            "ip_2": 5.2,
+            "h": 4,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.19,
+            "era": 1.588,
+            "ktotal": 5,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "48cbd35a-d932-4a75-beab-067bfbacfc26",
+            "name": "Oakland Coliseum",
+            "market": "Oakland",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 3,
+            "ip_2": 1,
+            "h": 1,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.25,
+            "era": 0,
+            "ktotal": 0,
+            "team_win": 0,
+            "team_loss": 0
+          }
+        ],
+        "surface": [
+          {
+            "value": "turf",
+            "win": 0,
+            "loss": 0,
+            "save": 1,
+            "svo": 1,
+            "start": 1,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 24,
+            "ip_2": 8,
+            "h": 6,
+            "runs": 3,
+            "er": 3,
+            "hr": 1,
+            "bb": 3,
+            "ibb": 0,
+            "oba": 0.214,
+            "era": 3.375,
+            "ktotal": 7,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "value": "grass",
+            "win": 5,
+            "loss": 2,
+            "save": 0,
+            "svo": 2,
+            "start": 6,
+            "play": 27,
+            "complete": 0,
+            "ip_1": 246,
+            "ip_2": 82,
+            "h": 70,
+            "runs": 33,
+            "er": 31,
+            "hr": 8,
+            "bb": 23,
+            "ibb": 2,
+            "oba": 0.228,
+            "era": 3.402,
+            "ktotal": 61,
+            "team_win": 3,
+            "team_loss": 3
+          }
+        ],
+        "month": [
+          {
+            "value": "6",
+            "win": 2,
+            "loss": 0,
+            "save": 1,
+            "svo": 1,
+            "start": 1,
+            "play": 5,
+            "complete": 0,
+            "ip_1": 67,
+            "ip_2": 22.1,
+            "h": 25,
+            "runs": 8,
+            "er": 8,
+            "hr": 2,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.291,
+            "era": 3.224,
+            "ktotal": 19,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "value": "7",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 4,
+            "play": 5,
+            "complete": 0,
+            "ip_1": 77,
+            "ip_2": 25.2,
+            "h": 19,
+            "runs": 5,
+            "er": 5,
+            "hr": 1,
+            "bb": 6,
+            "ibb": 0,
+            "oba": 0.207,
+            "era": 1.753,
+            "ktotal": 20,
+            "team_win": 2,
+            "team_loss": 2
+          },
+          {
+            "value": "4",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 1,
+            "start": 0,
+            "play": 8,
+            "complete": 0,
+            "ip_1": 39,
+            "ip_2": 13,
+            "h": 10,
+            "runs": 7,
+            "er": 6,
+            "hr": 0,
+            "bb": 7,
+            "ibb": 0,
+            "oba": 0.2,
+            "era": 4.154,
+            "ktotal": 13,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "value": "3",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 12,
+            "ip_2": 4,
+            "h": 0,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 2,
+            "oba": 0,
+            "era": 0,
+            "ktotal": 1,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "value": "5",
+            "win": 1,
+            "loss": 1,
+            "save": 0,
+            "svo": 1,
+            "start": 0,
+            "play": 7,
+            "complete": 0,
+            "ip_1": 41,
+            "ip_2": 13.2,
+            "h": 12,
+            "runs": 6,
+            "er": 5,
+            "hr": 1,
+            "bb": 6,
+            "ibb": 0,
+            "oba": 0.226,
+            "era": 3.293,
+            "ktotal": 10,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "value": "8",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 2,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 34,
+            "ip_2": 11.1,
+            "h": 10,
+            "runs": 10,
+            "er": 10,
+            "hr": 5,
+            "bb": 4,
+            "ibb": 0,
+            "oba": 0.227,
+            "era": 7.941,
+            "ktotal": 5,
+            "team_win": 0,
+            "team_loss": 2
+          }
+        ],
+        "home_away": [
+          {
+            "value": "home",
+            "win": 2,
+            "loss": 1,
+            "save": 0,
+            "svo": 1,
+            "start": 4,
+            "play": 15,
+            "complete": 0,
+            "ip_1": 150,
+            "ip_2": 50,
+            "h": 41,
+            "runs": 23,
+            "er": 22,
+            "hr": 8,
+            "bb": 16,
+            "ibb": 0,
+            "oba": 0.22,
+            "era": 3.96,
+            "ktotal": 32,
+            "team_win": 1,
+            "team_loss": 3
+          },
+          {
+            "value": "away",
+            "win": 3,
+            "loss": 1,
+            "save": 1,
+            "svo": 2,
+            "start": 3,
+            "play": 14,
+            "complete": 0,
+            "ip_1": 120,
+            "ip_2": 40,
+            "h": 35,
+            "runs": 13,
+            "er": 12,
+            "hr": 1,
+            "bb": 10,
+            "ibb": 2,
+            "oba": 0.235,
+            "era": 2.7,
+            "ktotal": 36,
+            "team_win": 2,
+            "team_loss": 1
+          }
+        ],
+        "hitter_hand": [
+          {
+            "value": "R",
+            "bf": 209,
+            "runs": 13,
+            "s": 34,
+            "d": 8,
+            "t": 2,
+            "hr": 2,
+            "rbi": 0,
+            "bb": 13,
+            "ibb": 0,
+            "hbp": 4,
+            "sb": 0,
+            "cs": 0,
+            "oba": 0.24,
+            "obp": 0.301,
+            "slg": 0.333,
+            "ops": 0.634,
+            "h": 46,
+            "ktotal": 35
+          },
+          {
+            "value": "L",
+            "bf": 162,
+            "runs": 23,
+            "s": 15,
+            "d": 6,
+            "t": 2,
+            "hr": 7,
+            "rbi": 0,
+            "bb": 13,
+            "ibb": 2,
+            "hbp": 1,
+            "sb": 2,
+            "cs": 0,
+            "oba": 0.21,
+            "obp": 0.284,
+            "slg": 0.427,
+            "ops": 0.711,
+            "h": 30,
+            "ktotal": 33
+          }
+        ],
+        "opponent": [
+          {
+            "id": "55714da8-fcaf-4574-8443-59bfb511a524",
+            "name": "Cubs",
+            "market": "Chicago",
+            "abbr": "CHC",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 6,
+            "ip_2": 2,
+            "h": 0,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0,
+            "era": 0,
+            "ktotal": 1,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "93941372-eb4c-4c40-aced-fe3267174393",
+            "name": "Red Sox",
+            "market": "Boston",
+            "abbr": "BOS",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 6,
+            "ip_2": 2,
+            "h": 0,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0,
+            "era": 0,
+            "ktotal": 2,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "aa34e0ed-f342-4ec6-b774-c79b47b60e2d",
+            "name": "Twins",
+            "market": "Minnesota",
+            "abbr": "MIN",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 13,
+            "ip_2": 4.1,
+            "h": 3,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.214,
+            "era": 0,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "75729d34-bca7-4a0f-b3df-6f26c6ad3719",
+            "name": "Orioles",
+            "market": "Baltimore",
+            "abbr": "BAL",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 5,
+            "ip_2": 1.2,
+            "h": 0,
+            "runs": 1,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0,
+            "era": 0,
+            "ktotal": 2,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "44671792-dc02-4fdd-a5ad-f5f17edaa9d7",
+            "name": "Cardinals",
+            "market": "St. Louis",
+            "abbr": "STL",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 6,
+            "ip_2": 2,
+            "h": 3,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.333,
+            "era": 4.5,
+            "ktotal": 4,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "25507be1-6a68-4267-bd82-e097d94b359b",
+            "name": "Diamondbacks",
+            "market": "Arizona",
+            "abbr": "AZ",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 2,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 31,
+            "ip_2": 10.1,
+            "h": 11,
+            "runs": 9,
+            "er": 9,
+            "hr": 4,
+            "bb": 6,
+            "ibb": 0,
+            "oba": 0.275,
+            "era": 7.839,
+            "ktotal": 6,
+            "team_win": 0,
+            "team_loss": 2
+          },
+          {
+            "id": "12079497-e414-450a-8bf2-29f91de646bf",
+            "name": "Braves",
+            "market": "Atlanta",
+            "abbr": "ATL",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 5,
+            "ip_2": 1.2,
+            "h": 1,
+            "runs": 2,
+            "er": 2,
+            "hr": 0,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.167,
+            "era": 10.8,
+            "ktotal": 1,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "bdc11650-6f74-49c4-875e-778aeb7632d9",
+            "name": "Rays",
+            "market": "Tampa Bay",
+            "abbr": "TB",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 12,
+            "ip_2": 4,
+            "h": 10,
+            "runs": 6,
+            "er": 6,
+            "hr": 2,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.476,
+            "era": 13.5,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "4f735188-37c8-473d-ae32-1f7e34ccf892",
+            "name": "Angels",
+            "market": "Los Angeles",
+            "abbr": "LAA",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 1,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 3,
+            "ip_2": 1,
+            "h": 2,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.5,
+            "era": 9,
+            "ktotal": 0,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "03556285-bdbb-4576-a06d-42f71f46ddc5",
+            "name": "Marlins",
+            "market": "Miami",
+            "abbr": "MIA",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 12,
+            "ip_2": 4,
+            "h": 0,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 2,
+            "oba": 0,
+            "era": 0,
+            "ktotal": 1,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "2142e1ba-3b40-445c-b8bb-f1f8b1054220",
+            "name": "Phillies",
+            "market": "Philadelphia",
+            "abbr": "PHI",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 24,
+            "ip_2": 8,
+            "h": 4,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.148,
+            "era": 0,
+            "ktotal": 3,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "29dd9a87-5bcc-4774-80c3-7f50d985068b",
+            "name": "Rockies",
+            "market": "Colorado",
+            "abbr": "COL",
+            "win": 2,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 20,
+            "ip_2": 6.2,
+            "h": 7,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.28,
+            "era": 1.35,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "name": "Padres",
+            "market": "San Diego",
+            "abbr": "SD",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 18,
+            "ip_2": 6,
+            "h": 4,
+            "runs": 4,
+            "er": 4,
+            "hr": 2,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.182,
+            "era": 6,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "a7723160-10b7-4277-a309-d8dd95a8ae65",
+            "name": "Giants",
+            "market": "San Francisco",
+            "abbr": "SF",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 14,
+            "ip_2": 4.2,
+            "h": 5,
+            "runs": 1,
+            "er": 1,
+            "hr": 1,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.263,
+            "era": 1.929,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "575c19b7-4052-41c2-9f0a-1c5813d02f99",
+            "name": "Tigers",
+            "market": "Detroit",
+            "abbr": "DET",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 8,
+            "ip_2": 2.2,
+            "h": 4,
+            "runs": 1,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.308,
+            "era": 0,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "1d678440-b4b1-4954-9b39-70afb3ebbcfa",
+            "name": "Blue Jays",
+            "market": "Toronto",
+            "abbr": "TOR",
+            "win": 0,
+            "loss": 0,
+            "save": 1,
+            "svo": 1,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 9,
+            "ip_2": 3,
+            "h": 1,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.1,
+            "era": 0,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "27a59d3b-ff7c-48ea-b016-4798f560f5e1",
+            "name": "Athletics",
+            "market": "Oakland",
+            "abbr": "OAK",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 3,
+            "ip_2": 1,
+            "h": 1,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.25,
+            "era": 0,
+            "ktotal": 0,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "c874a065-c115-4e7d-b0f0-235584fb0e6f",
+            "name": "Reds",
+            "market": "Cincinnati",
+            "abbr": "CIN",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 18,
+            "ip_2": 6,
+            "h": 4,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.19,
+            "era": 1.5,
+            "ktotal": 7,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "f246a5e5-afdb-479c-9aaa-c68beeda7af6",
+            "name": "Mets",
+            "market": "New York",
+            "abbr": "NYM",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 1,
+            "start": 1,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 23,
+            "ip_2": 7.2,
+            "h": 6,
+            "runs": 3,
+            "er": 3,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.214,
+            "era": 3.522,
+            "ktotal": 5,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "dcfd5266-00ce-442c-bc09-264cd20cf455",
+            "name": "Brewers",
+            "market": "Milwaukee",
+            "abbr": "MIL",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 14,
+            "ip_2": 4.2,
+            "h": 4,
+            "runs": 2,
+            "er": 2,
+            "hr": 0,
+            "bb": 4,
+            "ibb": 0,
+            "oba": 0.211,
+            "era": 3.857,
+            "ktotal": 9,
+            "team_win": 0,
+            "team_loss": 0
+          },
+          {
+            "id": "47f490cd-2f58-4ef7-9dfd-2ad6ba6c1ae8",
+            "name": "White Sox",
+            "market": "Chicago",
+            "abbr": "CWS",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 17,
+            "ip_2": 5.2,
+            "h": 4,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.19,
+            "era": 1.588,
+            "ktotal": 5,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "d89bed32-3aee-4407-99e3-4103641b999a",
+            "name": "Nationals",
+            "market": "Washington",
+            "abbr": "WSH",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 0,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 3,
+            "ip_2": 1,
+            "h": 2,
+            "runs": 2,
+            "er": 2,
+            "hr": 0,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.4,
+            "era": 18,
+            "ktotal": 1,
+            "team_win": 0,
+            "team_loss": 0
+          }
+        ],
+        "last_start": [
+          {
+            "value": 1,
+            "opponent_id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+            "game_id": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+            "game_scheduled": "2024-08-08T16:35:00+00:00",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 18,
+            "ip_2": 6,
+            "h": 4,
+            "runs": 4,
+            "er": 4,
+            "hr": 2,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.182,
+            "era": 6,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 1
+          }
+        ],
+        "last_starts": [
+          {
+            "value": 3,
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 3,
+            "play": 3,
+            "complete": 0,
+            "ip_1": 49,
+            "ip_2": 16.1,
+            "h": 15,
+            "runs": 13,
+            "er": 13,
+            "hr": 6,
+            "bb": 7,
+            "ibb": 0,
+            "oba": 0.242,
+            "era": 7.163,
+            "ktotal": 9,
+            "team_win": 0,
+            "team_loss": 3
+          }
+        ]
+      }
+    ]
+  },
+  "awayPitcher": {
+    "id": "766649ef-3ac0-4883-ada3-9d73320cf876",
+    "name": "Randy Vásquez",
+    "stats": {
+      "oba": 0.31,
+      "lob": 141,
+      "era": 4.629,
+      "k9": 5.841,
+      "whip": 1.5061,
+      "kbb": 2.41,
+      "pitch_count": 1407,
+      "wp": 5,
+      "bk": 2,
+      "ip_1": 245,
+      "ip_2": 81.2,
+      "bf": 355,
+      "gofo": 0.786,
+      "babip": 0.34,
+      "bf_ip": 4.347,
+      "gbfb": 1.847,
+      "oab": 326,
+      "slg": 0.485,
+      "obp": 0.36,
+      "onbase": {
+        "s": 69,
+        "d": 19,
+        "t": 1,
+        "hr": 12,
+        "tb": 158,
+        "bb": 22,
+        "ibb": 0,
+        "hbp": 4,
+        "fc": 6,
+        "roe": 2,
+        "h": 101,
+        "h9": 11.133,
+        "hr9": 1.323
+      },
+      "runs": {
+        "total": 45,
+        "unearned": 3,
+        "earned": 42,
+        "ir": 0,
+        "ira": 0,
+        "bqr": 0,
+        "bqra": 4
+      },
+      "outcome": {
+        "klook": 208,
+        "kswing": 134,
+        "ktotal": 342,
+        "ball": 479,
+        "iball": 0,
+        "dirtball": 20,
+        "foul": 286
+      },
+      "outs": {
+        "po": 25,
+        "fo": 44,
+        "fidp": 0,
+        "lo": 29,
+        "lidp": 0,
+        "go": 77,
+        "gidp": 13,
+        "klook": 14,
+        "kswing": 39,
+        "ktotal": 53,
+        "sacfly": 1,
+        "sachit": 2
+      },
+      "steal": {
+        "caught": 4,
+        "stolen": 9,
+        "pickoff": 0
+      },
+      "pitches": {
+        "count": 1407,
+        "btotal": 503,
+        "ktotal": 904,
+        "per_ip": 17.229,
+        "per_bf": 3.963
+      },
+      "in_play": {
+        "linedrive": 83,
+        "groundball": 109,
+        "popup": 25,
+        "flyball": 59
+      },
+      "games": {
+        "start": 17,
+        "play": 17,
+        "finish": 0,
+        "svo": 0,
+        "qstart": 4,
+        "shutout": 0,
+        "complete": 0,
+        "win": 3,
+        "loss": 6,
+        "save": 0,
+        "hold": 0,
+        "blown_save": 0,
+        "team_win": 7,
+        "team_loss": 10
+      }
+    },
+    "splits": [
+      {
+        "total": [
+          {
+            "win": 3,
+            "loss": 6,
+            "save": 0,
+            "svo": 0,
+            "start": 17,
+            "play": 17,
+            "complete": 0,
+            "team_win": 7,
+            "team_loss": 10,
+            "ip_1": 245,
+            "ip_2": 81.2,
+            "h": 101,
+            "runs": 45,
+            "er": 42,
+            "hr": 12,
+            "bb": 22,
+            "ibb": 0,
+            "oba": 0.31,
+            "era": 4.629,
+            "ktotal": 53,
+            "s": 69,
+            "d": 19,
+            "t": 1,
+            "rbi": 0,
+            "hbp": 4,
+            "sb": 9,
+            "cs": 4,
+            "obp": 0.36,
+            "slg": 0.485,
+            "ops": 0.845,
+            "bf": 355
+          }
+        ],
+        "day_night": [
+          {
+            "value": "night",
+            "win": 1,
+            "loss": 4,
+            "save": 0,
+            "svo": 0,
+            "start": 11,
+            "play": 11,
+            "complete": 0,
+            "ip_1": 169,
+            "ip_2": 56.1,
+            "h": 72,
+            "runs": 27,
+            "er": 24,
+            "hr": 10,
+            "bb": 10,
+            "ibb": 0,
+            "oba": 0.316,
+            "era": 3.834,
+            "ktotal": 33,
+            "team_win": 4,
+            "team_loss": 7
+          },
+          {
+            "value": "day",
+            "win": 2,
+            "loss": 2,
+            "save": 0,
+            "svo": 0,
+            "start": 6,
+            "play": 6,
+            "complete": 0,
+            "ip_1": 76,
+            "ip_2": 25.1,
+            "h": 29,
+            "runs": 18,
+            "er": 18,
+            "hr": 2,
+            "bb": 12,
+            "ibb": 0,
+            "oba": 0.296,
+            "era": 6.395,
+            "ktotal": 20,
+            "team_win": 3,
+            "team_loss": 3
+          }
+        ],
+        "venue": [
+          {
+            "id": "53f8eb0d-a361-4a7a-930b-2f8735ea0698",
+            "name": "Wrigley Field",
+            "market": "Chicago",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 13,
+            "ip_2": 4.1,
+            "h": 5,
+            "runs": 1,
+            "er": 1,
+            "hr": 1,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.294,
+            "era": 2.077,
+            "ktotal": 6,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "3ca8b577-5844-42ed-81a5-bd5d5cbe350c",
+            "name": "Truist Park",
+            "market": "Atlanta",
+            "surface": "grass",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 18,
+            "ip_2": 6,
+            "h": 10,
+            "runs": 3,
+            "er": 3,
+            "hr": 1,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.385,
+            "era": 4.5,
+            "ktotal": 2,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "85dd5cd6-7324-4b52-a1cc-68f816d0cdce",
+            "name": "Coors Field",
+            "market": "Colorado",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 8,
+            "ip_2": 2.2,
+            "h": 6,
+            "runs": 4,
+            "er": 4,
+            "hr": 1,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.5,
+            "era": 13.5,
+            "ktotal": 2,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "6fca95c9-7f2c-4acb-a9f3-02ef96340d2a",
+            "name": "Kauffman Stadium",
+            "market": "Kansas City",
+            "surface": "grass",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 15,
+            "ip_2": 5,
+            "h": 4,
+            "runs": 3,
+            "er": 3,
+            "hr": 1,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.211,
+            "era": 5.4,
+            "ktotal": 5,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "bb062fb1-e268-412e-b3d2-2ddb6acc1822",
+            "name": "Nationals Park",
+            "market": "Washington",
+            "surface": "grass",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 18,
+            "ip_2": 6,
+            "h": 5,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.238,
+            "era": 0,
+            "ktotal": 1,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "434aa63c-1049-4a54-a6bc-3790c7772ee1",
+            "name": "Oriole Park at Camden Yards",
+            "market": "Baltimore",
+            "surface": "grass",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 6,
+            "ip_2": 2,
+            "h": 4,
+            "runs": 6,
+            "er": 6,
+            "hr": 0,
+            "bb": 4,
+            "ibb": 0,
+            "oba": 0.4,
+            "era": 27,
+            "ktotal": 2,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "b27b0dc5-c2c5-401d-b8b9-a6a2dbc225e5",
+            "name": "Fenway Park",
+            "market": "Boston",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 12,
+            "ip_2": 4,
+            "h": 5,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.294,
+            "era": 2.25,
+            "ktotal": 1,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "b4186004-b6d0-42e7-8dc1-82ef0d946ecc",
+            "name": "Citizens Bank Park",
+            "market": "Philadelphia",
+            "surface": "grass",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 13,
+            "ip_2": 4.1,
+            "h": 12,
+            "runs": 6,
+            "er": 6,
+            "hr": 2,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.545,
+            "era": 12.462,
+            "ktotal": 2,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "0ab45d79-5475-4308-9f94-74b0c185ee6f",
+            "name": "PETCO Park",
+            "market": "San Diego",
+            "surface": "grass",
+            "win": 1,
+            "loss": 3,
+            "save": 0,
+            "svo": 0,
+            "start": 8,
+            "play": 8,
+            "complete": 0,
+            "ip_1": 125,
+            "ip_2": 41.2,
+            "h": 44,
+            "runs": 18,
+            "er": 15,
+            "hr": 6,
+            "bb": 11,
+            "ibb": 0,
+            "oba": 0.275,
+            "era": 3.24,
+            "ktotal": 29,
+            "team_win": 3,
+            "team_loss": 5
+          },
+          {
+            "id": "61314394-c8b8-411e-b891-ca41285d5362",
+            "name": "PNC Park",
+            "market": "Pittsburgh",
+            "surface": "grass",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 17,
+            "ip_2": 5.2,
+            "h": 6,
+            "runs": 3,
+            "er": 3,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.273,
+            "era": 4.765,
+            "ktotal": 3,
+            "team_win": 1,
+            "team_loss": 0
+          }
+        ],
+        "surface": [
+          {
+            "value": "grass",
+            "win": 3,
+            "loss": 6,
+            "save": 0,
+            "svo": 0,
+            "start": 17,
+            "play": 17,
+            "complete": 0,
+            "ip_1": 245,
+            "ip_2": 81.2,
+            "h": 101,
+            "runs": 45,
+            "er": 42,
+            "hr": 12,
+            "bb": 22,
+            "ibb": 0,
+            "oba": 0.31,
+            "era": 4.629,
+            "ktotal": 53,
+            "team_win": 7,
+            "team_loss": 10
+          }
+        ],
+        "month": [
+          {
+            "value": "7",
+            "win": 1,
+            "loss": 2,
+            "save": 0,
+            "svo": 0,
+            "start": 4,
+            "play": 4,
+            "complete": 0,
+            "ip_1": 58,
+            "ip_2": 19.1,
+            "h": 19,
+            "runs": 10,
+            "er": 10,
+            "hr": 1,
+            "bb": 6,
+            "ibb": 0,
+            "oba": 0.26,
+            "era": 4.655,
+            "ktotal": 14,
+            "team_win": 2,
+            "team_loss": 2
+          },
+          {
+            "value": "6",
+            "win": 2,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 6,
+            "play": 6,
+            "complete": 0,
+            "ip_1": 90,
+            "ip_2": 30,
+            "h": 39,
+            "runs": 14,
+            "er": 14,
+            "hr": 6,
+            "bb": 9,
+            "ibb": 0,
+            "oba": 0.325,
+            "era": 4.2,
+            "ktotal": 19,
+            "team_win": 4,
+            "team_loss": 2
+          },
+          {
+            "value": "5",
+            "win": 0,
+            "loss": 2,
+            "save": 0,
+            "svo": 0,
+            "start": 3,
+            "play": 3,
+            "complete": 0,
+            "ip_1": 42,
+            "ip_2": 14,
+            "h": 23,
+            "runs": 9,
+            "er": 9,
+            "hr": 2,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.371,
+            "era": 5.786,
+            "ktotal": 8,
+            "team_win": 0,
+            "team_loss": 3
+          },
+          {
+            "value": "4",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 2,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 23,
+            "ip_2": 7.2,
+            "h": 11,
+            "runs": 8,
+            "er": 5,
+            "hr": 2,
+            "bb": 3,
+            "ibb": 0,
+            "oba": 0.344,
+            "era": 5.87,
+            "ktotal": 5,
+            "team_win": 0,
+            "team_loss": 2
+          },
+          {
+            "value": "8",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 2,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 32,
+            "ip_2": 10.2,
+            "h": 9,
+            "runs": 4,
+            "er": 4,
+            "hr": 1,
+            "bb": 3,
+            "ibb": 0,
+            "oba": 0.231,
+            "era": 3.375,
+            "ktotal": 7,
+            "team_win": 1,
+            "team_loss": 1
+          }
+        ],
+        "home_away": [
+          {
+            "value": "away",
+            "win": 2,
+            "loss": 3,
+            "save": 0,
+            "svo": 0,
+            "start": 9,
+            "play": 9,
+            "complete": 0,
+            "ip_1": 120,
+            "ip_2": 40,
+            "h": 57,
+            "runs": 27,
+            "er": 27,
+            "hr": 6,
+            "bb": 11,
+            "ibb": 0,
+            "oba": 0.343,
+            "era": 6.075,
+            "ktotal": 24,
+            "team_win": 4,
+            "team_loss": 5
+          },
+          {
+            "value": "home",
+            "win": 1,
+            "loss": 3,
+            "save": 0,
+            "svo": 0,
+            "start": 8,
+            "play": 8,
+            "complete": 0,
+            "ip_1": 125,
+            "ip_2": 41.2,
+            "h": 44,
+            "runs": 18,
+            "er": 15,
+            "hr": 6,
+            "bb": 11,
+            "ibb": 0,
+            "oba": 0.275,
+            "era": 3.24,
+            "ktotal": 29,
+            "team_win": 3,
+            "team_loss": 5
+          }
+        ],
+        "hitter_hand": [
+          {
+            "value": "L",
+            "bf": 160,
+            "runs": 22,
+            "s": 42,
+            "d": 7,
+            "t": 0,
+            "hr": 6,
+            "rbi": 0,
+            "bb": 14,
+            "ibb": 0,
+            "hbp": 2,
+            "sb": 5,
+            "cs": 2,
+            "oba": 0.382,
+            "obp": 0.444,
+            "slg": 0.556,
+            "ops": 1,
+            "h": 55,
+            "ktotal": 14
+          },
+          {
+            "value": "R",
+            "bf": 195,
+            "runs": 23,
+            "s": 27,
+            "d": 12,
+            "t": 1,
+            "hr": 6,
+            "rbi": 0,
+            "bb": 8,
+            "ibb": 0,
+            "hbp": 2,
+            "sb": 4,
+            "cs": 2,
+            "oba": 0.253,
+            "obp": 0.29,
+            "slg": 0.429,
+            "ops": 0.719,
+            "h": 46,
+            "ktotal": 39
+          }
+        ],
+        "opponent": [
+          {
+            "id": "12079497-e414-450a-8bf2-29f91de646bf",
+            "name": "Braves",
+            "market": "Atlanta",
+            "abbr": "ATL",
+            "win": 0,
+            "loss": 2,
+            "save": 0,
+            "svo": 0,
+            "start": 2,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 33,
+            "ip_2": 11,
+            "h": 14,
+            "runs": 5,
+            "er": 5,
+            "hr": 1,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.318,
+            "era": 4.091,
+            "ktotal": 7,
+            "team_win": 0,
+            "team_loss": 2
+          },
+          {
+            "id": "29dd9a87-5bcc-4774-80c3-7f50d985068b",
+            "name": "Rockies",
+            "market": "Colorado",
+            "abbr": "COL",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 3,
+            "play": 3,
+            "complete": 0,
+            "ip_1": 34,
+            "ip_2": 11.1,
+            "h": 17,
+            "runs": 10,
+            "er": 10,
+            "hr": 2,
+            "bb": 5,
+            "ibb": 0,
+            "oba": 0.354,
+            "era": 7.941,
+            "ktotal": 6,
+            "team_win": 0,
+            "team_loss": 3
+          },
+          {
+            "id": "833a51a9-0d84-410f-bd77-da08c3e5e26e",
+            "name": "Royals",
+            "market": "Kansas City",
+            "abbr": "KC",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 15,
+            "ip_2": 5,
+            "h": 4,
+            "runs": 3,
+            "er": 3,
+            "hr": 1,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.211,
+            "era": 5.4,
+            "ktotal": 5,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "55714da8-fcaf-4574-8443-59bfb511a524",
+            "name": "Cubs",
+            "market": "Chicago",
+            "abbr": "CHC",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 13,
+            "ip_2": 4.1,
+            "h": 5,
+            "runs": 1,
+            "er": 1,
+            "hr": 1,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.294,
+            "era": 2.077,
+            "ktotal": 6,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "93941372-eb4c-4c40-aced-fe3267174393",
+            "name": "Red Sox",
+            "market": "Boston",
+            "abbr": "BOS",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 12,
+            "ip_2": 4,
+            "h": 5,
+            "runs": 1,
+            "er": 1,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.294,
+            "era": 2.25,
+            "ktotal": 1,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "1d678440-b4b1-4954-9b39-70afb3ebbcfa",
+            "name": "Blue Jays",
+            "market": "Toronto",
+            "abbr": "TOR",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 15,
+            "ip_2": 5,
+            "h": 5,
+            "runs": 4,
+            "er": 1,
+            "hr": 1,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.25,
+            "era": 1.8,
+            "ktotal": 3,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "dcfd5266-00ce-442c-bc09-264cd20cf455",
+            "name": "Brewers",
+            "market": "Milwaukee",
+            "abbr": "MIL",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 15,
+            "ip_2": 5,
+            "h": 5,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 3,
+            "ibb": 0,
+            "oba": 0.294,
+            "era": 0,
+            "ktotal": 3,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "2142e1ba-3b40-445c-b8bb-f1f8b1054220",
+            "name": "Phillies",
+            "market": "Philadelphia",
+            "abbr": "PHI",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 13,
+            "ip_2": 4.1,
+            "h": 12,
+            "runs": 6,
+            "er": 6,
+            "hr": 2,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.545,
+            "era": 12.462,
+            "ktotal": 2,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "75729d34-bca7-4a0f-b3df-6f26c6ad3719",
+            "name": "Orioles",
+            "market": "Baltimore",
+            "abbr": "BAL",
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 6,
+            "ip_2": 2,
+            "h": 4,
+            "runs": 6,
+            "er": 6,
+            "hr": 0,
+            "bb": 4,
+            "ibb": 0,
+            "oba": 0.4,
+            "era": 27,
+            "ktotal": 2,
+            "team_win": 0,
+            "team_loss": 1
+          },
+          {
+            "id": "27a59d3b-ff7c-48ea-b016-4798f560f5e1",
+            "name": "Athletics",
+            "market": "Oakland",
+            "abbr": "OAK",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 15,
+            "ip_2": 5,
+            "h": 7,
+            "runs": 1,
+            "er": 1,
+            "hr": 1,
+            "bb": 2,
+            "ibb": 0,
+            "oba": 0.368,
+            "era": 1.8,
+            "ktotal": 5,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "name": "Pirates",
+            "market": "Pittsburgh",
+            "abbr": "PIT",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 17,
+            "ip_2": 5.2,
+            "h": 6,
+            "runs": 3,
+            "er": 3,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.273,
+            "era": 4.765,
+            "ktotal": 3,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "d89bed32-3aee-4407-99e3-4103641b999a",
+            "name": "Nationals",
+            "market": "Washington",
+            "abbr": "WSH",
+            "win": 1,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 18,
+            "ip_2": 6,
+            "h": 5,
+            "runs": 0,
+            "er": 0,
+            "hr": 0,
+            "bb": 0,
+            "ibb": 0,
+            "oba": 0.238,
+            "era": 0,
+            "ktotal": 1,
+            "team_win": 1,
+            "team_loss": 0
+          },
+          {
+            "id": "25507be1-6a68-4267-bd82-e097d94b359b",
+            "name": "Diamondbacks",
+            "market": "Arizona",
+            "abbr": "AZ",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 2,
+            "play": 2,
+            "complete": 0,
+            "ip_1": 39,
+            "ip_2": 13,
+            "h": 12,
+            "runs": 5,
+            "er": 5,
+            "hr": 3,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.24,
+            "era": 3.462,
+            "ktotal": 9,
+            "team_win": 1,
+            "team_loss": 1
+          }
+        ],
+        "last_start": [
+          {
+            "value": 1,
+            "opponent_id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+            "game_id": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+            "game_scheduled": "2024-08-08T16:35:00+00:00",
+            "win": 0,
+            "loss": 0,
+            "save": 0,
+            "svo": 0,
+            "start": 1,
+            "play": 1,
+            "complete": 0,
+            "ip_1": 17,
+            "ip_2": 5.2,
+            "h": 6,
+            "runs": 3,
+            "er": 3,
+            "hr": 0,
+            "bb": 1,
+            "ibb": 0,
+            "oba": 0.273,
+            "era": 4.765,
+            "ktotal": 3,
+            "team_win": 1,
+            "team_loss": 0
+          }
+        ],
+        "last_starts": [
+          {
+            "value": 3,
+            "win": 0,
+            "loss": 1,
+            "save": 0,
+            "svo": 0,
+            "start": 3,
+            "play": 3,
+            "complete": 0,
+            "ip_1": 38,
+            "ip_2": 12.2,
+            "h": 13,
+            "runs": 10,
+            "er": 10,
+            "hr": 1,
+            "bb": 7,
+            "ibb": 0,
+            "oba": 0.265,
+            "era": 7.105,
+            "ktotal": 9,
+            "team_win": 1,
+            "team_loss": 2
+          }
+        ]
+      }
+    ]
+  },
+  "boxScore": {
+    "id": "5d35a4af-604b-42ac-af2f-5458a15fa676",
+    "status": "closed",
+    "coverage": "full",
+    "game_number": 1,
+    "day_night": "D",
+    "scheduled": "2024-08-08T16:35:00+00:00",
+    "home_team": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+    "away_team": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+    "attendance": 19952,
+    "duration": "3:01",
+    "season_id": "6a5c278f-ebce-41f9-b1ba-2160b6af04ce",
+    "season_type": "REG",
+    "season_year": 2024,
+    "double_header": false,
+    "entry_mode": "STOMP",
+    "reference": "745466",
+    "time_zones": {
+      "venue": "US/Eastern",
+      "home": "US/Eastern",
+      "away": "US/Pacific"
+    },
+    "venue": {
+      "name": "PNC Park",
+      "market": "Pittsburgh",
+      "capacity": 38753,
+      "surface": "grass",
+      "address": "115 Federal Street",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "zip": "15212",
+      "country": "USA",
+      "id": "61314394-c8b8-411e-b891-ca41285d5362",
+      "field_orientation": "E",
+      "stadium_type": "outdoor",
+      "time_zone": "US/Eastern",
+      "location": {
+        "lat": "40.4471507",
+        "lng": "-80.0064087"
+      }
+    },
+    "broadcast": {
+      "network": "MLB Network"
+    },
+    "weather": {
+      "forecast": {
+        "temp_f": 79,
+        "condition": "Patchy rain nearby",
+        "humidity": 76,
+        "dew_point_f": 70,
+        "cloud_cover": 100,
+        "obs_time": "2024-08-08T19:00:41.000+00:00",
+        "wind": {
+          "speed_mph": 10,
+          "direction": "SE"
+        }
+      },
+      "current_conditions": {
+        "temp_f": 79,
+        "condition": "Patchy rain nearby",
+        "humidity": 66,
+        "dew_point_f": 66,
+        "cloud_cover": 98,
+        "obs_time": "2024-08-08T19:28:09.000+00:00",
+        "wind": {
+          "speed_mph": 11,
+          "direction": "SE"
+        }
+      }
+    },
+    "final": {
+      "inning": 9,
+      "inning_half": "B"
+    },
+    "home": {
+      "name": "Pirates",
+      "market": "Pittsburgh",
+      "abbr": "PIT",
+      "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+      "runs": 6,
+      "hits": 12,
+      "errors": 1,
+      "win": 56,
+      "loss": 58,
+      "probable_pitcher": {
+        "preferred_name": "Luis L.",
+        "first_name": "Luis L.",
+        "last_name": "Ortiz",
+        "jersey_number": "48",
+        "id": "a87a4eb5-c735-4431-ac59-c2cb85e2c82b",
+        "full_name": "Luis L. Ortiz",
+        "win": 5,
+        "loss": 2,
+        "era": 3.214
+      },
+      "starting_pitcher": {
+        "preferred_name": "Luis L.",
+        "first_name": "Luis L.",
+        "last_name": "Ortiz",
+        "jersey_number": "48",
+        "id": "a87a4eb5-c735-4431-ac59-c2cb85e2c82b",
+        "full_name": "Luis L. Ortiz",
+        "win": 5,
+        "loss": 2,
+        "era": 3.214
+      },
+      "scoring": [
+        {
+          "number": 1,
+          "sequence": 1,
+          "runs": 0,
+          "hits": 1,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 2,
+          "sequence": 2,
+          "runs": 0,
+          "hits": 1,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 3,
+          "sequence": 3,
+          "runs": 0,
+          "hits": 0,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 4,
+          "sequence": 4,
+          "runs": 0,
+          "hits": 0,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 5,
+          "sequence": 5,
+          "runs": 0,
+          "hits": 0,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 6,
+          "sequence": 6,
+          "runs": 3,
+          "hits": 5,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 7,
+          "sequence": 7,
+          "runs": 2,
+          "hits": 2,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 8,
+          "sequence": 8,
+          "runs": 0,
+          "hits": 1,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 9,
+          "sequence": 9,
+          "runs": 1,
+          "hits": 2,
+          "errors": 0,
+          "type": "inning"
+        }
+      ],
+      "events": [
+        {
+          "hitter_id": "e8eebc7b-4379-4289-98d2-aa6171f5307b",
+          "pitcher_id": "766649ef-3ac0-4883-ada3-9d73320cf876",
+          "inning": 6,
+          "inning_half": "B",
+          "type": "pitch",
+          "hitter_outcome": "oST2",
+          "id": "7dee42e1-640a-48ff-88d1-35c6de468baf",
+          "runners": [
+            {
+              "starting_base": 2,
+              "first_name": "Bryan",
+              "last_name": "Reynolds",
+              "preferred_name": "Bryan",
+              "jersey_number": "10",
+              "id": "bf611376-2b1d-4d5f-9805-57cbfb852063",
+              "full_name": "Bryan Reynolds"
+            }
+          ]
+        },
+        {
+          "hitter_id": "ec6f52a3-f3e9-40f0-acfe-1dfba879d18a",
+          "pitcher_id": "10eb3767-83a4-46b9-a072-9a0bc88bc06a",
+          "inning": 6,
+          "inning_half": "B",
+          "type": "pitch",
+          "hitter_outcome": "bB",
+          "id": "6ddbd186-2c9a-4894-8563-2f24c991a4e9",
+          "runners": [
+            {
+              "starting_base": 3,
+              "first_name": "Ryan",
+              "last_name": "Tellez",
+              "preferred_name": "Rowdy",
+              "jersey_number": "44",
+              "id": "3959d7a0-04fc-4772-b9d2-65f97ec4ccb6",
+              "full_name": "Rowdy Tellez"
+            }
+          ]
+        },
+        {
+          "hitter_id": "45867a80-a8d0-4c56-96fe-41a24d7c176b",
+          "pitcher_id": "10eb3767-83a4-46b9-a072-9a0bc88bc06a",
+          "inning": 6,
+          "inning_half": "B",
+          "type": "pitch",
+          "hitter_outcome": "aS",
+          "id": "c2968fbb-cd04-4b17-be24-f779020b815d",
+          "runners": [
+            {
+              "starting_base": 2,
+              "first_name": "Bryan",
+              "last_name": "De La Cruz",
+              "preferred_name": "Bryan",
+              "jersey_number": "41",
+              "id": "d95948d8-a368-4865-addb-7ebcba183429",
+              "full_name": "Bryan De La Cruz"
+            }
+          ]
+        },
+        {
+          "hitter_id": "9ff4bd8c-c74e-40b3-87f4-359b8ddecc55",
+          "pitcher_id": "b2c77d53-4eec-433c-a173-daf59fca45bc",
+          "inning": 7,
+          "inning_half": "B",
+          "type": "pitch",
+          "hitter_outcome": "aHR",
+          "id": "ad539333-5a8a-4423-8e4b-7ff7a8448a30",
+          "runners": [
+            {
+              "starting_base": 0,
+              "first_name": "Joseph",
+              "last_name": "Bart",
+              "preferred_name": "Joey",
+              "jersey_number": "14",
+              "id": "9ff4bd8c-c74e-40b3-87f4-359b8ddecc55",
+              "full_name": "Joey Bart"
+            },
+            {
+              "starting_base": 1,
+              "first_name": "Oneil",
+              "last_name": "Cruz",
+              "preferred_name": "Oneil",
+              "jersey_number": "15",
+              "id": "e8eebc7b-4379-4289-98d2-aa6171f5307b",
+              "full_name": "Oneil Cruz"
+            }
+          ]
+        },
+        {
+          "hitter_id": "3959d7a0-04fc-4772-b9d2-65f97ec4ccb6",
+          "pitcher_id": "1c172560-1d12-4223-ae7d-a31122a531e1",
+          "inning": 9,
+          "inning_half": "B",
+          "type": "pitch",
+          "hitter_outcome": "aS",
+          "id": "3b5cc74c-0a51-49d7-964b-9dbae51c770c",
+          "runners": [
+            {
+              "starting_base": 2,
+              "first_name": "Joseph",
+              "last_name": "Bart",
+              "preferred_name": "Joey",
+              "jersey_number": "14",
+              "id": "9ff4bd8c-c74e-40b3-87f4-359b8ddecc55",
+              "full_name": "Joey Bart"
+            }
+          ]
+        }
+      ]
+    },
+    "away": {
+      "name": "Padres",
+      "market": "San Diego",
+      "abbr": "SD",
+      "id": "d52d5339-cbdd-43f3-9dfa-a42fd588b9a3",
+      "runs": 7,
+      "hits": 7,
+      "errors": 0,
+      "win": 64,
+      "loss": 52,
+      "probable_pitcher": {
+        "preferred_name": "Randy",
+        "first_name": "Randy",
+        "last_name": "Vásquez",
+        "jersey_number": "98",
+        "id": "766649ef-3ac0-4883-ada3-9d73320cf876",
+        "full_name": "Randy Vásquez",
+        "win": 3,
+        "loss": 6,
+        "era": 4.618
+      },
+      "starting_pitcher": {
+        "preferred_name": "Randy",
+        "first_name": "Randy",
+        "last_name": "Vásquez",
+        "jersey_number": "98",
+        "id": "766649ef-3ac0-4883-ada3-9d73320cf876",
+        "full_name": "Randy Vásquez",
+        "win": 3,
+        "loss": 6,
+        "era": 4.618
+      },
+      "scoring": [
+        {
+          "number": 1,
+          "sequence": 1,
+          "runs": 2,
+          "hits": 1,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 2,
+          "sequence": 2,
+          "runs": 2,
+          "hits": 2,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 3,
+          "sequence": 3,
+          "runs": 0,
+          "hits": 0,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 4,
+          "sequence": 4,
+          "runs": 0,
+          "hits": 0,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 5,
+          "sequence": 5,
+          "runs": 0,
+          "hits": 1,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 6,
+          "sequence": 6,
+          "runs": 0,
+          "hits": 0,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 7,
+          "sequence": 7,
+          "runs": 0,
+          "hits": 1,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 8,
+          "sequence": 8,
+          "runs": 0,
+          "hits": 0,
+          "errors": 0,
+          "type": "inning"
+        },
+        {
+          "number": 9,
+          "sequence": 9,
+          "runs": 3,
+          "hits": 2,
+          "errors": 1,
+          "type": "inning"
+        }
+      ],
+      "events": [
+        {
+          "hitter_id": "3bb4a60b-953e-4bef-8b25-c6f07d54eddf",
+          "pitcher_id": "a87a4eb5-c735-4431-ac59-c2cb85e2c82b",
+          "inning": 1,
+          "inning_half": "T",
+          "type": "pitch",
+          "hitter_outcome": "aHR",
+          "id": "4ce608c5-eec9-4476-84b8-e043293564f5",
+          "runners": [
+            {
+              "starting_base": 0,
+              "first_name": "Manuel",
+              "last_name": "Machado",
+              "preferred_name": "Manny",
+              "jersey_number": "13",
+              "id": "3bb4a60b-953e-4bef-8b25-c6f07d54eddf",
+              "full_name": "Manny Machado"
+            },
+            {
+              "starting_base": 1,
+              "first_name": "Jurickson",
+              "last_name": "Profar",
+              "preferred_name": "Jurickson",
+              "jersey_number": "10",
+              "id": "75ba17fd-160d-4695-86af-7c614cb8f264",
+              "full_name": "Jurickson Profar"
+            }
+          ]
+        },
+        {
+          "hitter_id": "11d8880d-4581-4531-b6f9-1170eaaff32d",
+          "pitcher_id": "a87a4eb5-c735-4431-ac59-c2cb85e2c82b",
+          "inning": 2,
+          "inning_half": "T",
+          "type": "pitch",
+          "hitter_outcome": "aHR",
+          "id": "5cb80685-c69b-42e0-8a97-0fc2ddf7ef21",
+          "runners": [
+            {
+              "starting_base": 0,
+              "first_name": "Senger",
+              "last_name": "Peralta",
+              "preferred_name": "David",
+              "jersey_number": "24",
+              "id": "11d8880d-4581-4531-b6f9-1170eaaff32d",
+              "full_name": "David Peralta"
+            },
+            {
+              "starting_base": 1,
+              "first_name": "Jackson",
+              "last_name": "Merrill",
+              "preferred_name": "Jackson",
+              "jersey_number": "3",
+              "id": "4028a6dd-65e8-42f7-a6b4-222b1e846134",
+              "full_name": "Jackson Merrill"
+            }
+          ]
+        },
+        {
+          "hitter_id": "85554a9a-0ff8-4886-844c-9b440ed94d61",
+          "pitcher_id": "2e8af136-cc00-4b1d-bb46-47f03dfe04f3",
+          "inning": 9,
+          "inning_half": "T",
+          "type": "pitch",
+          "hitter_outcome": "oFC",
+          "id": "91c34d53-5a56-41e0-90a6-481cd13f7e34",
+          "runners": [
+            {
+              "starting_base": 2,
+              "first_name": "Jackson",
+              "last_name": "Merrill",
+              "preferred_name": "Jackson",
+              "jersey_number": "3",
+              "id": "4028a6dd-65e8-42f7-a6b4-222b1e846134",
+              "full_name": "Jackson Merrill"
+            },
+            {
+              "starting_base": 3,
+              "first_name": "Xander",
+              "last_name": "Bogaerts",
+              "preferred_name": "Xander",
+              "jersey_number": "2",
+              "id": "272abdba-ae99-4137-a6dd-5615f234adfc",
+              "full_name": "Xander Bogaerts"
+            }
+          ]
+        },
+        {
+          "hitter_id": "b8261ada-763e-4d7e-8ac5-0636c87d1ac1",
+          "pitcher_id": "2e8af136-cc00-4b1d-bb46-47f03dfe04f3",
+          "inning": 9,
+          "inning_half": "T",
+          "type": "pitch",
+          "hitter_outcome": "aD",
+          "id": "13085923-1b72-4281-974d-e82e7b9caf7e",
+          "runners": [
+            {
+              "starting_base": 2,
+              "first_name": "Kyle",
+              "last_name": "Higashioka",
+              "preferred_name": "Kyle",
+              "jersey_number": "20",
+              "id": "85554a9a-0ff8-4886-844c-9b440ed94d61",
+              "full_name": "Kyle Higashioka"
+            }
+          ]
+        }
+      ]
+    },
+    "pitching": {
+      "win": {
+        "preferred_name": "Jason",
+        "first_name": "Jason",
+        "last_name": "Adam",
+        "jersey_number": "40",
+        "status": "A",
+        "position": "P",
+        "primary_position": "RP",
+        "id": "bb8651aa-fe5b-41ca-9b19-dca358fb9507",
+        "win": 6,
+        "loss": 2,
+        "save": 4,
+        "hold": 19,
+        "blown_save": 3,
+        "full_name": "Jason Adam"
+      },
+      "loss": {
+        "preferred_name": "David",
+        "first_name": "David",
+        "last_name": "Bednar",
+        "jersey_number": "51",
+        "status": "A",
+        "position": "P",
+        "primary_position": "RP",
+        "id": "2e8af136-cc00-4b1d-bb46-47f03dfe04f3",
+        "win": 3,
+        "loss": 4,
+        "save": 20,
+        "hold": 0,
+        "blown_save": 5,
+        "full_name": "David Bednar"
+      },
+      "save": {
+        "preferred_name": "Robert",
+        "first_name": "Robert",
+        "last_name": "Suarez",
+        "jersey_number": "75",
+        "status": "A",
+        "position": "P",
+        "primary_position": "RP",
+        "id": "1c172560-1d12-4223-ae7d-a31122a531e1",
+        "win": 6,
+        "loss": 1,
+        "save": 25,
+        "hold": 1,
+        "blown_save": 3,
+        "full_name": "Robert Suarez"
+      },
+      "hold": [
+        {
+          "preferred_name": "Aroldis",
+          "first_name": "Albertin",
+          "last_name": "Chapman",
+          "jersey_number": "45",
+          "status": "A",
+          "position": "P",
+          "primary_position": "RP",
+          "id": "17a14a6a-42f8-4f2e-86f3-42051584563e",
+          "win": 4,
+          "loss": 4,
+          "save": 4,
+          "hold": 18,
+          "blown_save": 4,
+          "full_name": "Aroldis Chapman"
+        }
+      ],
+      "blown_save": [
+        {
+          "preferred_name": "David",
+          "first_name": "David",
+          "last_name": "Bednar",
+          "jersey_number": "51",
+          "status": "A",
+          "position": "P",
+          "primary_position": "RP",
+          "id": "2e8af136-cc00-4b1d-bb46-47f03dfe04f3",
+          "win": 3,
+          "loss": 4,
+          "save": 20,
+          "hold": 0,
+          "blown_save": 5,
+          "full_name": "David Bednar"
+        },
+        {
+          "preferred_name": "Yuki",
+          "first_name": "Yuki",
+          "last_name": "Matsui",
+          "jersey_number": "1",
+          "status": "A",
+          "position": "P",
+          "primary_position": "RP",
+          "id": "b2c77d53-4eec-433c-a173-daf59fca45bc",
+          "win": 3,
+          "loss": 2,
+          "save": 0,
+          "hold": 9,
+          "blown_save": 4,
+          "full_name": "Yuki Matsui"
+        }
+      ]
+    }
+  },
+  "runDifferentials": {
+    "NY Yankees": {
+      "home": 20,
+      "away": 93
+    },
+    "Philadelphia": {
+      "home": 78,
+      "away": 30
+    },
+    "Milwaukee": {
+      "home": 36,
+      "away": 65
+    },
+    "Kansas City": {
+      "home": 62,
+      "away": 32
+    },
+    "Baltimore": {
+      "home": 35,
+      "away": 54
+    },
+    "LA Dodgers": {
+      "home": 42,
+      "away": 47
+    },
+    "Cleveland": {
+      "home": 39,
+      "away": 39
+    },
+    "San Diego": {
+      "home": -11,
+      "away": 67
+    },
+    "Minnesota": {
+      "home": 42,
+      "away": 10
+    },
+    "Arizona": {
+      "home": 15,
+      "away": 35
+    },
+    "Cincinnati": {
+      "home": -4,
+      "away": 49
+    },
+    "Houston": {
+      "home": 52,
+      "away": -8
+    },
+    "NY Mets": {
+      "home": 11,
+      "away": 30
+    },
+    "Boston": {
+      "home": -19,
+      "away": 53
+    },
+    "Atlanta": {
+      "home": -7,
+      "away": 40
+    },
+    "Seattle": {
+      "home": 17,
+      "away": 2
+    },
+    "Chi Cubs": {
+      "home": 28,
+      "away": -21
+    },
+    "SF Giants": {
+      "home": 18,
+      "away": -25
+    },
+    "Pittsburgh": {
+      "home": -23,
+      "away": 10
+    },
+    "Detroit": {
+      "home": -34,
+      "away": 15
+    },
+    "Texas": {
+      "home": 31,
+      "away": -54
+    },
+    "Tampa Bay": {
+      "home": -28,
+      "away": -17
+    },
+    "St. Louis": {
+      "home": -18,
+      "away": -28
+    },
+    "Washington": {
+      "home": -33,
+      "away": -27
+    },
+    "Oakland": {
+      "home": -7,
+      "away": -65
+    },
+    "LA Angels": {
+      "home": -50,
+      "away": -38
+    },
+    "Toronto": {
+      "home": -54,
+      "away": -34
+    },
+    "Miami": {
+      "home": -96,
+      "away": -61
+    },
+    "Colorado": {
+      "home": -37,
+      "away": -150
+    },
+    "Chi Sox": {
+      "home": -98,
+      "away": -150
+    }
+  },
+  "battingleadersByTeam": {
+    "battingAverage": [
+      {
+        "name": "Padres",
+        "rank": 1,
+        "avg": "0.265"
+      },
+      {
+        "name": "Red Sox",
+        "rank": 2,
+        "avg": "0.262"
+      },
+      {
+        "name": "Astros",
+        "rank": 3,
+        "avg": "0.259"
+      },
+      {
+        "name": "Brewers",
+        "rank": 4,
+        "avg": "0.259"
+      },
+      {
+        "name": "Diamondbacks",
+        "rank": 5,
+        "avg": "0.258"
+      },
+      {
+        "name": "Phillies",
+        "rank": 6,
+        "avg": "0.257"
+      },
+      {
+        "name": "Orioles",
+        "rank": 7,
+        "avg": "0.254"
+      },
+      {
+        "name": "Royals",
+        "rank": 8,
+        "avg": "0.253"
+      },
+      {
+        "name": "Twins",
+        "rank": 9,
+        "avg": "0.252"
+      },
+      {
+        "name": "Yankees",
+        "rank": 9,
+        "avg": "0.252"
+      },
+      {
+        "name": "Dodgers",
+        "rank": 11,
+        "avg": "0.252"
+      },
+      {
+        "name": "Mets",
+        "rank": 12,
+        "avg": "0.250"
+      },
+      {
+        "name": "Cardinals",
+        "rank": 13,
+        "avg": "0.246"
+      },
+      {
+        "name": "Giants",
+        "rank": 14,
+        "avg": "0.245"
+      },
+      {
+        "name": "Nationals",
+        "rank": 15,
+        "avg": "0.243"
+      },
+      {
+        "name": "Rockies",
+        "rank": 16,
+        "avg": "0.242"
+      },
+      {
+        "name": "Guardians",
+        "rank": 17,
+        "avg": "0.242"
+      },
+      {
+        "name": "Blue Jays",
+        "rank": 18,
+        "avg": "0.240"
+      },
+      {
+        "name": "Braves",
+        "rank": 19,
+        "avg": "0.239"
+      },
+      {
+        "name": "Marlins",
+        "rank": 20,
+        "avg": "0.238"
+      },
+      {
+        "name": "Rangers",
+        "rank": 21,
+        "avg": "0.237"
+      },
+      {
+        "name": "Angels",
+        "rank": 22,
+        "avg": "0.237"
+      },
+      {
+        "name": "Rays",
+        "rank": 23,
+        "avg": "0.235"
+      },
+      {
+        "name": "Cubs",
+        "rank": 24,
+        "avg": "0.235"
+      },
+      {
+        "name": "Pirates",
+        "rank": 25,
+        "avg": "0.234"
+      },
+      {
+        "name": "Reds",
+        "rank": 26,
+        "avg": "0.231"
+      },
+      {
+        "name": "Tigers",
+        "rank": 27,
+        "avg": "0.231"
+      },
+      {
+        "name": "Athletics",
+        "rank": 28,
+        "avg": "0.230"
+      },
+      {
+        "name": "Mariners",
+        "rank": 29,
+        "avg": "0.217"
+      },
+      {
+        "name": "White Sox",
+        "rank": 30,
+        "avg": "0.216"
+      }
+    ],
+    "runsScored": [
+      {
+        "name": "Diamondbacks",
+        "rank": 1,
+        "runs": 598
+      },
+      {
+        "name": "Yankees",
+        "rank": 2,
+        "runs": 594
+      },
+      {
+        "name": "Orioles",
+        "rank": 3,
+        "runs": 591
+      },
+      {
+        "name": "Phillies",
+        "rank": 4,
+        "runs": 564
+      },
+      {
+        "name": "Dodgers",
+        "rank": 5,
+        "runs": 563
+      },
+      {
+        "name": "Red Sox",
+        "rank": 5,
+        "runs": 563
+      },
+      {
+        "name": "Mets",
+        "rank": 7,
+        "runs": 560
+      },
+      {
+        "name": "Brewers",
+        "rank": 8,
+        "runs": 558
+      },
+      {
+        "name": "Royals",
+        "rank": 9,
+        "runs": 554
+      },
+      {
+        "name": "Twins",
+        "rank": 10,
+        "runs": 552
+      },
+      {
+        "name": "Padres",
+        "rank": 11,
+        "runs": 548
+      },
+      {
+        "name": "Guardians",
+        "rank": 12,
+        "runs": 530
+      },
+      {
+        "name": "Giants",
+        "rank": 13,
+        "runs": 520
+      },
+      {
+        "name": "Astros",
+        "rank": 14,
+        "runs": 519
+      },
+      {
+        "name": "Reds",
+        "rank": 15,
+        "runs": 517
+      },
+      {
+        "name": "Nationals",
+        "rank": 16,
+        "runs": 496
+      },
+      {
+        "name": "Cubs",
+        "rank": 17,
+        "runs": 493
+      },
+      {
+        "name": "Rockies",
+        "rank": 18,
+        "runs": 487
+      },
+      {
+        "name": "Rangers",
+        "rank": 19,
+        "runs": 485
+      },
+      {
+        "name": "Tigers",
+        "rank": 20,
+        "runs": 483
+      },
+      {
+        "name": "Pirates",
+        "rank": 21,
+        "runs": 482
+      },
+      {
+        "name": "Cardinals",
+        "rank": 22,
+        "runs": 481
+      },
+      {
+        "name": "Braves",
+        "rank": 23,
+        "runs": 479
+      },
+      {
+        "name": "Blue Jays",
+        "rank": 24,
+        "runs": 478
+      },
+      {
+        "name": "Athletics",
+        "rank": 25,
+        "runs": 471
+      },
+      {
+        "name": "Angels",
+        "rank": 26,
+        "runs": 469
+      },
+      {
+        "name": "Mariners",
+        "rank": 27,
+        "runs": 455
+      },
+      {
+        "name": "Rays",
+        "rank": 28,
+        "runs": 452
+      },
+      {
+        "name": "Marlins",
+        "rank": 29,
+        "runs": 423
+      },
+      {
+        "name": "White Sox",
+        "rank": 30,
+        "runs": 360
+      }
+    ],
+    "doubles": [
+      {
+        "name": "Red Sox",
+        "rank": 1,
+        "doubles": 231
+      },
+      {
+        "name": "Twins",
+        "rank": 2,
+        "doubles": 227
+      },
+      {
+        "name": "Mets",
+        "rank": 3,
+        "doubles": 212
+      },
+      {
+        "name": "Dodgers",
+        "rank": 4,
+        "doubles": 210
+      },
+      {
+        "name": "Orioles",
+        "rank": 5,
+        "doubles": 202
+      },
+      {
+        "name": "Blue Jays",
+        "rank": 6,
+        "doubles": 200
+      },
+      {
+        "name": "Giants",
+        "rank": 6,
+        "doubles": 200
+      },
+      {
+        "name": "Diamondbacks",
+        "rank": 8,
+        "doubles": 198
+      },
+      {
+        "name": "Rockies",
+        "rank": 9,
+        "doubles": 196
+      },
+      {
+        "name": "Braves",
+        "rank": 9,
+        "doubles": 196
+      },
+      {
+        "name": "Reds",
+        "rank": 11,
+        "doubles": 193
+      },
+      {
+        "name": "Royals",
+        "rank": 11,
+        "doubles": 193
+      },
+      {
+        "name": "Nationals",
+        "rank": 13,
+        "doubles": 192
+      },
+      {
+        "name": "Astros",
+        "rank": 14,
+        "doubles": 189
+      },
+      {
+        "name": "Phillies",
+        "rank": 15,
+        "doubles": 188
+      },
+      {
+        "name": "Guardians",
+        "rank": 16,
+        "doubles": 185
+      },
+      {
+        "name": "Rays",
+        "rank": 17,
+        "doubles": 184
+      },
+      {
+        "name": "Cubs",
+        "rank": 18,
+        "doubles": 180
+      },
+      {
+        "name": "Brewers",
+        "rank": 18,
+        "doubles": 180
+      },
+      {
+        "name": "Yankees",
+        "rank": 20,
+        "doubles": 179
+      },
+      {
+        "name": "White Sox",
+        "rank": 21,
+        "doubles": 176
+      },
+      {
+        "name": "Padres",
+        "rank": 22,
+        "doubles": 174
+      },
+      {
+        "name": "Angels",
+        "rank": 23,
+        "doubles": 170
+      },
+      {
+        "name": "Cardinals",
+        "rank": 23,
+        "doubles": 170
+      },
+      {
+        "name": "Tigers",
+        "rank": 25,
+        "doubles": 167
+      },
+      {
+        "name": "Athletics",
+        "rank": 26,
+        "doubles": 165
+      },
+      {
+        "name": "Pirates",
+        "rank": 27,
+        "doubles": 163
+      },
+      {
+        "name": "Marlins",
+        "rank": 28,
+        "doubles": 157
+      },
+      {
+        "name": "Mariners",
+        "rank": 29,
+        "doubles": 154
+      },
+      {
+        "name": "Rangers",
+        "rank": 30,
+        "doubles": 151
+      }
+    ],
+    "triples": [
+      {
+        "name": "Tigers",
+        "rank": 1,
+        "triples": 35
+      },
+      {
+        "name": "Diamondbacks",
+        "rank": 2,
+        "triples": 29
+      },
+      {
+        "name": "Royals",
+        "rank": 3,
+        "triples": 28
+      },
+      {
+        "name": "Red Sox",
+        "rank": 3,
+        "triples": 28
+      },
+      {
+        "name": "Orioles",
+        "rank": 5,
+        "triples": 26
+      },
+      {
+        "name": "Giants",
+        "rank": 6,
+        "triples": 23
+      },
+      {
+        "name": "Reds",
+        "rank": 7,
+        "triples": 22
+      },
+      {
+        "name": "Cubs",
+        "rank": 8,
+        "triples": 20
+      },
+      {
+        "name": "Phillies",
+        "rank": 9,
+        "triples": 19
+      },
+      {
+        "name": "Twins",
+        "rank": 10,
+        "triples": 18
+      },
+      {
+        "name": "Brewers",
+        "rank": 10,
+        "triples": 18
+      },
+      {
+        "name": "Dodgers",
+        "rank": 12,
+        "triples": 17
+      },
+      {
+        "name": "Rockies",
+        "rank": 12,
+        "triples": 17
+      },
+      {
+        "name": "Nationals",
+        "rank": 14,
+        "triples": 16
+      },
+      {
+        "name": "Blue Jays",
+        "rank": 15,
+        "triples": 15
+      },
+      {
+        "name": "Athletics",
+        "rank": 15,
+        "triples": 15
+      },
+      {
+        "name": "Yankees",
+        "rank": 15,
+        "triples": 15
+      },
+      {
+        "name": "Pirates",
+        "rank": 18,
+        "triples": 14
+      },
+      {
+        "name": "Guardians",
+        "rank": 18,
+        "triples": 14
+      },
+      {
+        "name": "Marlins",
+        "rank": 18,
+        "triples": 14
+      },
+      {
+        "name": "Rangers",
+        "rank": 18,
+        "triples": 14
+      },
+      {
+        "name": "Cardinals",
+        "rank": 18,
+        "triples": 14
+      },
+      {
+        "name": "Rays",
+        "rank": 23,
+        "triples": 13
+      },
+      {
+        "name": "Astros",
+        "rank": 23,
+        "triples": 13
+      },
+      {
+        "name": "Padres",
+        "rank": 23,
+        "triples": 13
+      },
+      {
+        "name": "Mariners",
+        "rank": 26,
+        "triples": 12
+      },
+      {
+        "name": "Mets",
+        "rank": 27,
+        "triples": 11
+      },
+      {
+        "name": "Angels",
+        "rank": 27,
+        "triples": 11
+      },
+      {
+        "name": "Braves",
+        "rank": 27,
+        "triples": 11
+      },
+      {
+        "name": "White Sox",
+        "rank": 30,
+        "triples": 7
+      }
+    ],
+    "homeRuns": [
+      {
+        "name": "Orioles",
+        "rank": 1,
+        "homeRuns": 179
+      },
+      {
+        "name": "Yankees",
+        "rank": 2,
+        "homeRuns": 173
+      },
+      {
+        "name": "Dodgers",
+        "rank": 3,
+        "homeRuns": 152
+      },
+      {
+        "name": "Athletics",
+        "rank": 4,
+        "homeRuns": 148
+      },
+      {
+        "name": "Mets",
+        "rank": 5,
+        "homeRuns": 146
+      },
+      {
+        "name": "Phillies",
+        "rank": 6,
+        "homeRuns": 144
+      },
+      {
+        "name": "Red Sox",
+        "rank": 6,
+        "homeRuns": 144
+      },
+      {
+        "name": "Braves",
+        "rank": 8,
+        "homeRuns": 142
+      },
+      {
+        "name": "Diamondbacks",
+        "rank": 9,
+        "homeRuns": 139
+      },
+      {
+        "name": "Twins",
+        "rank": 10,
+        "homeRuns": 137
+      },
+      {
+        "name": "Reds",
+        "rank": 11,
+        "homeRuns": 133
+      },
+      {
+        "name": "Mariners",
+        "rank": 11,
+        "homeRuns": 133
+      },
+      {
+        "name": "Padres",
+        "rank": 11,
+        "homeRuns": 133
+      },
+      {
+        "name": "Guardians",
+        "rank": 14,
+        "homeRuns": 129
+      },
+      {
+        "name": "Rockies",
+        "rank": 14,
+        "homeRuns": 129
+      },
+      {
+        "name": "Astros",
+        "rank": 16,
+        "homeRuns": 128
+      },
+      {
+        "name": "Royals",
+        "rank": 17,
+        "homeRuns": 126
+      },
+      {
+        "name": "Rangers",
+        "rank": 18,
+        "homeRuns": 125
+      },
+      {
+        "name": "Giants",
+        "rank": 19,
+        "homeRuns": 124
+      },
+      {
+        "name": "Brewers",
+        "rank": 20,
+        "homeRuns": 122
+      },
+      {
+        "name": "Cubs",
+        "rank": 21,
+        "homeRuns": 118
+      },
+      {
+        "name": "Cardinals",
+        "rank": 21,
+        "homeRuns": 118
+      },
+      {
+        "name": "Tigers",
+        "rank": 23,
+        "homeRuns": 117
+      },
+      {
+        "name": "Angels",
+        "rank": 24,
+        "homeRuns": 116
+      },
+      {
+        "name": "Pirates",
+        "rank": 25,
+        "homeRuns": 112
+      },
+      {
+        "name": "Rays",
+        "rank": 26,
+        "homeRuns": 108
+      },
+      {
+        "name": "Blue Jays",
+        "rank": 27,
+        "homeRuns": 104
+      },
+      {
+        "name": "Marlins",
+        "rank": 28,
+        "homeRuns": 103
+      },
+      {
+        "name": "White Sox",
+        "rank": 29,
+        "homeRuns": 98
+      },
+      {
+        "name": "Nationals",
+        "rank": 30,
+        "homeRuns": 95
+      }
+    ],
+    "runsBattedIn": [
+      {
+        "name": "Orioles",
+        "rank": 1,
+        "rbis": 574
+      },
+      {
+        "name": "Diamondbacks",
+        "rank": 2,
+        "rbis": 573
+      },
+      {
+        "name": "Yankees",
+        "rank": 2,
+        "rbis": 573
+      },
+      {
+        "name": "Dodgers",
+        "rank": 4,
+        "rbis": 545
+      },
+      {
+        "name": "Red Sox",
+        "rank": 5,
+        "rbis": 541
+      },
+      {
+        "name": "Phillies",
+        "rank": 6,
+        "rbis": 539
+      },
+      {
+        "name": "Royals",
+        "rank": 7,
+        "rbis": 538
+      },
+      {
+        "name": "Mets",
+        "rank": 7,
+        "rbis": 538
+      },
+      {
+        "name": "Brewers",
+        "rank": 9,
+        "rbis": 533
+      },
+      {
+        "name": "Padres",
+        "rank": 10,
+        "rbis": 526
+      },
+      {
+        "name": "Twins",
+        "rank": 11,
+        "rbis": 523
+      },
+      {
+        "name": "Guardians",
+        "rank": 12,
+        "rbis": 498
+      },
+      {
+        "name": "Astros",
+        "rank": 13,
+        "rbis": 497
+      },
+      {
+        "name": "Giants",
+        "rank": 14,
+        "rbis": 495
+      },
+      {
+        "name": "Reds",
+        "rank": 15,
+        "rbis": 488
+      },
+      {
+        "name": "Nationals",
+        "rank": 16,
+        "rbis": 469
+      },
+      {
+        "name": "Rockies",
+        "rank": 17,
+        "rbis": 466
+      },
+      {
+        "name": "Rangers",
+        "rank": 17,
+        "rbis": 466
+      },
+      {
+        "name": "Pirates",
+        "rank": 19,
+        "rbis": 464
+      },
+      {
+        "name": "Cubs",
+        "rank": 20,
+        "rbis": 463
+      },
+      {
+        "name": "Tigers",
+        "rank": 20,
+        "rbis": 463
+      },
+      {
+        "name": "Braves",
+        "rank": 22,
+        "rbis": 457
+      },
+      {
+        "name": "Cardinals",
+        "rank": 23,
+        "rbis": 455
+      },
+      {
+        "name": "Blue Jays",
+        "rank": 24,
+        "rbis": 453
+      },
+      {
+        "name": "Athletics",
+        "rank": 25,
+        "rbis": 452
+      },
+      {
+        "name": "Angels",
+        "rank": 26,
+        "rbis": 438
+      },
+      {
+        "name": "Mariners",
+        "rank": 27,
+        "rbis": 432
+      },
+      {
+        "name": "Rays",
+        "rank": 28,
+        "rbis": 423
+      },
+      {
+        "name": "Marlins",
+        "rank": 29,
+        "rbis": 411
+      },
+      {
+        "name": "White Sox",
+        "rank": 30,
+        "rbis": 341
+      }
+    ],
+    "hits": [
+      {
+        "name": "Padres",
+        "rank": 1,
+        "hits": 1049
+      },
+      {
+        "name": "Red Sox",
+        "rank": 2,
+        "hits": 1036
+      },
+      {
+        "name": "Orioles",
+        "rank": 3,
+        "hits": 1018
+      },
+      {
+        "name": "Diamondbacks",
+        "rank": 4,
+        "hits": 1016
+      },
+      {
+        "name": "Phillies",
+        "rank": 5,
+        "hits": 1015
+      },
+      {
+        "name": "Astros",
+        "rank": 6,
+        "hits": 1012
+      },
+      {
+        "name": "Brewers",
+        "rank": 7,
+        "hits": 1009
+      },
+      {
+        "name": "Mets",
+        "rank": 8,
+        "hits": 992
+      },
+      {
+        "name": "Yankees",
+        "rank": 9,
+        "hits": 984
+      },
+      {
+        "name": "Dodgers",
+        "rank": 10,
+        "hits": 983
+      },
+      {
+        "name": "Royals",
+        "rank": 11,
+        "hits": 980
+      },
+      {
+        "name": "Giants",
+        "rank": 12,
+        "hits": 970
+      },
+      {
+        "name": "Twins",
+        "rank": 13,
+        "hits": 966
+      },
+      {
+        "name": "Cardinals",
+        "rank": 13,
+        "hits": 966
+      },
+      {
+        "name": "Rockies",
+        "rank": 15,
+        "hits": 949
+      },
+      {
+        "name": "Nationals",
+        "rank": 16,
+        "hits": 935
+      },
+      {
+        "name": "Marlins",
+        "rank": 17,
+        "hits": 932
+      },
+      {
+        "name": "Blue Jays",
+        "rank": 18,
+        "hits": 916
+      },
+      {
+        "name": "Braves",
+        "rank": 18,
+        "hits": 916
+      },
+      {
+        "name": "Rangers",
+        "rank": 20,
+        "hits": 915
+      },
+      {
+        "name": "Cubs",
+        "rank": 21,
+        "hits": 913
+      },
+      {
+        "name": "Guardians",
+        "rank": 22,
+        "hits": 911
+      },
+      {
+        "name": "Pirates",
+        "rank": 23,
+        "hits": 905
+      },
+      {
+        "name": "Angels",
+        "rank": 24,
+        "hits": 902
+      },
+      {
+        "name": "Tigers",
+        "rank": 25,
+        "hits": 896
+      },
+      {
+        "name": "Rays",
+        "rank": 26,
+        "hits": 892
+      },
+      {
+        "name": "Athletics",
+        "rank": 27,
+        "hits": 887
+      },
+      {
+        "name": "Reds",
+        "rank": 28,
+        "hits": 874
+      },
+      {
+        "name": "White Sox",
+        "rank": 29,
+        "hits": 834
+      },
+      {
+        "name": "Mariners",
+        "rank": 30,
+        "hits": 824
+      }
+    ],
+    "stolenBases": [
+      {
+        "name": "Reds",
+        "rank": 1,
+        "stolenBases": 164
+      },
+      {
+        "name": "Nationals",
+        "rank": 2,
+        "stolenBases": 161
+      },
+      {
+        "name": "Brewers",
+        "rank": 3,
+        "stolenBases": 147
+      },
+      {
+        "name": "Rays",
+        "rank": 4,
+        "stolenBases": 122
+      },
+      {
+        "name": "Phillies",
+        "rank": 5,
+        "stolenBases": 113
+      },
+      {
+        "name": "Red Sox",
+        "rank": 6,
+        "stolenBases": 108
+      },
+      {
+        "name": "Guardians",
+        "rank": 7,
+        "stolenBases": 100
+      },
+      {
+        "name": "Cubs",
+        "rank": 8,
+        "stolenBases": 98
+      },
+      {
+        "name": "Angels",
+        "rank": 8,
+        "stolenBases": 98
+      },
+      {
+        "name": "Royals",
+        "rank": 10,
+        "stolenBases": 95
+      },
+      {
+        "name": "Mariners",
+        "rank": 11,
+        "stolenBases": 87
+      },
+      {
+        "name": "Mets",
+        "rank": 12,
+        "stolenBases": 83
+      },
+      {
+        "name": "Padres",
+        "rank": 13,
+        "stolenBases": 80
+      },
+      {
+        "name": "Marlins",
+        "rank": 14,
+        "stolenBases": 78
+      },
+      {
+        "name": "Diamondbacks",
+        "rank": 15,
+        "stolenBases": 76
+      },
+      {
+        "name": "White Sox",
+        "rank": 16,
+        "stolenBases": 75
+      },
+      {
+        "name": "Dodgers",
+        "rank": 17,
+        "stolenBases": 73
+      },
+      {
+        "name": "Orioles",
+        "rank": 18,
+        "stolenBases": 70
+      },
+      {
+        "name": "Pirates",
+        "rank": 19,
+        "stolenBases": 68
+      },
+      {
+        "name": "Astros",
+        "rank": 19,
+        "stolenBases": 68
+      },
+      {
+        "name": "Athletics",
+        "rank": 21,
+        "stolenBases": 66
+      },
+      {
+        "name": "Cardinals",
+        "rank": 22,
+        "stolenBases": 65
+      },
+      {
+        "name": "Rangers",
+        "rank": 23,
+        "stolenBases": 59
+      },
+      {
+        "name": "Blue Jays",
+        "rank": 24,
+        "stolenBases": 58
+      },
+      {
+        "name": "Rockies",
+        "rank": 24,
+        "stolenBases": 58
+      },
+      {
+        "name": "Twins",
+        "rank": 26,
+        "stolenBases": 56
+      },
+      {
+        "name": "Tigers",
+        "rank": 27,
+        "stolenBases": 54
+      },
+      {
+        "name": "Braves",
+        "rank": 28,
+        "stolenBases": 49
+      },
+      {
+        "name": "Yankees",
+        "rank": 29,
+        "stolenBases": 47
+      },
+      {
+        "name": "Giants",
+        "rank": 30,
+        "stolenBases": 43
+      }
+    ]
+  },
+  "oddsByMarket": [
+    {
+      "odds_type_id": 1,
+      "name": "2way",
+      "books": [
+        {
+          "id": "sr:book:17324",
+          "name": "MGM",
+          "outcomes": [
+            {
+              "odds_field_id": 1,
+              "type": "home",
+              "odds": "-210",
+              "opening_odds": "-185",
+              "odds_trend": "down"
+            },
+            {
+              "odds_field_id": 2,
+              "type": "away",
+              "odds": "+170",
+              "opening_odds": "+150",
+              "odds_trend": "up"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:18149",
+          "name": "DraftKings",
+          "outcomes": [
+            {
+              "odds_field_id": 1,
+              "type": "home",
+              "odds": "-205",
+              "opening_odds": "-180",
+              "odds_trend": "down"
+            },
+            {
+              "odds_field_id": 2,
+              "type": "away",
+              "odds": "+170",
+              "opening_odds": "+150",
+              "odds_trend": "up"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:18186",
+          "name": "FanDuel",
+          "outcomes": [
+            {
+              "odds_field_id": 1,
+              "type": "home",
+              "odds": "-205",
+              "opening_odds": "-175",
+              "odds_trend": "down"
+            },
+            {
+              "odds_field_id": 2,
+              "type": "away",
+              "odds": "+172",
+              "opening_odds": "+146",
+              "odds_trend": "up"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:27447",
+          "name": "SugarHouseNJ",
+          "outcomes": [
+            {
+              "odds_field_id": 1,
+              "type": "home",
+              "odds": "-208",
+              "opening_odds": "-182",
+              "odds_trend": "down"
+            },
+            {
+              "odds_field_id": 2,
+              "type": "away",
+              "odds": "+175",
+              "opening_odds": "+155",
+              "odds_trend": "up"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:27769",
+          "name": "PointsBet",
+          "outcomes": [
+            {
+              "odds_field_id": 1,
+              "type": "home",
+              "odds": "-208",
+              "opening_odds": "-175",
+              "odds_trend": "down"
+            },
+            {
+              "odds_field_id": 2,
+              "type": "away",
+              "odds": "+175",
+              "opening_odds": "+145",
+              "odds_trend": "up"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:28901",
+          "name": "Bet365NewJersey",
+          "outcomes": [
+            {
+              "odds_field_id": 1,
+              "type": "home",
+              "odds": "-205",
+              "opening_odds": "-180",
+              "odds_trend": "down"
+            },
+            {
+              "odds_field_id": 2,
+              "type": "away",
+              "odds": "+170",
+              "opening_odds": "+150",
+              "odds_trend": "up"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:32219",
+          "name": "WilliamHillNewJersey",
+          "outcomes": [
+            {
+              "odds_field_id": 1,
+              "type": "home",
+              "odds": "-210",
+              "opening_odds": "-178",
+              "odds_trend": "down"
+            },
+            {
+              "odds_field_id": 2,
+              "type": "away",
+              "odds": "+175",
+              "opening_odds": "+150",
+              "odds_trend": "up"
+            }
+          ]
+        }
+      ],
+      "group_name": "regular"
+    },
+    {
+      "odds_type_id": 3,
+      "name": "total",
+      "books": [
+        {
+          "id": "sr:book:17324",
+          "name": "MGM",
+          "outcomes": [
+            {
+              "odds_field_id": 7,
+              "type": "over",
+              "odds": "-105",
+              "opening_odds": "-110",
+              "odds_trend": "up",
+              "opening_total": 8,
+              "total": "8"
+            },
+            {
+              "odds_field_id": 8,
+              "type": "under",
+              "odds": "-115",
+              "opening_odds": "-110",
+              "odds_trend": "down",
+              "opening_total": 8,
+              "total": "8"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:18149",
+          "name": "DraftKings",
+          "outcomes": [
+            {
+              "odds_field_id": 7,
+              "type": "over",
+              "odds": "-105",
+              "opening_odds": "-108",
+              "odds_trend": "up",
+              "opening_total": 8,
+              "total": "8"
+            },
+            {
+              "odds_field_id": 8,
+              "type": "under",
+              "odds": "-115",
+              "opening_odds": "-112",
+              "odds_trend": "down",
+              "opening_total": 8,
+              "total": "8"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:18186",
+          "name": "FanDuel",
+          "outcomes": [
+            {
+              "odds_field_id": 7,
+              "type": "over",
+              "odds": "-120",
+              "opening_odds": "-110",
+              "odds_trend": "up",
+              "opening_total": 7.5,
+              "total": "7.5"
+            },
+            {
+              "odds_field_id": 8,
+              "type": "under",
+              "odds": "-102",
+              "opening_odds": "-110",
+              "odds_trend": "down",
+              "opening_total": 7.5,
+              "total": "7.5"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:27447",
+          "name": "SugarHouseNJ",
+          "outcomes": [
+            {
+              "odds_field_id": 7,
+              "type": "over",
+              "odds": "-105",
+              "opening_odds": "-115",
+              "odds_trend": "up",
+              "opening_total": 7.5,
+              "total": "8"
+            },
+            {
+              "odds_field_id": 8,
+              "type": "under",
+              "odds": "-114",
+              "opening_odds": "-104",
+              "odds_trend": "down",
+              "opening_total": 7.5,
+              "total": "8"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:27769",
+          "name": "PointsBet",
+          "outcomes": [
+            {
+              "odds_field_id": 7,
+              "type": "over",
+              "odds": "+100",
+              "opening_odds": "-111",
+              "odds_trend": "up",
+              "opening_total": 8,
+              "total": "8"
+            },
+            {
+              "odds_field_id": 8,
+              "type": "under",
+              "odds": "-120",
+              "opening_odds": "-111",
+              "odds_trend": "down",
+              "opening_total": 8,
+              "total": "8"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:28901",
+          "name": "Bet365NewJersey",
+          "outcomes": [
+            {
+              "odds_field_id": 7,
+              "type": "over",
+              "odds": "+100",
+              "opening_odds": "-110",
+              "odds_trend": "up",
+              "opening_total": 8,
+              "total": "8"
+            },
+            {
+              "odds_field_id": 8,
+              "type": "under",
+              "odds": "-120",
+              "opening_odds": "-110",
+              "odds_trend": "down",
+              "opening_total": 8,
+              "total": "8"
+            }
+          ]
+        },
+        {
+          "id": "sr:book:32219",
+          "name": "WilliamHillNewJersey",
+          "outcomes": [
+            {
+              "odds_field_id": 7,
+              "type": "over",
+              "odds": "+100",
+              "opening_odds": "-110",
+              "odds_trend": "up",
+              "opening_total": 8,
+              "total": "8"
+            },
+            {
+              "odds_field_id": 8,
+              "type": "under",
+              "odds": "-120",
+              "opening_odds": "-110",
+              "odds_trend": "down",
+              "opening_total": 8,
+              "total": "8"
+            }
+          ]
+        }
+      ],
+      "group_name": "regular"
+    },
+    {
+      "odds_type_id": 4,
+      "name": "run_line",
+      "books": [
+        {
+          "id": "sr:book:17324",
+          "name": "MGM",
+          "outcomes": [
+            {
+              "odds_field_id": 10,
+              "type": "home",
+              "odds": "+100",
+              "opening_odds": "+115",
+              "odds_trend": "down",
+              "spread": "-1.5",
+              "opening_spread": -1.5
+            },
+            {
+              "odds_field_id": 12,
+              "type": "away",
+              "odds": "-120",
+              "opening_odds": "-140",
+              "odds_trend": "up",
+              "spread": "1.5",
+              "opening_spread": 1.5
+            }
+          ]
+        },
+        {
+          "id": "sr:book:18149",
+          "name": "DraftKings",
+          "outcomes": [
+            {
+              "odds_field_id": 10,
+              "type": "home",
+              "odds": "+102",
+              "opening_odds": "+114",
+              "odds_trend": "down",
+              "spread": "-1.5",
+              "opening_spread": -1.5
+            },
+            {
+              "odds_field_id": 12,
+              "type": "away",
+              "odds": "-122",
+              "opening_odds": "-135",
+              "odds_trend": "up",
+              "spread": "1.5",
+              "opening_spread": 1.5
+            }
+          ]
+        },
+        {
+          "id": "sr:book:18186",
+          "name": "FanDuel",
+          "outcomes": [
+            {
+              "odds_field_id": 10,
+              "type": "home",
+              "odds": "+110",
+              "opening_odds": "+122",
+              "odds_trend": "up",
+              "spread": "-1.5",
+              "opening_spread": -1.5
+            },
+            {
+              "odds_field_id": 12,
+              "type": "away",
+              "odds": "-132",
+              "opening_odds": "-146",
+              "odds_trend": "down",
+              "spread": "1.5",
+              "opening_spread": 1.5
+            }
+          ]
+        },
+        {
+          "id": "sr:book:27447",
+          "name": "SugarHouseNJ",
+          "outcomes": [
+            {
+              "odds_field_id": 10,
+              "type": "home",
+              "odds": "+107",
+              "opening_odds": "+118",
+              "odds_trend": "down",
+              "spread": "-1.5",
+              "opening_spread": -1.5
+            },
+            {
+              "odds_field_id": 12,
+              "type": "away",
+              "odds": "-130",
+              "opening_odds": "-147",
+              "odds_trend": "up",
+              "spread": "1.5",
+              "opening_spread": 1.5
+            }
+          ]
+        },
+        {
+          "id": "sr:book:27769",
+          "name": "PointsBet",
+          "outcomes": [
+            {
+              "odds_field_id": 10,
+              "type": "home",
+              "odds": "+105",
+              "opening_odds": "+120",
+              "odds_trend": "down",
+              "spread": "-1.5",
+              "opening_spread": -1.5
+            },
+            {
+              "odds_field_id": 12,
+              "type": "away",
+              "odds": "-125",
+              "opening_odds": "-141",
+              "odds_trend": "up",
+              "spread": "1.5",
+              "opening_spread": 1.5
+            }
+          ]
+        },
+        {
+          "id": "sr:book:28901",
+          "name": "Bet365NewJersey",
+          "outcomes": [
+            {
+              "odds_field_id": 10,
+              "type": "home",
+              "odds": "+100",
+              "opening_odds": "+110",
+              "odds_trend": "down",
+              "spread": "-1.5",
+              "opening_spread": -1.5
+            },
+            {
+              "odds_field_id": 12,
+              "type": "away",
+              "odds": "-120",
+              "opening_odds": "-130",
+              "odds_trend": "up",
+              "spread": "1.5",
+              "opening_spread": 1.5
+            }
+          ]
+        },
+        {
+          "id": "sr:book:32219",
+          "name": "WilliamHillNewJersey",
+          "outcomes": [
+            {
+              "odds_field_id": 10,
+              "type": "home",
+              "odds": "+105",
+              "opening_odds": "+110",
+              "odds_trend": "down",
+              "spread": "-1.5",
+              "opening_spread": -1.5
+            },
+            {
+              "odds_field_id": 12,
+              "type": "away",
+              "odds": "-125",
+              "opening_odds": "-130",
+              "odds_trend": "up",
+              "spread": "1.5",
+              "opening_spread": 1.5
+            }
+          ]
+        }
+      ],
+      "group_name": "regular"
+    }
+  ]
+}

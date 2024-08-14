@@ -39,14 +39,7 @@ async function processGames() {
       if (existingEvaluatedGame) {
         console.log(`Game ${game.id} already evaluated. Skipping.`);
       } else {
-        const evaluatedGame = await evaluateGame(game.id);
-        // Save the evaluated game to the database
-        await prisma.evaluatedGame.create({
-          data: {
-            gameId: game.id,
-            data: evaluatedGame,
-          },
-        });
+        await evaluateGame(game.id);
         console.log(`Game ${game.id} evaluated and saved.`);
       }
     }

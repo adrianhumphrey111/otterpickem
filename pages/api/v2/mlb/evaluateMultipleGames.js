@@ -27,14 +27,6 @@ export default async function handler(req, res) {
         } else {
           const evaluatedGame = await evaluateGame(gameId);
           evaluatedGames.push(evaluatedGame);
-
-          // Save the evaluated game to the database
-          await prisma.evaluatedGame.create({
-            data: {
-              gameId: gameId,
-              data: evaluatedGame,
-            },
-          });
         }
       }
       

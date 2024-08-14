@@ -12,7 +12,7 @@ export async function getHeadToHeadGames(awayTeamId, homeTeamId) {
       ((game.home.id === homeTeamId && game.away.id === awayTeamId) ||
        (game.home.id === awayTeamId && game.away.id === homeTeamId))
     )
-    .sort((a, b) => new Date(b.scheduled) - new Date(a.scheduled));
+    .sort((a, b) => new Date(b.scheduled) - new Date(a.scheduled))
 
   const detailedGames = await getDetailedGames(headToHeadGames);
 
@@ -84,7 +84,15 @@ async function getDetailedGames(games) {
     const delayMs = 1500 * (i + 1);
     const gameDetails = await evaluateGame(game.id, delayMs);
     detailedGames.push({
-      ...game,
+      id: game.id,
+      dayOrNight: game.day_night,
+      isDoubleHeader: game.double_header,
+      venue: {
+        name: game.venue.name,
+        market: game.venue.market
+      },
+      home: game.home,
+      away: game.away,
       details: gameDetails
     });
   }

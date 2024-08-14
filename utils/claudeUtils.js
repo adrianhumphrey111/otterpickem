@@ -3,7 +3,7 @@ import axios from 'axios';
 export async function getClaudeResponse(evaluatedGame) {
   await new Promise(resolve => setTimeout(resolve, 1500));
   const prompt = `
-${JSON.stringify(evaluatedGame, null, 2)}
+${JSON.stringify(evaluatedGame)}
 
 Analyze the following statistics for Team A and Team B to predict the winner and score of their upcoming MLB game. Consider the relative importance of each stat, how they interact, and specific scenarios that might influence the outcome.
 
@@ -30,9 +30,10 @@ Analyze the following statistics for Team A and Team B to predict the winner and
 
 ### Deliverables:
 1. **Winner Prediction:** Provide a prediction for the winner, taking into account both statistical analysis and situational factors.
-2. **Score Prediction:** Predict the score for each team, considering potential scenarios like high-scoring or low-scoring games.
+2. **Score Prediction:** Predict the score for each team, considering potential scenarios like high-scoring or low-scoring games. And give me an over or under based on your anaylsis and bookmaker odds
 3. **Key Factors:** Explain the key factors driving your prediction, emphasizing any underdog advantages or reasons why the favorite might not win.
 4. **Confidence Level:** Assign a confidence level (low, medium, high) to your prediction, with an explanation of factors that could lead to an upset or unexpected outcome.
+5. ** Give me an upset alert if there may be a decent chance the underdog can make it a close game.
 
 `;
 

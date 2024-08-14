@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { id, text, gameId } = req.body;
+    const { id, message: text, gameId } = req.body;
     const isUser = true; // Always set to true as per the requirement
 
-    if (!id || !text || !gameId) {
+    if (!text || !gameId) {
       return res.status(400).json({ error: 'Missing required parameters' });
     }
 
@@ -56,7 +56,6 @@ export default async function handler(req, res) {
       });
 
       const message = {
-        id,
         text,
         isUser,
         gameId,
