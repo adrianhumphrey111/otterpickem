@@ -17,6 +17,19 @@ const nextConfig = {
                 ]
             }
         ]
+    },
+    // Add this section to increase the API timeout
+    serverRuntimeConfig: {
+        api: {
+            bodyParser: {
+                sizeLimit: '1mb'
+            },
+            responseLimit: '8mb',
+            externalResolver: true,
+            // Set the timeout to 60 seconds (60000 milliseconds)
+            // You can adjust this value as needed, up to the maximum allowed by your Vercel plan
+            timeout: 60000
+        }
     }
 };
 
