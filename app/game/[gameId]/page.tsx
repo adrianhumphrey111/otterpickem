@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { EvaluatedGame } from '../../types';
 
 async function getGameDetails(gameId: string) {
@@ -11,9 +11,25 @@ async function getGameDetails(gameId: string) {
   return response.json();
 }
 
+async function sendMessage(gameId: string, message: string) {
+  const response = await fetch('/api/v2/chat/sendMessage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ gameId, message }),
+  });
+  if (!response.ok) {
+    throw new Error('Failed to send message');
+  }
+  return response.json();
+}
+
 export default function GameDetails({ params }: { params: { gameId: string } }) {
   const [game, setGame] = useState<EvaluatedGame | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState('');
+  const [chatHistory, setChatHistory] = useState<Array<{ role: string; content: string }>>([]);
 
   useEffect(() => {
     async function fetchGameDetails() {
@@ -37,6 +53,24 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
     return <div className="text-center text-gray-800">Loading game details...</div>;
   }
 
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (message.trim() === '') return;
+
+    const newUserMessage = { role: 'user', content: message };
+    setChatHistory(prev => [...prev, newUserMessage]);
+    setMessage('');
+
+    try {
+      const response = await sendMessage(params.gameId, message);
+      const newBotMessage = { role: 'assistant', content: response.message };
+      setChatHistory(prev => [...prev, newBotMessage]);
+    } catch (err) {
+      console.error('Error sending message:', err);
+      setError('Failed to send message');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -46,7 +80,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main content */}
           <div className="lg:w-2/3">
-            <div className="bg-white shadow-lg rounded-lg p-6">
+            <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
               <h2 className="text-2xl font-semibold mb-4 text-black">
                 {game.data.awayTeam.name} vs {game.data.homeTeam.name}
               </h2>
@@ -55,6 +89,32 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
               </p>
               <h3 className="text-xl font-semibold mb-2 text-black">Analysis</h3>
               <p className="text-gray-700 whitespace-pre-line">{game.claudeResponse}</p>
+            </div>
+
+            {/* Chat section */}
+            <div className="bg-white shadow-lg rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-4 text-black">Chat</h3>
+              <div className="mb-4 h-64 overflow-y-auto">
+                {chatHistory.map((msg, index) => (
+                  <div key={index} className={`mb-2 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
+                    <span className={`inline-block p-2 rounded-lg ${msg.role === 'user' ? 'bg-blue-100' : 'bg-gray-100'}`}>
+                      {msg.content}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <form onSubmit={handleSubmit} className="flex">
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="flex-grow border rounded-l-lg p-2"
+                  placeholder="Ask a question about the game..."
+                />
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-r-lg">
+                  Send
+                </button>
+              </form>
             </div>
           </div>
 
