@@ -30,6 +30,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState<Array<{ role: string; content: string }>>([]);
+  const [isWaitingForResponse, setIsWaitingForResponse] = useState(false);
 
   useEffect(() => {
     async function fetchGameDetails() {
@@ -55,8 +56,9 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (message.trim() === '') return;
+    if (message.trim() === '' || isWaitingForResponse) return;
 
+    setIsWaitingForResponse(true);
     const newUserMessage = { role: 'user', content: message };
     setChatHistory(prev => [...prev, newUserMessage]);
     setMessage('');
@@ -68,6 +70,8 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
     } catch (err) {
       console.error('Error sending message:', err);
       setError('Failed to send message');
+    } finally {
+      setIsWaitingForResponse(false);
     }
   };
 
@@ -110,9 +114,18 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
                   onChange={(e) => setMessage(e.target.value)}
                   className="flex-grow border rounded-l-lg p-2 text-black"
                   placeholder="Ask a question about the game..."
+                  disabled={isWaitingForResponse}
                 />
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-r-lg">
-                  Send
+                <button 
+                  type="submit" 
+                  className={`px-4 py-2 rounded-r-lg ${
+                    isWaitingForResponse 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-blue-500 hover:bg-blue-600'
+                  } text-white`}
+                  disabled={isWaitingForResponse}
+                >
+                  {isWaitingForResponse ? 'Sending...' : 'Send'}
                 </button>
               </form>
             </div>
