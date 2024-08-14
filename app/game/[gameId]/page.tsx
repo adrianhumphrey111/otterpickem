@@ -63,7 +63,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
 
     try {
       const response = await sendMessage(params.gameId, message);
-      const newBotMessage = { role: 'assistant', content: response.message };
+      const newBotMessage = { role: 'assistant', content: response.data.response };
       setChatHistory(prev => [...prev, newBotMessage]);
     } catch (err) {
       console.error('Error sending message:', err);
