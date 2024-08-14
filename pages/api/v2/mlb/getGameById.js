@@ -4,12 +4,11 @@ import { getTeamStatistics } from './getTeamStatistics';
 import { getCurrentOPS } from './getCurrentOPS';
 import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
 import { getTeamStandings } from './getTeamStandings';
-import { getOpenAIResponse } from '../../../../utils/openaiUtils';
+import { getClaudeResponse } from '../../../../utils/claudeUtils.js';
 import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 import { getDailyOddsMLB } from './getDailyOddsMLB.js';
 import { PrismaClient } from '@prisma/client';
 import axios from "axios"
-import { getOpenAIResponse } from '../../../../utils/openaiUtils.js';
 
 const prisma = new PrismaClient();
 
@@ -29,18 +28,18 @@ async function makeApiCallWithDelay(apiCallFunction, ...args) {
   return result;
 }
 
-export async function saveGameToDB(evaluatedGame, claudeResponse) {
+export async function saveGameToDB(evaluatedGame) {
   try {
     const savedGame = await prisma.evaluatedGame.upsert({
       where: { gameId: evaluatedGame.gameId },
       update: {
         data: evaluatedGame,
-        claudeResponse: claudeResponse,
+        claudeResponse: evaluatedGame.claudeResponse,
       },
       create: {
         gameId: evaluatedGame.gameId,
         data: evaluatedGame,
-        claudeResponse: claudeResponse,
+        claudeResponse: evaluatedGame.claudeResponse,
       },
     });
     return savedGame;
@@ -160,13 +159,14 @@ export async function evaluateGame(gameId) {
     oddsByMarket: oddsByMarket
   };
 
-  // Get Claude's response
-  let claudeResponse;
   try {
     // We want to reset the tokens per minute, so wait a minute and a half
-    claudeResponse = await getOpenAIResponse(gameData)
-    //claudeResponse = await getClaudeResponse(gameData);
-  } catch (claudeError) {
+    //claudeResponse = await getOpenAIResponse(gameData)
+    // Get Claude's response
+    let claudeResponse = await getClaudeResponse(gameData);
+    // Add Claude's response to the evaluatedGame object
+    gameData.claudeResponse = claudeResponse;
+  } catch (error) {
     // Log and output only the error message
     if (error.response) {
       // Server responded with a status code out of the range of 2xx
@@ -182,12 +182,9 @@ export async function evaluateGame(gameId) {
     }
   }
 
-  // Add Claude's response to the evaluatedGame object
-  gameData.claudeResponse = claudeResponse;
-
   // Save the evaluatedGame data to the database
   try {
-    const savedGame = await saveGameToDB(gameData, claudeResponse);
+    const savedGame = await saveGameToDB(gameData);
     console.log(`Game ${gameId} saved to database successfully with ID: ${savedGame.id}`);
   } catch (dbError) {
     console.error('Error saving game to database:', dbError);
