@@ -108,7 +108,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
                   type="text"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="flex-grow border rounded-l-lg p-2"
+                  className="flex-grow border rounded-l-lg p-2 text-black"
                   placeholder="Ask a question about the game..."
                 />
                 <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-r-lg">
