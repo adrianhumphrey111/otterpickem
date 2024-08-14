@@ -97,7 +97,7 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
               <div className="mb-4 h-64 overflow-y-auto">
                 {chatHistory.map((msg, index) => (
                   <div key={index} className={`mb-2 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
-                    <span className={`inline-block p-2 rounded-lg ${msg.role === 'user' ? 'bg-blue-100' : 'bg-gray-100'}`}>
+                    <span className={`inline-block p-2 rounded-lg text-black ${msg.role === 'user' ? 'bg-blue-100' : 'bg-gray-100'}`}>
                       {msg.content}
                     </span>
                   </div>
