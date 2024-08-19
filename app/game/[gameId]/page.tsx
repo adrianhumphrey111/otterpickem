@@ -140,15 +140,15 @@ export default function GameDetails({ params }: { params: { gameId: string } }) 
                   <h4 className="text-lg font-semibold mb-2 text-black">{game.data.awayTeam.name}</h4>
                   <p className="text-black">Wins: {game.data.awayTeam.standings.win}</p>
                   <p className="text-black">Losses: {game.data.awayTeam.standings.loss}</p>
-                  <p className="text-black">Probable Pitcher: {game.data.boxScore.away.probable_pitcher.full_name}</p>
-                  <p className="text-black">ERA: {game.data.boxScore.away.probable_pitcher.era}</p>
+                  <p className="text-black">Probable Pitcher: {game.data.boxScore.away?.probable_pitcher.full_name || "TBA"}</p>
+                  <p className="text-black">ERA: {game.data.boxScore.away?.probable_pitcher.era || ""}</p>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold mb-2 text-black">{game.data.homeTeam.name}</h4>
                   <p className="text-black">Wins: {game.data.homeTeam.standings.win}</p>
                   <p className="text-black">Losses: {game.data.homeTeam.standings.loss}</p>
-                  <p className="text-black">Probable Pitcher: {game.data.boxScore.home.probable_pitcher.full_name}</p>
-                  <p className="text-black">ERA: {game.data.boxScore.home.probable_pitcher.era}</p>
+                  <p className="text-black">Probable Pitcher: {game.data.boxScore.home?.probable_pitcher?.full_name || "TBA"}</p>
+                  <p className="text-black">ERA: {game.data.boxScore.home?.probable_pitcher?.era || ""}</p>
                 </div>
               </div>
             </div>
