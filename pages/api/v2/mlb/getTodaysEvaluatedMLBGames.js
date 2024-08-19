@@ -3,25 +3,27 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 function getStartAndEndOfDayET(date) {
+  // Convert the given date to Eastern Time (ET)
   const etDate = new Date(date.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-  
-  // Set to start of day in ET
-  etDate.setHours(0, 0, 0, 0);
-  
-  // Convert back to UTC
-  const startOfDayET = new Date(etDate.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-  
-  // Set to end of day in ET
-  etDate.setHours(23, 59, 59, 999);
-  
-  // Convert back to UTC
-  const endOfDayET = new Date(etDate.toLocaleString('en-US', { timeZone: 'America/New_York' }));
 
-  console.log('Start of day ET:', startOfDayET.toISOString());
-  console.log('End of day ET:', endOfDayET.toISOString());
+  // Create start of the day in ET
+  const startOfDayET = new Date(etDate);
+  startOfDayET.setHours(0, 0, 0, 0);
 
-  return { startOfDayET, endOfDayET };
+  // Create end of the day in ET
+  const endOfDayET = new Date(etDate);
+  endOfDayET.setHours(23, 59, 59, 999);
+
+  // Convert ET times back to UTC
+  const startOfDayUTC = new Date(startOfDayET.toISOString());
+  const endOfDayUTC = new Date(endOfDayET.toISOString());
+
+  console.log('Start of day ET (UTC):', startOfDayUTC.toISOString());
+  console.log('End of day ET (UTC):', endOfDayUTC.toISOString());
+
+  return { startOfDayUTC, endOfDayUTC };
 }
+
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
@@ -29,12 +31,14 @@ export default async function handler(req, res) {
       const today = new Date();
       console.log('Current UTC time:', today.toISOString());
       const { startOfDayET, endOfDayET } = getStartAndEndOfDayET(today);
+      const { startOfDayUTC, endOfDayUTC } = getStartAndEndOfDayET(today);
+
 
       const todaysGames = await prisma.evaluatedGame.findMany({
         where: {
           scheduledAt: {
-            gte: startOfDayET,
-            lte: endOfDayET,
+            gte: startOfDayUTC,
+            lte: endOfDayUTC,
           },
         },
         orderBy: {
