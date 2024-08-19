@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "EvaluatedGame" ADD COLUMN     "scheduledAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

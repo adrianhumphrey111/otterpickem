@@ -1,10 +1,10 @@
-import puppeteer from 'puppeteer';
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
 const cache = new NodeCache({ stdTTL: 86400 }); // 24 hours in seconds
 
 export async function getCurrentRunDifferentials() {
+    const puppeteer = await import('puppeteer');
   const t = {
     "NY Yankees": {
         "home": 20,

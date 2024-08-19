@@ -414,4 +414,5 @@ model EvaluatedGame {
   gameOfTheDay   Boolean  @default(false)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  scheduledAt    DateTime @default(now())
 }

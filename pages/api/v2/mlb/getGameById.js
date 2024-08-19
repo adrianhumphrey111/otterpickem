@@ -1,11 +1,8 @@
-import { makeDelayedApiCall } from '../../../../utils/apiUtils';
 import { getCurrentRunDifferentials } from './getCurrentRunDifferentials';
 import { getTeamStatistics } from './getTeamStatistics';
-import { getCurrentOPS } from './getCurrentOPS';
 import { getRecentTeamGames, getHeadToHeadGames } from './getRecentTeamGames';
 import { getTeamStandings } from './getTeamStandings';
 import { getClaudeResponse } from '../../../../utils/claudeUtils.js';
-import { mockedEvaluatedGame } from '../../../../utils/mockData.js';
 import { getDailyOddsMLB } from './getDailyOddsMLB.js';
 import { PrismaClient } from '@prisma/client';
 import axios from "axios"
@@ -35,11 +32,13 @@ export async function saveGameToDB(evaluatedGame) {
       update: {
         data: evaluatedGame,
         claudeResponse: evaluatedGame.claudeResponse,
+        scheduledAt: evaluatedGame.boxScore.scheduled
       },
       create: {
         gameId: evaluatedGame.gameId,
         data: evaluatedGame,
         claudeResponse: evaluatedGame.claudeResponse,
+        scheduledAt: evaluatedGame.boxScore.scheduled
       },
     });
     return savedGame;
@@ -209,10 +208,19 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Game ID is required' });
       }
 
-      const evaluatedGame = await evaluateGame(gameId);
-      // const evaluatedGame = mockedEvaluatedGame;
+      // Grab the game, 
+      const game = await prisma.evaluatedGame.findUnique({
+        where: { gameId: gameId }
+      })
 
-      res.status(200).json(evaluatedGame);
+      if (game){
+        res.status(200).json(game);
+      }else{
+        const evaluatedGame = await evaluateGame(gameId);
+        // const evaluatedGame = mockedEvaluatedGame;
+        res.status(200).json(evaluatedGame);
+      }
+      
     } catch (error) {
       console.error('Error evaluating game:', error);
       res.status(500).json({ error: 'Internal Server Error' });

@@ -26,10 +26,15 @@ async function processGames() {
     const month = currentDate.getMonth() + 1; // getMonth() returns 0-11, so we add 1
     const date = currentDate.getDate();
 
+    console.log(year, month, date)
+
     const games = await getScheduleByDate(year, month, date);
+    console.log(games)
     
     for (let i = 0; i < games.length; i++) {
       const game = games[i];
+
+      console.log("Evaluating Game")
       
       // Check if the game has already been evaluated
       const existingEvaluatedGame = await prisma.evaluatedGame.findUnique({

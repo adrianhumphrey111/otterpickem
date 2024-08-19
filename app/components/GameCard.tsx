@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+
 import { EvaluatedGame } from '../types';
 
 interface GameCardProps {
@@ -7,10 +8,17 @@ interface GameCardProps {
   isGameOfTheDay?: boolean;
 }
 
+function formatDateToYYYYMMDD(dateString: string) {
+  const date = new Date(dateString);
+  return date.toISOString().split('T')[0];
+}
+
 const GameCard: React.FC<GameCardProps> = ({ game, isGameOfTheDay = false }) => {
   const { data: gameData } = game;
   const awayTeamName = gameData.awayTeam.name;
   const homeTeamName = gameData.homeTeam.name;
+  const gameDate = formatDateToYYYYMMDD(gameData.boxScore.scheduled)
+  const gameId = gameData.gameId
 
   return (
     <article className="w-full max-w-sm mx-auto mb-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
@@ -37,7 +45,7 @@ const GameCard: React.FC<GameCardProps> = ({ game, isGameOfTheDay = false }) => 
         {game.claudeResponse ? game.claudeResponse.split('\n')[0] : "Game preview and analysis not available."}
       </p>
       <div className="text-center">
-        <Link href={`/game/${game.gameId}`} className="inline-block px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-full hover:bg-green-700 transition-colors">
+        <Link href={`/predictions/mlb/${awayTeamName}-vs-${homeTeamName}-${gameDate}/${gameId}`} className="inline-block px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-full hover:bg-green-700 transition-colors">
           View Game Details
         </Link>
       </div>

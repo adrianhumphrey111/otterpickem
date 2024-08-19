@@ -1,6 +1,5 @@
 import { trimHtml } from "../utils/trimHTML";
 
-const puppeteer = require("puppeteer");
 const axios = require("axios");
 const cheerio = require('cheerio');
 const { extractJsonFromResponse } = require("../utils/jsonExtractor")

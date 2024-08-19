@@ -1,10 +1,12 @@
 import GameSection from './components/GameSection';
+import { UserButton } from '@stackframe/stack';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100 text-gray-800">
       <header className="bg-blue-600 text-white p-4 text-center">
         <h1 className="text-3xl font-bold">Daily MLB Predictions</h1>
+        <UserButton/>
         <nav className="mt-4">
           <a href="#free-pick" className="mx-2 px-3 py-2 rounded hover:bg-blue-500 transition-colors">Free Pick</a>
           <a href="#all-games" className="mx-2 px-3 py-2 rounded hover:bg-blue-500 transition-colors">All Games</a>
