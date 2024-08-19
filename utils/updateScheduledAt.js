@@ -4,22 +4,38 @@ const prisma = new PrismaClient();
 
 async function updateScheduledAt() {
   try {
-    const result = await prisma.$transaction(async (prisma) => {
+    const batchSize = 100; // Process 100 games at a time
+    let offset = 0;
+    let totalUpdated = 0;
+
+    while (true) {
       const evaluatedGames = await prisma.evaluatedGame.findMany({
-        select: { id: true, createdAt: true }
+        select: { id: true, createdAt: true },
+        skip: offset,
+        take: batchSize,
       });
 
-      const updatePromises = evaluatedGames.map(game =>
-        prisma.evaluatedGame.update({
-          where: { id: game.id },
-          data: { scheduledAt: game.createdAt },
-        })
+      if (evaluatedGames.length === 0) break;
+
+      const result = await prisma.$transaction(
+        evaluatedGames.map(game =>
+          prisma.evaluatedGame.update({
+            where: { id: game.id },
+            data: { scheduledAt: game.createdAt },
+          })
+        ),
+        {
+          timeout: 30000, // 30 seconds timeout for each batch
+        }
       );
 
-      return await Promise.all(updatePromises);
-    });
+      totalUpdated += result.length;
+      console.log(`Updated ${result.length} games in this batch`);
 
-    console.log(`Successfully updated scheduledAt for ${result.length} evaluated games`);
+      offset += batchSize;
+    }
+
+    console.log(`Successfully updated scheduledAt for ${totalUpdated} evaluated games`);
   } catch (error) {
     console.error('Error updating scheduledAt:', error);
   } finally {
