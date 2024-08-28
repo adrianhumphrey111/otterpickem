@@ -6,9 +6,9 @@
     }
   ],
   "functions": {
-    "api/evaluateAllMLBGamesByDate.js": {
+    "api/v2/mlb/processGames.js": {
       "memory": 3009,
-      "maxDuration": 899
+      "maxDuration": 300
     }
   }
 }
