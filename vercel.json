@@ -8,7 +8,7 @@
   "functions": {
     "api/evaluateAllMLBGamesByDate.js": {
       "memory": 3009,
-      "maxDuration": 900
+      "maxDuration": 899
     }
   }
 }
