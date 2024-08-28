@@ -4,11 +4,5 @@
       "path": "/api/cron/queueGames",
       "schedule": "0 11 * 3-11 *"
     }
-  ],
-  "functions": {
-    "api/v2/mlb/processGames": {
-      "memory": 3009,
-      "maxDuration": 300
-    }
-  }
+  ]
 }

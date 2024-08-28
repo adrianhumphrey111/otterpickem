@@ -3,6 +3,10 @@ import { processGame } from '../../../../utils/mlbGameProcessing';
 
 const prisma = new PrismaClient();
 
+export const config = {
+  maxDuration: 300,
+};
+
 export default async function handler(req, res) {
   // Send an immediate response
   res.status(200).json({ message: 'Game processing started' });
