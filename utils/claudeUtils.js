@@ -35,6 +35,7 @@ Analyze the following statistics for Team A and Team B to predict the winner and
 4. **Confidence Level:** Assign a confidence level (low, medium, high) to your prediction, with an explanation of factors that could lead to an upset or unexpected outcome.
 5. ** Give me an upset alert if there may be a decent chance the underdog can make it a close game.
 
+Make These predictions for the first 5 since we are analyszing the starting pitchers
 `;
 
   try {

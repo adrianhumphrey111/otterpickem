@@ -1,6 +1,5 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
-import puppeteer from 'puppeteer';
 import { JSDOM } from 'jsdom';
 
 const cache = new NodeCache({ stdTTL: 43200 }); // 12 hours in seconds
@@ -50,7 +49,16 @@ export async function getCurrentOPS() {
     return cachedData;
   }
   try {
-    const browser = await puppeteer.launch();
+    //const puppeteer = await import('puppeteer-core');
+    const chromium = await import('chrome-aws-lambda');
+
+    // const browser = await puppeteer.launch();
+    const browser = await chromium.puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: true,
+    });
     const page = await browser.newPage();
     await page.goto('https://www.espn.com/mlb/stats/team', { waitUntil: 'networkidle2', timeout: 60000 });
 

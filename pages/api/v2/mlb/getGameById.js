@@ -5,6 +5,7 @@ import { getTeamStandings } from './getTeamStandings';
 import { getClaudeResponse } from '../../../../utils/claudeUtils.js';
 import { getDailyOddsMLB } from './getDailyOddsMLB.js';
 import { PrismaClient } from '@prisma/client';
+import { log } from '@vercel/lib';
 import axios from "axios"
 
 const prisma = new PrismaClient();

@@ -21,6 +21,7 @@
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "cheerio": "^1.0.0-rc.12",
+    "chrome-aws-lambda": "^10.1.0",
     "clipboardy": "^4.0.0",
     "cron": "^3.1.7",
     "date-fns": "^3.6.0",
@@ -35,14 +36,16 @@
     "node-fetch": "^3.3.2",
     "node-schedule": "^2.1.1",
     "playwright": "^1.45.1",
+    "playwright-core": "^1.41.2",
     "prisma": "^5.17.0",
-    "puppeteer": "^23.1.0",
+    "puppeteer": "^23.2.0",
     "react": "^18",
     "react-dom": "^18",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@puppeteer/browsers": "^2.3.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -51,5 +54,9 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "wrap-ansi": "7.0.0",
+    "string-width": "4.1.0"
   }
 }
