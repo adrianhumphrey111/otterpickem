@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { processGame } from '../../utils/mlbGameProcessing';
+import { processGame } from '../../../../utils/mlbGameProcessing';
 
 const prisma = new PrismaClient();
 
