@@ -8,9 +8,6 @@ export const config = {
 };
 
 export default async function handler(req, res) {
-  // Send an immediate response
-  res.status(200).json({ message: 'Game processing started' });
-
   try {
     const startTime = Date.now();
     const timeLimit = 290000; // 4 minutes 50 seconds in milliseconds (leaving a 10-second buffer)
@@ -38,15 +35,22 @@ export default async function handler(req, res) {
       processedCount++;
     }
 
-    console.log(`Processed ${processedCount} games`);
-
-    // If there are more games to process, trigger the function again
+    // Check if there are more games to process
     if (hasMoreGames) {
+      // Trigger the next batch before sending the response
       await triggerProcessingFunction();
+      res.status(200).json({ 
+        message: `Processed ${processedCount} games. More games pending, next batch triggered.`
+      });
+    } else {
+      res.status(200).json({ 
+        message: `Processed ${processedCount} games. All games completed.`
+      });
     }
 
   } catch (error) {
     console.error('Error processing games:', error);
+    res.status(500).json({ error: 'An error occurred while processing games' });
   }
 }
 
