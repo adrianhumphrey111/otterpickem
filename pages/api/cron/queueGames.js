@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     }
 
     console.log(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/processGames`)
-    res.status(200).json({ message: `${games.length} games queued for processing` });
+    
 
     // Trigger processing
     try {
@@ -39,6 +39,7 @@ export default async function handler(req, res) {
             'Content-Type': 'application/json',
         },
         });
+        res.status(200).json({ message: `${games.length} games queued for processing` });
     } catch (error) {
         console.error('Failed to trigger game processing:', error);
     }
