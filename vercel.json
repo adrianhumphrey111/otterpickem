@@ -6,7 +6,7 @@
     }
   ],
   "functions": {
-    "api/v2/mlb/processGames.js": {
+    "api/v2/mlb/processGames": {
       "memory": 3009,
       "maxDuration": 300
     }
