@@ -416,3 +416,11 @@ model EvaluatedGame {
   updatedAt      DateTime @updatedAt
   scheduledAt    DateTime @default(now())
 }
+
+model GameQueue {
+  id        String   @id @default(cuid())
+  gameId    String   @unique
+  status    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
